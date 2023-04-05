@@ -5,7 +5,7 @@ using UnityEngine;
 public class MonsterProperty : MonoBehaviour
 {
     public float MoveSpeed = 1f;    // 몬스터의 이동 속도
-    Transform myTarget = null; // 타겟 저장
+    public Transform myTarget = null; // 타겟 저장
     public LayerMask targetMask;   // 타겟 레이어 지정
 
     // Get Rigidbody2D

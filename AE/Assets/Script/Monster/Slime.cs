@@ -15,4 +15,12 @@ public class Slime : MonsterMovement
     {
         
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        onTrace(collision);
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        LostTarget(collision);
+    }
 }
