@@ -16,7 +16,7 @@ public class MonsterMovement : MonsterProperty
     // Lost Target
     protected void LostTarget(Collider2D col)
     {
-        StopCoroutine(coTrace);
+        if(coTrace != null) StopCoroutine(coTrace);
         myAnim.SetBool("isMove", false);
         myTarget = null;
         coTrace = null;

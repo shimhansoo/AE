@@ -17,7 +17,9 @@ public class Slime : MonsterMovement
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        onTrace(collision);
+        if ((1 << collision.gameObject.layer & targetMask) != 0)
+            onTrace(collision);
+        Debug.Log("Enter");
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
