@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wolf : PetProperty
+public class Dragon : PetProperty
 {
     // Start is called before the first frame update
     void Start()
@@ -11,7 +11,7 @@ public class Wolf : PetProperty
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() // transform.position = new Vector3(player.position.x, player.position.y + 1.0f, 0);
     {
         Vector2 dir = player.position - transform.position;
         float dist = dir.magnitude;
@@ -26,17 +26,13 @@ public class Wolf : PetProperty
         }
         if (Mathf.Abs(transform.position.x - player.position.x) > 1.0f)
         {
-            PetAnim.SetBool("isMoving", true);
+            PetAnim.SetBool("isFlying", true);
             transform.Translate(dir * Time.deltaTime * PetSpeed);
         }
         else
         {
-            PetAnim.SetBool("isMoving", false);
+            PetAnim.SetBool("isFlying", false);
         }
-        if (Mathf.Abs(transform.position.x - player.position.x) > 5.0f)
-        {
-            PetAnim.SetTrigger("Telleport");
-            transform.position = new Vector3(player.position.x, player.position.y + 1.0f, 0);
-        }
+        
     }
 }
