@@ -35,7 +35,7 @@ public class Wolf : PetProperty
         }
         if (Mathf.Abs(transform.position.x - player.position.x) > 5.0f)
         {
-            PetAnim.SetTrigger("PetTp");
+            PetAnim.SetTrigger("Telleport");
             transform.position = new Vector3(player.position.x, player.position.y + 1.0f, 0);
         }
     }
