@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterProperty : MonoBehaviour
 {
     public float MoveSpeed = 1f;    // 몬스터의 이동 속도
+    public float AttackRange = 2.0f;    // 몬스터의 공격 사거리
     public Transform myTarget = null; // 타겟 저장
     public LayerMask targetMask;   // 타겟 레이어 지정
     public LayerMask groundMask;    // 땅 체크

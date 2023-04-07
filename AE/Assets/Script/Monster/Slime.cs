@@ -10,6 +10,11 @@ public class Slime : MonsterMovement
         
     }
 
+    private void FixedUpdate()
+    {
+        //AirCheck();
+    }
+
     // Update is called once per frame
     void Update()
     {
