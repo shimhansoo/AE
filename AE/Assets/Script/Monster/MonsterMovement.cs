@@ -17,7 +17,7 @@ public class MonsterMovement : MonsterProperty
     protected void LostTarget(Collider2D col)
     {
         if(coTrace != null) StopCoroutine(coTrace);
-        myAnim.SetBool("isMove", false);
+        myAnim.SetBool("isMoving", false);
         myTarget = null;
         coTrace = null;
     }
@@ -33,7 +33,7 @@ public class MonsterMovement : MonsterProperty
         float dir, dist, delta;    // 방향, 거리, 프레임당 속도?
         while (myTarget != null)
         {
-            myAnim.SetBool("isMove", true);
+            myAnim.SetBool("isMoving", true);
             dir = col.transform.position.x - transform.position.x;
             delta = MoveSpeed * Time.deltaTime;
             transform.Translate(new Vector2(dir, 0) * delta);
