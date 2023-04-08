@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MonsterProperty : MonoBehaviour
 {
-    public float MoveSpeed = 1f;    // 몬스터의 이동 속도
+    public float MoveSpeed = 1.0f;    // 몬스터의 이동 속도
     public float AttackRange = 2.0f;    // 몬스터의 공격 사거리
+    public float AttackDelay = 3.0f;    // 몬스터의 공격 딜레이
+    protected float playTime = 0.0f;    // 공격 딜레이 검사할 변수
     public Transform myTarget = null; // 타겟 저장
     public LayerMask targetMask;   // 타겟 레이어 지정
     public LayerMask groundMask;    // 땅 체크
@@ -41,6 +43,24 @@ public class MonsterProperty : MonoBehaviour
                     _anim = GetComponentInChildren<Animator>();
                 }
             }return _anim;
+        }
+    }
+
+    // Get SpriteRenderer
+    SpriteRenderer _sprite;
+    protected SpriteRenderer myRenderer
+    {
+        get
+        {
+            if (_sprite == null)
+            {
+                _sprite = GetComponent<SpriteRenderer>();
+                if (_sprite == null)
+                {
+                    _sprite = GetComponentInChildren<SpriteRenderer>();
+                }
+            }
+            return _sprite;
         }
     }
 }
