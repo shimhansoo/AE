@@ -219,7 +219,6 @@ GameObject:
   - component: {fileID: 273719715}
   - component: {fileID: 273719714}
   - component: {fileID: 273719716}
-  - component: {fileID: 273719717}
   m_Layer: 7
   m_Name: IMG
   m_TagString: Untagged
@@ -234,7 +233,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273719711}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.019, y: -0.059, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -324,21 +323,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 273719711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31cc2cff69d886e498fe5bd55c02b0fb, type: 3}
+  m_Script: {fileID: 11500000, guid: cfcf7229dafa1c3418e29bfb530725c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &273719717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273719711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63c5b98709c8aae4ca75b0cfa5d1f3e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  AttackFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1507342845}
+        m_TargetAssemblyTypeName: MonsterAttack, Assembly-CSharp
+        m_MethodName: SlimeAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DeadFunc:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &901120576
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 901120577}
   m_Layer: 7
-  m_Name: Spit
+  m_Name: SpitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,13 +367,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901120576}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0.2, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.54999924, y: 0.20000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1507342841}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033766396
 GameObject:
@@ -4276,9 +4281,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   MoveDir: -1
-  Attack:
-    m_PersistentCalls:
-      m_Calls: []
   myState: 0
 --- !u!1 &1426071043
 GameObject:
@@ -4311,7 +4313,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1507342841}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1426071046
 CircleCollider2D:
@@ -4353,7 +4355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1507342841}
-  - component: {fileID: 1507342842}
+  - component: {fileID: 1507342845}
   - component: {fileID: 1507342843}
   - component: {fileID: 1507342844}
   m_Layer: 7
@@ -4376,50 +4378,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 273719712}
-  - {fileID: 1426071044}
   - {fileID: 901120577}
+  - {fileID: 1426071044}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1507342842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507342840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08a29a29852e2b43bc5de26a071ada8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 1
-  AttackRange: 2
-  AttackDelay: 3
-  myTarget: {fileID: 0}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 64
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
-  MoveDir: -1
-  Attack:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1507342842}
-        m_TargetAssemblyTypeName: Monster, Assembly-CSharp
-        m_MethodName: SlimeSpit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  myState: 0
 --- !u!61 &1507342843
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4467,6 +4430,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1507342845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507342840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08a29a29852e2b43bc5de26a071ada8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 1
+  AttackRange: 2
+  AttackDelay: 3
+  myTarget: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
+  MoveDir: 1
+  myState: 0
 --- !u!1 &1699563671
 GameObject:
   m_ObjectHideFlags: 0
@@ -4811,60 +4798,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1707981136142568671
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1707981135531865046, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
-      propertyPath: m_Name
-      value: Slime_Spit
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}

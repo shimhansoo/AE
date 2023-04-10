@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class MonsterAttack : MonsterMovement
 {
-    public UnityEvent _Attack;
-
-    public void OnAttack()
+    public void SlimeAttack()
     {
-        _Attack?.Invoke();
+        GameObject obj = Instantiate(Resources.Load("Slime_Spit"),GetComponentInParent<Transform>()) as GameObject;
+        obj.transform.position = transform.Find("SpitPoint").position;
     }
 }

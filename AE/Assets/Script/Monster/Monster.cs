@@ -73,9 +73,4 @@ public class Monster : MonsterAttack, IPerception
         coTrace = null;
         ChangeState(State.Normal);
     }
-    public void SlimeSpit()
-    {
-        GameObject obj = Instantiate(Resources.Load("Slime_Spit")) as GameObject;
-        obj.transform.position = transform.Find("Spit").position;
-    }
 }
