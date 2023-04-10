@@ -218,6 +218,8 @@ GameObject:
   - component: {fileID: 273719712}
   - component: {fileID: 273719715}
   - component: {fileID: 273719714}
+  - component: {fileID: 273719716}
+  - component: {fileID: 273719717}
   m_Layer: 7
   m_Name: IMG
   m_TagString: Untagged
@@ -313,6 +315,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &273719716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273719711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31cc2cff69d886e498fe5bd55c02b0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &273719717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273719711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c5b98709c8aae4ca75b0cfa5d1f3e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &901120576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 901120577}
+  m_Layer: 7
+  m_Name: Spit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &901120577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901120576}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1507342841}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033766396
 GameObject:
   m_ObjectHideFlags: 0
@@ -4219,6 +4276,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   MoveDir: -1
+  Attack:
+    m_PersistentCalls:
+      m_Calls: []
   myState: 0
 --- !u!1 &1426071043
 GameObject:
@@ -4317,6 +4377,7 @@ Transform:
   m_Children:
   - {fileID: 273719712}
   - {fileID: 1426071044}
+  - {fileID: 901120577}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4343,6 +4404,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   MoveDir: -1
+  Attack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1507342842}
+        m_TargetAssemblyTypeName: Monster, Assembly-CSharp
+        m_MethodName: SlimeSpit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   myState: 0
 --- !u!61 &1507342843
 BoxCollider2D:
@@ -4735,3 +4811,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1707981136142568671
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707981135531865043, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707981135531865046, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}
+      propertyPath: m_Name
+      value: Slime_Spit
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5316d27d3e824f54e9c0893a5943db9d, type: 3}

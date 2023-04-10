@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonsterMovement, IPerception
+public class Monster : MonsterAttack, IPerception
 {
     // 유한 상태기계
     public State myState = State.Create;
@@ -72,5 +72,10 @@ public class Monster : MonsterMovement, IPerception
         myTarget = null;
         coTrace = null;
         ChangeState(State.Normal);
+    }
+    public void SlimeSpit()
+    {
+        GameObject obj = Instantiate(Resources.Load("Slime_Spit")) as GameObject;
+        obj.transform.position = transform.Find("Spit").position;
     }
 }
