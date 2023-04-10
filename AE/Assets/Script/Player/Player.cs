@@ -5,43 +5,43 @@ using UnityEngine;
 public class Player : CharacterProperty
 {
     Vector2 dir = Vector2.zero;//이동
-    Vector2 jumpDir = Vector2.zero;//점프
     Rigidbody2D rigidbody;//리지드바듸
+    RaycastHit2D rayHit = new RaycastHit2D();
+    public LayerMask GroundMask;
+    bool isJump = false;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+    }
+    private void FixedUpdate()
+    {
+        AirCheck();
     }
 
     void Update()
     {
         OnMove();
         OnAttack();
-        //onAirCheck();
-        OnJump();
-        
+
+        isJump = rayHit.collider != null ? isJump = false : isJump = true;
+        if (!isJump) OnJump();
     }
  
     
     //점프
     void OnJump()
     {
-            /*jumpDir.y = Input.GetAxisRaw("Vertical");
-            transform.Translate(jumpDir * playerJump * Time.deltaTime);*/
         if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.UpArrow))
-            rigidbody.AddForce(Vector2.up * playerJump, ForceMode2D.Impulse);
+            rigidbody.AddForce(Vector2.up * playerJumpPower, ForceMode2D.Impulse);
+    }
 
-    }
-    void onAirCheck()
+
+    void AirCheck()
     {
-        Vector2 test = new Vector2(0, -0.5f);
-        Debug.DrawRay(rigidbody.position, Vector3.down, Color.red);
-        RaycastHit2D rayHit = Physics2D.Raycast(rigidbody.position, test, 1);
-        if(rayHit.collider != null)
-        {
-                myAnim.SetBool("isJumping", false);
-        }
-    
+        Debug.DrawRay(rigidbody.position + Vector2.up * 0.5f, new Vector3(0, -0.7f, 0), Color.red);
+        rayHit = Physics2D.Raycast(rigidbody.position + Vector2.up * 0.5f, Vector2.down, 0.7f, GroundMask);
     }
+
     //이동
     void OnMove()
     {
