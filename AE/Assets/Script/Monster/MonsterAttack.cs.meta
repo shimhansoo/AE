@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:AE/Assets/Script/Pet/Dragon/DragonPerception.cs.meta
+guid: c896ec4d42b9c034099c415c65f14b9a
+========
+guid: a9de669451cbf5147a46a86de0841fd9
+>>>>>>>> origin/main:AE/Assets/Script/Monster/MonsterAttack.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

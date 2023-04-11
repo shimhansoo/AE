@@ -346,6 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 1
+  templates: {fileID: 8843503153264832539, guid: 8e7e4736b04c820469b72b5256dea68b, type: 3}
   spawned: 0
   waitTime: 4
 --- !u!1 &1532460050559808
@@ -512,6 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 2
+  templates: {fileID: 8843503153264832539, guid: 8e7e4736b04c820469b72b5256dea68b, type: 3}
   spawned: 0
   waitTime: 4
 --- !u!1 &1821337426962794

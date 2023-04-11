@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonsterMovement, IPerception
+public class Monster : MonsterAttack, IPerception
 {
     // 유한 상태기계
     public State myState = State.Create;

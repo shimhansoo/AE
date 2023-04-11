@@ -7,7 +7,6 @@ public class PlayerStateMachine : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        //animator.SetBool("isJumping", true);
         animator.SetBool("isAttacking", true);
     }
 
@@ -22,8 +21,6 @@ public class PlayerStateMachine : StateMachineBehaviour
     {
         animator.ResetTrigger("Attack");
         animator.SetBool("isAttacking", false);
-        //animator.ResetTrigger("Jump");
-        //animator.SetBool("isJumping", false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

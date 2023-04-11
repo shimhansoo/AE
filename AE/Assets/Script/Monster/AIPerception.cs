@@ -36,8 +36,7 @@ public class AIPerception : MonoBehaviour
         {
             if (myTarget == collision.transform)
             {
-                this.myTarget = null;
-                
+                myTarget = null;
                 myParent.LostTarget();
             }
         }

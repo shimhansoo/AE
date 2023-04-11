@@ -77,10 +77,16 @@ public class MonsterMovement : MonsterProperty
     // 방향 지정
     void SetForward(Vector2 dir)
     {
-        if(dir.x > 0)
-            myRenderer.flipX = false;
+        if (dir.x > 0)
+        {
+            //myRenderer.flipX = false;
+            transform.eulerAngles = new Vector2(transform.rotation.x, 0);
+        }
         else
-            myRenderer.flipX = true;
+        {
+            //myRenderer.flipX = true;
+            transform.eulerAngles = new Vector2(transform.rotation.x, 180);
+        }
     }
 
     // 공중 체크
