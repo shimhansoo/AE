@@ -79,13 +79,13 @@ public class MonsterMovement : MonsterProperty
     {
         if (dir.x > 0)
         {
-            //myRenderer.flipX = false;
-            transform.eulerAngles = new Vector2(transform.rotation.x, 0);
+            myRenderer.flipX = false;
+            //transform.eulerAngles = new Vector2(transform.rotation.x, 0);
         }
         else
         {
-            //myRenderer.flipX = true;
-            transform.eulerAngles = new Vector2(transform.rotation.x, 180);
+            myRenderer.flipX = true;
+            //transform.eulerAngles = new Vector2(transform.rotation.x, 180);
         }
     }
 
