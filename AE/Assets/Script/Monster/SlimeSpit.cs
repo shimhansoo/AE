@@ -5,8 +5,7 @@ using UnityEngine;
 public class SlimeSpit : Monster
 {
     SpriteRenderer renderer;
-    public static MonsterProperty instance;
-    Transform myParent;
+    public GameObject myParent;
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -25,12 +24,20 @@ public class SlimeSpit : Monster
     }
     IEnumerator Moving()
     {
-        Vector2 dir = myTarget.position - transform.position;
+        Vector2 dir = MonProInst.myTarget.position - transform.position;
         dir.Normalize();
+        float angle = Vector2.Angle(transform.right, dir);
+        transform.Rotate(0,0,angle);
+
         while (true)
         {
-            transform.Translate(dir * MoveSpeed * Time.deltaTime);
+            transform.Translate(dir * MoveSpeed * Time.deltaTime, Space.World);
+            
             yield return null;
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
     }
 }
