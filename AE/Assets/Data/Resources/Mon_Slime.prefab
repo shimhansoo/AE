@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5602221240074203329}
   - component: {fileID: 5602221240074203330}
   - component: {fileID: 5602221240074203331}
-  - component: {fileID: 5602221240074203333}
+  - component: {fileID: 4677829424109798965}
   m_Layer: 7
   m_Name: IMG
   m_TagString: Untagged
@@ -138,7 +138,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5602221240074203333
+--- !u!114 &4677829424109798965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5602221240074203390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfcf7229dafa1c3418e29bfb530725c3, type: 3}
+  m_Script: {fileID: 11500000, guid: b750bb6219bebae46b6d2cb9ca6e3cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AttackFunc:
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 5602221241257552026}
   - component: {fileID: 5602221241257552029}
   m_Layer: 7
-  m_Name: Slime
+  m_Name: Mon_Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
