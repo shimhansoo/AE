@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Wolf : PetProperty
 {
-    public LayerMask GroundMask;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +14,7 @@ public class Wolf : PetProperty
     void Update()
     {
         Vector2 dir = player.position - transform.position;
-        float delta = PetSpeed * Time.deltaTime;
+        float dist = dir.magnitude;
         dir.Normalize();
         if (dir.x < 0.0f)
         {
@@ -28,13 +27,7 @@ public class Wolf : PetProperty
         if (Mathf.Abs(transform.position.x - player.position.x) > 1.0f)
         {
             PetAnim.SetBool("isMoving", true);
-            transform.Translate(dir * delta);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right * -1.0f, 0.5f, GroundMask);
-            RaycastHit2D hit2 = Physics2D.Raycast(transform.position, transform.right * 1.0f, 0.5f, GroundMask);
-            if (hit || hit2)
-            {
-                transform.Translate(Vector2.up * PetJump *Time.deltaTime,Space.World);
-            }
+            transform.Translate(dir * Time.deltaTime * PetSpeed);
         }
         else
         {

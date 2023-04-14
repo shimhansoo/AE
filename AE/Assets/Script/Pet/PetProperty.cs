@@ -5,7 +5,6 @@ using UnityEngine;
 public class PetProperty : MonoBehaviour
 {
     public float PetSpeed = 1.0f;
-    public float PetJump = 3.0f;
     public Transform player = null;
     Animator _PetAnim;
     SpriteRenderer _PetRenderer;

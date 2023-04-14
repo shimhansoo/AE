@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Testplayer : CharacterProperty
+public class Testplayer : PetProperty
 {
     // Start is called before the first frame update
     void Start()
@@ -24,11 +24,11 @@ public class Testplayer : CharacterProperty
         {
             if (dir.x < 0.0f) // ¿ÞÂÊÀ¸·Î ÀÌµ¿ÇÏ¸é
             {
-                myRenderer.flipX = true; // ÁÂ¿ì¹ÝÀü
+                PetRenderer.flipX = true; // ÁÂ¿ì¹ÝÀü
             }
             else
             {
-                myRenderer.flipX = false;
+                PetRenderer.flipX = false;
             }
         }       
         transform.Translate(dir * MoveSpeed * Time.deltaTime);
