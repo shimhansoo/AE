@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterProperty : MonoBehaviour
 {
-    public static MonsterProperty MonProInst = null;
+    public static MonsterProperty propertyInstance = null;
 
     public float MoveSpeed = 1.0f;    // 몬스터의 이동 속도
     public float AttackRange = 2.0f;    // 몬스터의 공격 사거리
@@ -67,6 +67,6 @@ public class MonsterProperty : MonoBehaviour
     }
     private void Awake()
     {
-        MonProInst = this;
+        propertyInstance = this;
     }
 }

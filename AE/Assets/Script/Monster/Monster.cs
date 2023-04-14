@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Monster : MonsterAttack, IPerception
 {
+    public Transform attackTarget = null;
+    public static Monster MonsterInstance;
     // 유한 상태기계
     public State myState = State.Create;
     public enum State
@@ -47,6 +49,7 @@ public class Monster : MonsterAttack, IPerception
 
     void Start()
     {
+        MonsterInstance = this;
         Invoke("ChangeDirection", 5);
         ChangeState(State.Normal);
     }
@@ -54,6 +57,7 @@ public class Monster : MonsterAttack, IPerception
     private void FixedUpdate()
     {
         AirCheck();
+        CliffCheck();
     }
 
     void Update()
@@ -64,12 +68,14 @@ public class Monster : MonsterAttack, IPerception
     public void FindTarget(Transform target)
     {
         myTarget= target;
+        attackTarget = myTarget;
         ChangeState(State.Battle);
     }
     // Lost Target
     public void LostTarget()
     {
         myTarget = null;
+        attackTarget = null;
         coTrace = null;
         ChangeState(State.Normal);
     }

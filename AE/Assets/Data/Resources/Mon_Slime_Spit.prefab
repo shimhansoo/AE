@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1707981135531865043}
   - component: {fileID: 1707981135531865044}
   - component: {fileID: 1707981135531865045}
-  - component: {fileID: 2235553030676836831}
   - component: {fileID: -3516882407661048938}
   - component: {fileID: 1000667718920519792}
+  - component: {fileID: 8969759098174383760}
   m_Layer: 10
-  m_Name: Slime_Spit
+  m_Name: Mon_Slime_Spit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2116985325
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1617568432, guid: 0de0745eed12c384f9ea78172468b2ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -109,31 +109,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2235553030676836831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707981135531865046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6218d45e61e73cc4ab639d51f8889597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 1
-  AttackRange: 2
-  AttackDelay: 3
-  myTarget: {fileID: 0}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 0
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  MoveDir: 1
-  myState: 0
-  myParent: {fileID: 0}
 --- !u!50 &-3516882407661048938
 Rigidbody2D:
   serializedVersion: 4
@@ -171,3 +146,42 @@ CapsuleCollider2D:
   m_Offset: {x: 0.05689896, y: -0.0000000067828836}
   m_Size: {x: 0.5112033, y: 0.3125006}
   m_Direction: 1
+--- !u!114 &8969759098174383760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707981135531865046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6218d45e61e73cc4ab639d51f8889597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 1
+  AttackRange: 2
+  AttackDelay: 3
+  myTarget: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  OnHitFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8969759098174383760}
+        m_TargetAssemblyTypeName: SlimeSpit, Assembly-CSharp
+        m_MethodName: DestroyObj
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Speed: 10
+  myParent: {fileID: 5602221241257552024, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}

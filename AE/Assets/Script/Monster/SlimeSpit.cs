@@ -1,43 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class SlimeSpit : Monster
+public class SlimeSpit : MonsterProperty
 {
-    SpriteRenderer renderer;
-    public GameObject myParent;
+    public UnityEvent OnHitFunc;
+    public float Speed = 10f;
+    public Transform myParent = null;
+
     private void Awake()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        myParent = GetComponentInParent<Transform>();
     }
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Moving());
         transform.SetParent(null);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
     IEnumerator Moving()
     {
-        Vector2 dir = MonProInst.myTarget.position - transform.position;
+        float playTime = 0.0f;
+        Vector2 dir = propertyInstance.myTarget.position - transform.position;
         dir.Normalize();
         float angle = Vector2.Angle(transform.right, dir);
-        transform.Rotate(0,0,angle);
+        transform.Rotate(0, 0, angle);
+        if (dir.x < 0.0f) myRenderer.flipY = true;
 
         while (true)
         {
-            transform.Translate(dir * MoveSpeed * Time.deltaTime, Space.World);
-            
+            playTime += Time.deltaTime;
+            if (playTime > 3f) Destroy(gameObject);
+            transform.Translate(dir * Speed * Time.deltaTime, Space.World);
+
             yield return null;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        StopAllCoroutines();
+        myAnim.SetTrigger("OnHit");
+    }
+    public void DestroyObj()
+    {
         Destroy(gameObject);
+    }
+    void OnHit()
+    {
+        OnHitFunc?.Invoke();
     }
 }

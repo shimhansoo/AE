@@ -48,7 +48,7 @@ public class MonsterMovement : MonsterProperty
                 myAnim.SetBool("isMoving", false);
                 dir = target.position - transform.position;
                 dir.y = 0;
-                dist = (target.position - transform.position).magnitude - AttackRange;
+                dist = dir.magnitude - AttackRange;
                 dir.Normalize();
                 delta = MoveSpeed * Time.deltaTime;
                 if (dist > 0.0f)
@@ -99,5 +99,17 @@ public class MonsterMovement : MonsterProperty
             if (hit.distance > 0.2f) myAnim.SetBool("isAir", true);
             else myAnim.SetBool("isAir", false);
         }
+    }
+
+    protected void CliffCheck()
+    {
+        Debug.DrawRay(new Vector2(transform.position.x + (MoveDir * 0.5f),transform.position.y), Vector2.down, Color.yellow);
+        RaycastHit2D cliffRay = Physics2D.Raycast(transform.forward, Vector2.down, 100f, groundMask);
+        if (cliffRay.collider == null)
+        {
+            MoveDir *= -1;
+            //Debug.Log("Check");
+        }
+        //else Debug.Log(cliffRay);
     }
 }
