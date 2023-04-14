@@ -7,7 +7,7 @@ public class CharacterProperty : MonoBehaviour
     public float playerHp = 100.0f;
     public float playerMoveSpeed = 5.0f;
     public float playerDamege = 7.0f;
-    public float playerJumpPower = 13.0f;
+    public float playerJumpPower = 5.0f;
     Animator _anim = null;
     SpriteRenderer _renderer=null;
 

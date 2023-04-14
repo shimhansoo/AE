@@ -9,6 +9,7 @@ public class FireBolt : PetProperty
     public float CoolTime = 5.0f;
     public Transform DragonPos = null;
     public Transform PlayerPos = null;
+    public Transform TargetPos = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,23 +22,31 @@ public class FireBolt : PetProperty
         testTime += Time.deltaTime;
         CoolTime += Time.deltaTime;
         
-
-        if(PetAnim.GetBool("isAttacking"))
+        if(DragonPos.position.x > TargetPos.position.x)
         {
-            if (DragonPos.position.x < PlayerPos.position.x)
+            transform.position = new Vector2(DragonPos.position.x - 1.0f, transform.position.y);
+        }
+        else
+        {
+            transform.position = new Vector2(DragonPos.position.x + 1.0f, transform.position.y);
+        }
+        if(PetAnim.GetBool("isSkilling"))
+        {
+            if (DragonPos.position.x < TargetPos.position.x)
             {
                 PetRenderer.flipX = false;
                 transform.Translate(Vector2.right * AttackSpeed * Time.deltaTime);
             }
             else
             {
+                
                 PetRenderer.flipX = true;
                 transform.Translate(-Vector2.right * AttackSpeed * Time.deltaTime);
             }
         }
         if (testTime >= 2.0f)
         {
-            PetAnim.SetBool("isAttacking", false);
+            PetAnim.SetBool("isSkilling", false);
         }
         if(testTime >= 2.5f)
         {
@@ -46,7 +55,7 @@ public class FireBolt : PetProperty
         }
         if (CoolTime > 10.0f)
         {
-            PetAnim.SetBool("isAttacking", true);
+            PetAnim.SetBool("isSkilling", true);
             CoolTime = 0.0f;
         }
     }

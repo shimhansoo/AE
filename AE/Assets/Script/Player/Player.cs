@@ -6,45 +6,91 @@ public class Player : CharacterProperty
 {
     Vector2 dir = Vector2.zero;//이동
     Rigidbody2D rigidbody;//리지드바듸
-    RaycastHit2D rayHit = new RaycastHit2D();
+    RaycastHit2D rayHitLeft = new RaycastHit2D();
+    RaycastHit2D rayHitRight = new RaycastHit2D();
     public LayerMask GroundMask;
     bool isJump = false;
+    int playerLayer, groundLayer;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        playerLayer = LayerMask.NameToLayer("Player");
+        groundLayer = LayerMask.NameToLayer("Ground");
+        StartCoroutine(PlayerMoving());
+        StartCoroutine(AirChecking());
     }
+
     private void FixedUpdate()
     {
-        AirCheck();
+        
     }
 
     void Update()
     {
-        OnMove();
         OnAttack();
+        isJump = rayHitLeft || rayHitRight ? isJump = false : isJump = true;//레이를 쐈을 때 감지되는 무언가가 있다면 false or true, true는 공중상태를 얘기함
 
-        isJump = rayHit.collider != null ? isJump = false : isJump = true;
-        if (!isJump) OnJump();
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, true);
+        }
+        
+        if (!isJump)
+        {
+            OnJump();
+        }
+        else
+        {
+            collisionCheck();
+        }
     }
- 
-    
+
+    void collisionCheck()//점프 bool값 처리와 점프할 때 콜라이더 체크 후 충돌 On/Off
+    {
+        if ( rigidbody.velocity.y > 0.0f)
+        {
+            Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, true);
+        }
+        else
+        {
+            Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, false);
+        }
+    }
+
+
     //점프
     void OnJump()
     {
+        
         if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.UpArrow))
             rigidbody.AddForce(Vector2.up * playerJumpPower, ForceMode2D.Impulse);
     }
-
-
-    void AirCheck()
+    //어택
+    void OnAttack()
     {
-        Debug.DrawRay(rigidbody.position + Vector2.up * 0.5f, new Vector3(0, -0.7f, 0), Color.red);
-        rayHit = Physics2D.Raycast(rigidbody.position + Vector2.up * 0.5f, Vector2.down, 0.7f, GroundMask);
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            myAnim.SetTrigger("Attack");
+        }
+    }
+   
+
+    //레이
+    IEnumerator AirChecking()
+    {
+        while (true)
+        {
+            rayHitRight = Physics2D.Raycast(rigidbody.position + new Vector2(-0.6f, 1) * 0.5f, Vector2.down, rigidbody.velocity.magnitude * Time.fixedDeltaTime + 0.5f , GroundMask);
+            rayHitLeft = Physics2D.Raycast(rigidbody.position + new Vector2(0.6f, 1) * 0.5f, Vector2.down, rigidbody.velocity.magnitude * Time.fixedDeltaTime + 0.5f, GroundMask);
+            yield return new WaitForFixedUpdate();
+        }
     }
 
     //이동
-    void OnMove()
+    IEnumerator PlayerMoving()
     {
+        while (true)
+        {
         dir.x = Input.GetAxisRaw("Horizontal");
         if (!Mathf.Approximately(dir.x, 0.0f))//왼쪽 이동
         {
@@ -56,23 +102,8 @@ public class Player : CharacterProperty
             myAnim.SetBool("isMoving", false);
         }
         transform.Translate(dir * playerMoveSpeed * Time.deltaTime);
-    }
-    //어택
-    void OnAttack()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            myAnim.SetTrigger("Attack");
+            yield return null;
         }
     }
-   
-}
 
-/*예외처리
-        1. 점프 공격 되게 하기
-        2. 점프 후 이동하면 땅에서 점프 모션
-        3. 무한 점프
-        4. dir 값 동시 처리해서 무브나 점프 스피드 올리면 같이 올라감
-        5. 애니스테이트에서 점프 처리할지 말지?, PlyaerStateMachine 2개 처리 이상있는지?
-        6. 
-         */
+}
