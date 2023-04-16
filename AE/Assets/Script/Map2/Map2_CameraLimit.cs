@@ -16,25 +16,6 @@ public class Map2_CameraLimit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if(transform.position.y < 2)
-        {
-            transform.position = new Vector3(transform.position.x, 2.0f, transform.position.z);
-        }
-        else if(transform.position.y > 23)
-        {
-            transform.position = new Vector3(transform.position.x, 23.0f, transform.position.z);
-        }
-        
-        if(transform.position.x < -20)
-        {
-            transform.position = new Vector3(-20.0f, transform.position.y , transform.position.z);
-        }
-        else if(transform.position.x > 20)
-        {
-            transform.position = new Vector3(20.0f, transform.position.y, transform.position.z);
-        }
-        */
         if (isLimit == false)
         {
              target.transform.position = transform.position;
