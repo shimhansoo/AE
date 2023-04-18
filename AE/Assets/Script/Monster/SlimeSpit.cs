@@ -25,8 +25,9 @@ public class SlimeSpit : MonsterProperty
     }
     IEnumerator Moving()
     {
+        //Monster.MonsterInstance.attackTarget
         float playTime = 0.0f;
-        Vector2 dir = propertyInstance.myTarget.position - transform.position;
+        Vector2 dir = Monster.MonsterInstance.attackTarget.position - transform.position;
         dir.Normalize();
         float angle = Vector2.Angle(transform.right, dir);
         transform.Rotate(0, 0, angle);

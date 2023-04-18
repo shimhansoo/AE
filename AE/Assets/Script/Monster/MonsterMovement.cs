@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterMovement : MonsterProperty
+public class MonsterMovement : MonsterAttack
 {
     // Normal 상태에서의 이동
     public int MoveDir = 1;
@@ -51,15 +51,14 @@ public class MonsterMovement : MonsterProperty
                 dist = dir.magnitude - AttackRange;
                 dir.Normalize();
                 delta = MoveSpeed * Time.deltaTime;
+                SetForward(dir);
                 if (dist > 0.0f)
                 {
-                    SetForward(dir);
                     myAnim.SetBool("isMoving", true);
                     transform.Translate(dir * delta, Space.World);
                 }
                 else
                 {
-                    SetForward(dir);
                     if (!myAnim.GetBool("isAttacking"))
                     {
                         if (playTime > AttackDelay)
@@ -80,36 +79,40 @@ public class MonsterMovement : MonsterProperty
         if (dir.x > 0)
         {
             myRenderer.flipX = false;
-            //transform.eulerAngles = new Vector2(transform.rotation.x, 0);
         }
         else
         {
             myRenderer.flipX = true;
-            //transform.eulerAngles = new Vector2(transform.rotation.x, 180);
         }
     }
 
     // 공중 체크
     protected void AirCheck()
     {
-        Debug.DrawRay(transform.position, Vector2.down, Color.red);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 100f, groundMask);
-        if (hit.collider != null)
+        Debug.DrawRay(myLeftRayPos.position, Vector2.down, Color.red);
+        Debug.DrawRay(myRightRayPos.position, Vector2.down, Color.red);
+        RaycastHit2D leftRay = Physics2D.Raycast(myLeftRayPos.position, Vector2.down, 1f, groundMask);
+        RaycastHit2D rightRay = Physics2D.Raycast(myRightRayPos.position, Vector2.down, 1f, groundMask);
+        if (leftRay.collider == null && rightRay.collider == null)
         {
-            if (hit.distance > 0.2f) myAnim.SetBool("isAir", true);
-            else myAnim.SetBool("isAir", false);
+            myAnim.SetBool("isAir", true);
         }
+        else myAnim.SetBool("isAir", false);
     }
 
+    // 절벽 체크
     protected void CliffCheck()
     {
-        Debug.DrawRay(new Vector2(transform.position.x + (MoveDir * 0.5f),transform.position.y), Vector2.down, Color.yellow);
-        RaycastHit2D cliffRay = Physics2D.Raycast(transform.forward, Vector2.down, 100f, groundMask);
+        Vector2 frontVec = new Vector2(transform.position.x + (MoveDir * 0.5f), transform.position.y);
+        Debug.DrawRay(frontVec, Vector2.down, Color.yellow);
+        RaycastHit2D cliffRay = Physics2D.Raycast(frontVec, Vector2.down, 1f, groundMask);
         if (cliffRay.collider == null)
         {
-            MoveDir *= -1;
-            //Debug.Log("Check");
+            // 공중에서의 방향 전환은 막아둠
+            if (!myAnim.GetBool("isAir"))
+            {
+                MoveDir *= -1;
+            }
         }
-        //else Debug.Log(cliffRay);
     }
 }

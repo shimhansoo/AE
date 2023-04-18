@@ -11,6 +11,8 @@ public class MonsterProperty : MonoBehaviour
     public float AttackDelay = 3.0f;    // 몬스터의 공격 딜레이
     protected float playTime = 0.0f;    // 공격 딜레이 검사할 변수
     public Transform myTarget = null; // 타겟 저장
+    public Transform myRightRayPos = null;
+    public Transform myLeftRayPos = null;
     public LayerMask targetMask;   // 타겟 레이어 지정
     public LayerMask groundMask;    // 땅 체크
 

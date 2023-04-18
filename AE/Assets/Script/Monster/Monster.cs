@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonsterAttack, IPerception
+public class Monster : MonsterMovement, IPerception
 {
     public Transform attackTarget = null;
     public static Monster MonsterInstance;
@@ -68,14 +68,12 @@ public class Monster : MonsterAttack, IPerception
     public void FindTarget(Transform target)
     {
         myTarget= target;
-        attackTarget = myTarget;
         ChangeState(State.Battle);
     }
     // Lost Target
     public void LostTarget()
     {
         myTarget = null;
-        attackTarget = null;
         coTrace = null;
         ChangeState(State.Normal);
     }
