@@ -6,7 +6,7 @@ public class MonsterAttack : MonsterMovement
 {
     public void SlimeAttack()
     {
-        GameObject obj = Instantiate(Resources.Load("Mon_Slime_Spit"),GetComponentInParent<Transform>()) as GameObject;
+        GameObject obj = Instantiate(Resources.Load("Monster/Mon_Slime_Spit"),GetComponentInParent<Transform>()) as GameObject;
         obj.transform.position = transform.position;
     }
 }

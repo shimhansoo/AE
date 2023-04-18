@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Map2_FollowCamera : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public GameObject target;
-    public bool isLimit = false;
-
+    public Transform camera;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +15,6 @@ public class Map2_FollowCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isLimit == false)
-        {
-            transform.position = target.transform.position;
-        }
+        
     }
 }

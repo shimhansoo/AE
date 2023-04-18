@@ -34,7 +34,6 @@ public class Player : CharacterProperty
         {
             Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, true);
         }
-        
         if (!isJump)
         {
             OnJump();
