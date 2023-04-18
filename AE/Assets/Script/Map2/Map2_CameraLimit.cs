@@ -6,31 +6,41 @@ public class Map2_CameraLimit : MonoBehaviour
 {
 
     public GameObject target;
-    public bool isLimit = false;
+    
+
+    public float xMin = -26.0f, xMax = 4.0f;
+    public float yMin = -13.0f, yMax = 0.0f;
+
+    public float x = 0.0f;
+    public float y = 0.0f;
+
+    public float xPos = 0.0f;
+    public float yPos = 0.0f;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isLimit == false)
-        {
-             target.transform.position = transform.position;
-        }
+        
+        x = transform.position.x;
+        y = transform.position.y;
+        xPos = Mathf.Clamp(x , xMin, xMax);
+        yPos = Mathf.Clamp(y , yMin, yMax);
+        
+        //target.transform.position = new Vector3(xPos, yPos + 3.0f, -10);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void FixedUpdate()
     {
-        isLimit = true;
+        Vector3 pos = new Vector3(xPos, yPos + 3.0f, -10);
+        target.transform.position = Vector3.Lerp(target.transform.position, pos, Time.deltaTime * 2f);
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    public void Teleport()
     {
-        isLimit = true;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        isLimit = false;
+        target.transform.position = transform.position;
     }
 }

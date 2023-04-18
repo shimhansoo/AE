@@ -9,11 +9,12 @@ public class Map_Portal : MonoBehaviour
     public Transform spwanPoint;
     public Image image;
 
+    Map2_CameraLimit map2_CameraLimit;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        map2_CameraLimit.Teleport();
     }
 
     // Update is called once per frame
@@ -27,7 +28,18 @@ public class Map_Portal : MonoBehaviour
         {
             collision.transform.position = spwanPoint.position;
             StartCoroutine(FadeCoroutine());
+            map2_CameraLimit.xMax = 4.0f;
+            map2_CameraLimit.xMin = -27.0f;
+            map2_CameraLimit.yMax = -28.0f;
+            map2_CameraLimit.yMin = -39.0f;
+            map2_CameraLimit.Teleport();
+
         }
+    }
+
+    private void Awake()
+    {
+        map2_CameraLimit = GameObject.Find("Map_TestPlayer").GetComponent<Map2_CameraLimit>();
     }
     IEnumerator FadeCoroutine()
     {
