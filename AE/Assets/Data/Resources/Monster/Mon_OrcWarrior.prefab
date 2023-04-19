@@ -295,7 +295,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 520
   MoveDir: 1
-  attackTarget: {fileID: 0}
+  attackTarget: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
   myState: 0
 --- !u!61 &651299212822886145
 BoxCollider2D:

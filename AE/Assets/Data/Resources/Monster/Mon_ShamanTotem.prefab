@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3285500710016538107}
   - component: {fileID: 3285500710016538106}
   - component: {fileID: 3285500710016538085}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: IMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 1034845167}
   - component: {fileID: 1034845166}
   - component: {fileID: 1034845168}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Mon_ShamanTotem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ MonoBehaviour:
   MoveSpeed: 1
   AttackRange: 2
   AttackDelay: 3
-  myTarget: {fileID: 0}
+  myTarget: {fileID: 8338022291246910990, guid: b4033e14597d27041a15985c9eb68351, type: 3}
   myRightRayPos: {fileID: 0}
   myLeftRayPos: {fileID: 0}
   targetMask:
@@ -165,6 +165,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
+  SlowPercentage: 90
 --- !u!61 &1034845166
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -206,4 +207,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.5}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 5

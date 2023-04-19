@@ -68,6 +68,7 @@ public class Monster : MonsterMovement, IPerception
     public void FindTarget(Transform target)
     {
         myTarget= target;
+        attackTarget = target;
         ChangeState(State.Battle);
     }
     // Lost Target
