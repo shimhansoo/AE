@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Map_Portal : MonoBehaviour
+public class Map_Bidrectional_Portal : MonoBehaviour
 {
     public Transform spwanPoint;
     public Image image;
@@ -22,11 +22,11 @@ public class Map_Portal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F)) 
+        if (Input.GetKeyDown(KeyCode.F))
         {
             usePortal = true;
         }
-        if(Input.GetKeyUp(KeyCode.F))
+        if (Input.GetKeyUp(KeyCode.F))
         {
             usePortal = false;
         }
@@ -45,11 +45,11 @@ public class Map_Portal : MonoBehaviour
                 StartCoroutine(FadeCoroutine());
             }
 
-            map2_CameraLimit.xMax = 4.0f;
-            map2_CameraLimit.xMin = -27.0f;
-            map2_CameraLimit.yMax = -28.0f;
-            map2_CameraLimit.yMin = -39.0f;
-            map2_CameraLimit.Teleport();
+            //map2_CameraLimit.xMax = 4.0f;
+            //map2_CameraLimit.xMin = -27.0f;
+            //map2_CameraLimit.yMax = -28.0f;
+            //map2_CameraLimit.yMin = -39.0f;
+            //map2_CameraLimit.Teleport();
 
         }
     }

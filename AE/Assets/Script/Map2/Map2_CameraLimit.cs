@@ -37,7 +37,7 @@ public class Map2_CameraLimit : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 pos = new Vector3(xPos, yPos + 3.0f, -10);
-        target.transform.position = Vector3.Lerp(target.transform.position, pos, Time.deltaTime * 2f);
+        target.transform.position = Vector3.Lerp(target.transform.position, pos, Time.deltaTime * 5f);
     }
     public void Teleport()
     {
