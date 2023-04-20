@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Dragon : PetProperty
 {
     public Transform TarGet = null;
+    public UnityEvent DragonSkill = null;
     public enum State
     {
         Creat, Normal, Battle
@@ -62,14 +64,7 @@ public class Dragon : PetProperty
         {
             Vector2 dir = player.position - transform.position;
             dir.Normalize();
-            if (dir.x < 0.0f)
-            {
-                PetRenderer.flipX = true;
-            }
-            else
-            {
-                PetRenderer.flipX = false;
-            }
+            PetRenderer.flipX = dir.x < 0.0 ? true : false;
             if (Mathf.Abs(transform.position.x - player.position.x) > 1.0f)
             {
                 PetAnim.SetBool("isFlying", true);
@@ -79,6 +74,10 @@ public class Dragon : PetProperty
             {
                 PetAnim.SetBool("isFlying", false);
             }
+            if (TarGet != null)
+            {
+                ChangeState(State.Battle);
+            }
             yield return null;
         }
     }
@@ -86,24 +85,20 @@ public class Dragon : PetProperty
     IEnumerator Attacking(Transform target)
     {
         float CoolTime = 5.0f;
+        float SkillCoolTime = 0.0f;
         while (true)
         {
             Vector2 dir = target.position - transform.position;
             dir.Normalize();
             float delta = (PetSpeed * 2.0f) * Time.deltaTime;
             CoolTime += Time.deltaTime;
-            if (!PetAnim.GetBool("isAttacking") && CoolTime >= 5.0f)
+            SkillCoolTime += Time.deltaTime;
+            if (CoolTime >= 5.0f)
             {
-                if (dir.x < 0.0f)
-                {
-                    PetRenderer.flipX = true;
-                }
-                else
-                {
-                    PetRenderer.flipX = false;
-                }
+                PetRenderer.flipX = dir.x < 0.0f ? true : false;
                 if (Mathf.Abs(target.position.x - transform.position.x) > 1.3f)
                 {
+                    PetAnim.SetBool("isAttacking", true);
                     transform.Translate(dir * delta);
                 }
                 else
@@ -111,52 +106,27 @@ public class Dragon : PetProperty
                     if (CoolTime >= 5.0f)
                     {
                         PetAnim.SetTrigger("isAttack");
-                        /*PetAnim.SetBool("isAttacking", true);*/
                         CoolTime = 0.0f;
                     }
                 }
             }
-            else
+            else if (CoolTime >= 1.0f) ComeBack();
+            if (SkillCoolTime >= 5.0f && !PetAnim.GetBool("isAttacking"))
             {
-                if (CoolTime >= 1.0f)
-                {
-                    if (CoolTime >= 5.0f)
-                    {
-                        PetAnim.SetBool("isAttacking", false);
-                    }
-                    ComeBack();
-                }
+                DragonSkill?.Invoke();
+                PetAnim.SetTrigger("isSkill");
+                SkillCoolTime = 0.0f;
+
             }
-            /*
-            else
-            {
-                if(Mathf.Abs(transform.position.x - player.position.x) > 1.0f)
-                {
-                    PetAnim.SetBool("isFlying", true);
-                    transform.Translate(dir * Time.deltaTime * 2.0f);
-                }
-                else
-                {
-                    PetAnim.SetBool("isFlying", false);
-                    PetAnim.SetBool("isSkilling", true);
-                }
-            }*/
+            if (TarGet == null) ChangeState(State.Normal);
             yield return null;
-            //if(대상이 죽어서 타겟이 널값이라면) 스테이트 체인지 노말.
         }
     }
     void ComeBack()
     {
         Vector2 dir = player.position - transform.position;
         dir.Normalize();
-        if (dir.x < 0.0f)
-        {
-            PetRenderer.flipX = true;
-        }
-        else
-        {
-            PetRenderer.flipX = false;
-        }
+        PetRenderer.flipX = dir.x < 0.0f ? true : false;
         if (Mathf.Abs(transform.position.x - player.position.x) > 1.0f)
         {
             PetAnim.SetBool("isFlying", true);
@@ -164,13 +134,18 @@ public class Dragon : PetProperty
         }
         else
         {
+            PetAnim.SetBool("isAttacking", false);
+            PetRenderer.flipX = TarGet.position.x - transform.position.x > 0.0f ? false : true;
             PetAnim.SetBool("isFlying", false);
-        }/*
-
-        if (Mathf.Abs(transform.position.x - player.position.x) <= 1.1f)
+        }
+        if (transform.position.y - player.position.y > 0.5)
         {
-            ChangeState(State.Battle);
-        }*/
+            transform.Translate(Vector2.down * Time.deltaTime * 3.0f);
+        }
+        else if (player.position.y - transform.position.y > 0.5)
+        {
+            transform.Translate(Vector2.up * Time.deltaTime * 3.0f);
+        }
     }
 }
 
