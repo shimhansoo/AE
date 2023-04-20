@@ -39,7 +39,7 @@ public class Map_Portal : MonoBehaviour
 
     private void Awake()
     {
-        map2_CameraLimit = GameObject.Find("Map_TestPlayer").GetComponent<Map2_CameraLimit>();
+        map2_CameraLimit = GameObject.Find("Player").GetComponent<Map2_CameraLimit>();
     }
     IEnumerator FadeCoroutine()
     {
