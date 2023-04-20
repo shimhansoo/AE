@@ -17,6 +17,7 @@ public class Player : CharacterProperty
     public GameObject DebuffIcon = null;    // 토템 디버프 아이콘
     void Start()
     {
+        _playerMoveSpeed = playerMoveSpeed;
         rigidbody = GetComponent<Rigidbody2D>();
         playerLayer = LayerMask.NameToLayer("Player");
         groundLayer = LayerMask.NameToLayer("Ground");
