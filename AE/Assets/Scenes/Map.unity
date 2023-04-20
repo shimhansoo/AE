@@ -4115,6 +4115,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9012221850467041110, guid: b4033e14597d27041a15985c9eb68351, type: 3}
+      propertyPath: GroundMask.m_Bits
+      value: 4608
+      objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -4269,7 +4273,7 @@ GameObject:
   - component: {fileID: 757985629}
   - component: {fileID: 757985628}
   - component: {fileID: 757985627}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6171,7 +6175,7 @@ GameObject:
   - component: {fileID: 1304678896}
   - component: {fileID: 1304678895}
   - component: {fileID: 1304678894}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
