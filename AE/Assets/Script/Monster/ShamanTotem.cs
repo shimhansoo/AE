@@ -7,13 +7,15 @@ public class ShamanTotem : MonsterProperty
 {
     GameObject obj = null;
     Transform targetPlayer = null;
+    public Transform ShamanIamage = null;
     public int SlowPercentage = 100;
     private float tmpMoveSpeed = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.GetComponentInParent<SpriteRenderer>().flipX = true ? myRenderer.flipX = true : myRenderer.flipX = false;
+        transform.parent.GetComponentInChildren<SpriteRenderer>().flipX = true ? myRenderer.flipX = true : myRenderer.flipX = false;
+        transform.parent = null;
     }
 
     // Update is called once per frame
@@ -35,6 +37,10 @@ public class ShamanTotem : MonsterProperty
             tmpMoveSpeed = targetPlayer.GetComponent<Player>().playerMoveSpeed;
             targetPlayer.GetComponent<Player>().playerMoveSpeed *= ((100 - SlowPercentage) * 0.01f);
         }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
