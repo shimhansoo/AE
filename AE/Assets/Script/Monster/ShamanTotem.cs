@@ -2,43 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
-public class ShamanTotem : MonsterProperty
+public class ShamanTotem : MonsterMovement, IPerception
 {
-    GameObject obj = null;
-    Transform targetPlayer = null;
     public int SlowPercentage = 100;
-    private float tmpMoveSpeed = 1f;
+    private float tmpMoveSpeed = -1f;
+    GameObject slowDebuff = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.GetComponentInParent<SpriteRenderer>().flipX = true ? myRenderer.flipX = true : myRenderer.flipX = false;
+        if(Monster.MonsterInstance.attackTarget != null) myTarget = Monster.MonsterInstance.attackTarget;
+        transform.parent = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if(obj != null)
-        //{
-        //    obj.transform.position = new Vector2(myTarget.transform.position.x, myTarget.transform.position.y + 1f);
-        //}
+        SetForward(myTarget.position - transform.position);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void FindTarget(Transform target)
     {
-        if (obj != null) return;
-        if ((targetMask & 1 << collision.gameObject.layer) != 0)
+        myTarget = target;
+        slowDebuff = target.GetComponent<Player>().DebuffIcon;
+        StartSlowDebuff(target);
+    }
+    public void LostTarget(Transform target)
+    {
+        EndSlowDebuff(target);
+    }
+    void StartSlowDebuff(Transform target)
+    {
+
+        if (slowDebuff != null) return;
+        if ((targetMask & 1 << target.gameObject.layer) != 0)
         {
-            obj = Instantiate(Resources.Load("Monster/Totem_DeBuff"), collision.transform) as GameObject;
-            obj.transform.position = new Vector2(collision.transform.position.x, collision.transform.position.y + 1.5f);
-            targetPlayer = collision.transform;
-            tmpMoveSpeed = targetPlayer.GetComponent<Player>().playerMoveSpeed;
-            targetPlayer.GetComponent<Player>().playerMoveSpeed *= ((100 - SlowPercentage) * 0.01f);
+            target.GetComponent<Player>().DebuffIcon = slowDebuff = Instantiate(Resources.Load("Monster/Totem_DeBuff"), target) as GameObject;
+            slowDebuff.transform.position = new Vector2(target.position.x, target.position.y + 1f);
+            if (tmpMoveSpeed < 0.0f)
+            {
+                tmpMoveSpeed = target.GetComponent<Player>().playerMoveSpeed;
+            }
+            target.GetComponent<Player>().playerMoveSpeed *= ((100 - SlowPercentage) * 0.01f);
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    void EndSlowDebuff(Transform target)
     {
-        if(obj != null) Destroy(obj);
-        targetPlayer.GetComponent<Player>().playerMoveSpeed = tmpMoveSpeed;
+        if (slowDebuff != null) Destroy(slowDebuff);
+        if (tmpMoveSpeed > 0.0f)
+        {
+            target.GetComponent<Player>().playerMoveSpeed = tmpMoveSpeed;
+            tmpMoveSpeed = -1f;
+        }
     }
 }

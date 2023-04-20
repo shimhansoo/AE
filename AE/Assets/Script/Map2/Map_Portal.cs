@@ -8,6 +8,8 @@ public class Map_Portal : MonoBehaviour
 {
     public Transform spwanPoint;
     public Image image;
+    public GameObject UIImage;
+    public bool usePortal;
 
     Map2_CameraLimit map2_CameraLimit;
 
@@ -20,14 +22,29 @@ public class Map_Portal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.F) || Input.GetKey(KeyCode.F)) 
+        {
+            usePortal = true;
+        }
+        if(Input.GetKeyUp(KeyCode.F))
+        {
+            usePortal = false;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        UIImage.SetActive(true);
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && usePortal == true)
         {
             collision.transform.position = spwanPoint.position;
-            StartCoroutine(FadeCoroutine());
+            if (image != null)
+            {
+                StartCoroutine(FadeCoroutine());
+            }
+
             map2_CameraLimit.xMax = 4.0f;
             map2_CameraLimit.xMin = -27.0f;
             map2_CameraLimit.yMax = -28.0f;
@@ -36,10 +53,13 @@ public class Map_Portal : MonoBehaviour
 
         }
     }
-
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        UIImage.SetActive(false);
+    }
     private void Awake()
     {
-        map2_CameraLimit = GameObject.Find("Map_TestPlayer").GetComponent<Map2_CameraLimit>();
+        map2_CameraLimit = GameObject.Find("Player").GetComponent<Map2_CameraLimit>();
     }
     IEnumerator FadeCoroutine()
     {
