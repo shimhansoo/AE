@@ -72,7 +72,7 @@ public class Monster : MonsterMovement, IPerception
         ChangeState(State.Battle);
     }
     // Lost Target
-    public void LostTarget()
+    public void LostTarget(Transform target)
     {
         myTarget = null;
         coTrace = null;

@@ -74,7 +74,7 @@ public class MonsterMovement : MonsterAttack
     }
 
     // 방향 지정
-    void SetForward(Vector2 dir)
+    protected void SetForward(Vector2 dir)
     {
         if (dir.x > 0)
         {

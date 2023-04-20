@@ -12,6 +12,6 @@ public class MonsterAttack : MonsterProperty
     public void ShamanTotem()
     {
         GameObject obj = Instantiate(Resources.Load("Monster/Mon_ShamanTotem"), transform) as GameObject;
-        obj.transform.position = new Vector2(transform.position.x, transform.position.y);
+        obj.transform.position = new Vector2(transform.position.x + Random.Range(-3, 4), transform.position.y + 0.04f);
     }
 }

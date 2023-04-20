@@ -71,4 +71,5 @@ public class MonsterProperty : MonoBehaviour
     {
         propertyInstance = this;
     }
+    
 }

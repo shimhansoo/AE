@@ -14,6 +14,7 @@ public class Player : CharacterProperty
     int playerLayer, groundLayer;
     float collTime = 0.0f;
     int count = 0;
+    public GameObject DebuffIcon = null;    // 토템 디버프 아이콘
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -41,7 +42,7 @@ public class Player : CharacterProperty
         {
             if (count < 2) count++;
             collTime = 0.0f;
-            Debug.Log(count);
+            //Debug.Log(count);
 
         }
         if (count > 0)
@@ -50,7 +51,7 @@ public class Player : CharacterProperty
             {
                 count--;
                 rigidbody.AddForce(frontVec * 10.0f, ForceMode2D.Impulse);
-                Debug.Log(count);
+                //Debug.Log(count);
             }
         }
 

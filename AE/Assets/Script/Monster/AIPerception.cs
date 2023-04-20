@@ -5,7 +5,7 @@ using UnityEngine;
 public interface IPerception
 {
     void FindTarget(Transform target);
-    void LostTarget();
+    void LostTarget(Transform target);
 }
 
 public class AIPerception : MonoBehaviour
@@ -37,7 +37,7 @@ public class AIPerception : MonoBehaviour
             if (myTarget == collision.transform)
             {
                 myTarget = null;
-                myParent.LostTarget();
+                myParent.LostTarget(collision.transform);
             }
         }
     }
