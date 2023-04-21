@@ -10,6 +10,8 @@ public class Map_Bidrectional_Portal : MonoBehaviour
     public Image image;
     public GameObject UIImage;
     public bool usePortal;
+    public bool isInsidePortal;
+    
 
     Map2_CameraLimit map2_CameraLimit;
 
@@ -18,44 +20,37 @@ public class Map_Bidrectional_Portal : MonoBehaviour
     {
         map2_CameraLimit.Teleport();
     }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && isInsidePortal)
         {
-            usePortal = true;
-        }
-        if (Input.GetKeyUp(KeyCode.F))
-        {
-            usePortal = false;
+            usePortal = true;   
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        UIImage.SetActive(true);
+        isInsidePortal = true;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player") && usePortal == true)
         {
+            usePortal = false;
+            
             collision.transform.position = spwanPoint.position;
+            
             if (image != null)
             {
                 StartCoroutine(FadeCoroutine());
             }
-
-            //map2_CameraLimit.xMax = 4.0f;
-            //map2_CameraLimit.xMin = -27.0f;
-            //map2_CameraLimit.yMax = -28.0f;
-            //map2_CameraLimit.yMin = -39.0f;
-            //map2_CameraLimit.Teleport();
-
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         UIImage.SetActive(false);
+        isInsidePortal = false;
     }
     private void Awake()
     {
