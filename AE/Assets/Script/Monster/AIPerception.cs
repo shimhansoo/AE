@@ -17,12 +17,22 @@ public class AIPerception : MonoBehaviour
 {
     public LayerMask targetMask;
     IPerception myParent = null;
+    ITotem myTotem = null;
     Transform myTarget = null;
-    Transform myTotem = null;
+    bool isPlayerIn = false;
+    
     // Start is called before the first frame update
     void Start()
     {
         myParent = GetComponentInParent<IPerception>();
+        myTotem = GetComponentInParent<ITotem>();
+    }
+    private void FixedUpdate()
+    {
+        if (isPlayerIn)
+        {
+            TotemDebuffIcon.SlowInst.SetDebuffTime(TotemDebuffIcon.SlowInst.slowDebuffTime);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,6 +41,7 @@ public class AIPerception : MonoBehaviour
         {
             if (myTarget == null)
             {
+                if(myTotem != null)isPlayerIn = true;
                 myTarget = collision.transform;
                 myParent.FindTarget(myTarget);
             }
@@ -42,15 +53,10 @@ public class AIPerception : MonoBehaviour
         {
             if (myTarget == collision.transform)
             {
+                isPlayerIn = false;
                 myTarget = null;
                 myParent.LostTarget(collision.transform);
             }
         }
-    }
-
-    // 토템 디버프
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        
     }
 }

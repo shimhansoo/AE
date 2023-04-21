@@ -50,11 +50,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHp: 100
   playerMoveSpeed: 5
+  playerCurrentMoveSpeed: 0
+  additionalSpeed: 0
   playerDamege: 7
   playerJumpPower: 16
   GroundMask:
     serializedVersion: 2
     m_Bits: 520
+  DebuffIcon: {fileID: 0}
 --- !u!50 &9012221850467041105
 Rigidbody2D:
   serializedVersion: 4
@@ -182,8 +185,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2029377761
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 5546671543968653177, guid: 0b634806438a5a4429efaf42643d463e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -17,7 +17,6 @@ public class Player : CharacterProperty
     public GameObject DebuffIcon = null;    // 토템 디버프 아이콘
     void Start()
     {
-        _playerMoveSpeed = playerMoveSpeed;
         rigidbody = GetComponent<Rigidbody2D>();
         playerLayer = LayerMask.NameToLayer("Player");
         groundLayer = LayerMask.NameToLayer("Ground");
@@ -25,6 +24,8 @@ public class Player : CharacterProperty
     }
     void Update()
     {
+        // 플레이어 속도 계산, 현재속도 = 기본속도 + 증감치
+        playerCurrentMoveSpeed = playerMoveSpeed + additionalSpeed;
         Dash();
         OnAttack();
         OnMove();
@@ -103,7 +104,7 @@ public class Player : CharacterProperty
         {
             myAnim.SetBool("isMoving", false);
         }
-        transform.Translate(dir * playerMoveSpeed * Time.deltaTime);
+        transform.Translate(dir * playerCurrentMoveSpeed * Time.deltaTime);
     }
 
     //레이

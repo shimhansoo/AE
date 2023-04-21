@@ -1,34 +1,47 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class TotemDebuffIcon : Totem, ITotem
+public class TotemDebuffIcon : Totem
 {
-    float slowTime = 5.0f;
+    public static TotemDebuffIcon SlowInst = null;
+    float buffTime = 5.0f;
+    float slowSpeed = 0f;
+    float tmpAdditionalSpeed = 0f;
+    private void Awake()
+    {
+        SlowInst = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector2(transform.parent.position.x, transform.parent.position.y + 1f);
-        transform.parent.GetComponent<Player>().playerMoveSpeed *= ((100 - SlowPercentage) * 0.01f);
+        tmpAdditionalSpeed = transform.parent.GetComponent<Player>().additionalSpeed;
+
+        slowSpeed = transform.parent.GetComponent<Player>().playerMoveSpeed * (SlowPercentage * 0.01f);
+        transform.parent.GetComponent<Player>().additionalSpeed = -slowSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        slowTime -= Time.deltaTime;
-        //Debug.Log(slowTime);
+        buffTime -= Time.deltaTime;
+        Debug.Log(buffTime);
+        CheckTime();
     }
 
-    public void SetDebuffTime(float time)
+    public void SetBuffTime(float time)
     {
-        slowTime = time;
+        buffTime = time;
     }
-    public void EndDebuff()
+    public void CheckTime()
     {
-        if (slowTime < 0.0f)
+        if(buffTime < 0.0f)
         {
-            myTarget.GetComponent<Player>().playerMoveSpeed = tmpMoveSpeed;
+            transform.parent.GetComponent<Player>().additionalSpeed = tmpAdditionalSpeed;
+            //totem.isSlow = false;
             Destroy(gameObject);
         }
     }

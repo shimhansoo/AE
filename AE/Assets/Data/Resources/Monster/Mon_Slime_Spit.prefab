@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2116985325
+  m_SortingLayerID: -1018162769
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1617568432, guid: 0de0745eed12c384f9ea78172468b2ea, type: 3}
@@ -162,6 +162,8 @@ MonoBehaviour:
   AttackRange: 2
   AttackDelay: 3
   myTarget: {fileID: 0}
+  myRightRayPos: {fileID: 0}
+  myLeftRayPos: {fileID: 0}
   targetMask:
     serializedVersion: 2
     m_Bits: 0
