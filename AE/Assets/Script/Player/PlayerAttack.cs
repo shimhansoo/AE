@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class _Totem : MonoBehaviour
+public class PlayerAttack : Player
 {
+    public UnityEvent OnAttack;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,9 @@ public class _Totem : MonoBehaviour
     void Update()
     {
         
+    }
+    void Attacking()
+    {
+        OnAttack?.Invoke();
     }
 }

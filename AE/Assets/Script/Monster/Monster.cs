@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonsterMovement, IPerception
+public class Monster : MonsterMovement, GameManager.IPerception, GameManager.IBattle
 {
     public Transform attackTarget = null;
     public static Monster MonsterInstance;
@@ -29,6 +29,8 @@ public class Monster : MonsterMovement, IPerception
                 OnTrace(myTarget);
                 break;
             case State.Death:
+                StopAllCoroutines();
+                StartCoroutine(Death());
                 break;
         }   
     }
@@ -77,5 +79,25 @@ public class Monster : MonsterMovement, IPerception
         myTarget = null;
         coTrace = null;
         ChangeState(State.Normal);
+    }
+    // IBattle
+    public void OnTakeDamage(float dmg)
+    {
+        curHp -= dmg;
+        myAnim.SetTrigger("OnDamage");
+        if (Mathf.Approximately(curHp, 0f))
+        {
+            Collider2D[] colList = transform.GetComponentsInChildren<Collider2D>();
+            foreach (Collider2D col in colList) col.enabled = false;
+            myRigid.simulated = false;
+            ChangeState(State.Death);
+        }
+    }
+
+    IEnumerator Death()
+    {
+        myAnim.SetTrigger("Death");
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 }

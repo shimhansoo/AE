@@ -38,7 +38,7 @@ public class MonsterMovement : MonsterAttack
 
     IEnumerator TargetTracing(Transform target)
     {
-        float dist, delta;    // 방향, 거리, 프레임당 속도?
+        float dist, delta;    // 방향, 거리
         Vector2 dir;
         while (myTarget != null)
         {
@@ -48,9 +48,9 @@ public class MonsterMovement : MonsterAttack
                 myAnim.SetBool("isMoving", false);
                 dir = target.position - transform.position;
                 dir.y = 0;
-                dist = dir.magnitude - AttackRange;
+                dist = dir.magnitude - attackRange;
                 dir.Normalize();
-                delta = MoveSpeed * Time.deltaTime;
+                delta = moveSpeed * Time.deltaTime;
                 SetForward(dir);
                 if (dist > 0.0f)
                 {
@@ -61,7 +61,7 @@ public class MonsterMovement : MonsterAttack
                 {
                     if (!myAnim.GetBool("isAttacking"))
                     {
-                        if (playTime > AttackDelay)
+                        if (playTime > attackDelay)
                         {
                             playTime = 0.0f;
                             myAnim.SetTrigger("Attack");

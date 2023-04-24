@@ -6,13 +6,13 @@ using static UnityEngine.GraphicsBuffer;
 
 public class TotemDebuffIcon : Totem
 {
-    public static TotemDebuffIcon SlowInst = null;
+    public static TotemDebuffIcon Inst = null;
     float buffTime = 5.0f;
     float slowSpeed = 0f;
     float tmpAdditionalSpeed = 0f;
     private void Awake()
     {
-        SlowInst = this;
+        Inst = this;
     }
     // Start is called before the first frame update
     void Start()

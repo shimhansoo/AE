@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class Totem : MonsterMovement, IPerception, ITotem
+public class Totem : MonsterMovement, GameManager.IPerception, GameManager.ITotem, GameManager.IBattle
 {
     public bool isSlow = false;
     public int SlowPercentage = 90;
@@ -29,6 +29,7 @@ public class Totem : MonsterMovement, IPerception, ITotem
         myTarget = target;
         slowDebuff = target.GetComponent<Player>().DebuffIcon;
         StartSlowDebuff(target);
+        myAnim.SetBool("isActive", true);
     }
     public void LostTarget(Transform target)
     {
@@ -37,11 +38,12 @@ public class Totem : MonsterMovement, IPerception, ITotem
     // interface ITotem
     public void SetDebuffTime(float time)
     {
-        TotemDebuffIcon.SlowInst.SetBuffTime(time);
+        TotemDebuffIcon.Inst.SetBuffTime(time);
     }
     public void EndDebuff()
     {
-        TotemDebuffIcon.SlowInst.CheckTime();
+        TotemDebuffIcon.Inst.CheckTime();
+        myAnim.SetBool("isActive", false);
         isSlow = false;
     }
     void StartSlowDebuff(Transform target)  // 슬로우 디버프 시작
@@ -56,5 +58,25 @@ public class Totem : MonsterMovement, IPerception, ITotem
                 isSlow = true;
             }
         }
+    }
+
+    public void OnTakeDamage(float dmg)
+    {
+        curHp -= dmg;
+        myAnim.SetTrigger("OnDamage");
+        if (Mathf.Approximately(curHp, 0f))
+        {
+            Collider2D[] colList = transform.GetComponentsInChildren<Collider2D>();
+            foreach (Collider2D col in colList) col.enabled = false;
+            myRigid.simulated = false;
+            StartCoroutine(Death());
+        }
+    }
+
+    IEnumerator Death()
+    {
+        myAnim.SetTrigger("Death");
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 }

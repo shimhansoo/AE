@@ -158,15 +158,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6218d45e61e73cc4ab639d51f8889597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 1
-  AttackRange: 2
-  AttackDelay: 3
+  maxHp: 100
+  curHp: 100
+  moveSpeed: 10
+  attackRange: 2
+  attackDelay: 3
+  attackPoint: 1
   myTarget: {fileID: 0}
   myRightRayPos: {fileID: 0}
   myLeftRayPos: {fileID: 0}
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   groundMask:
     serializedVersion: 2
     m_Bits: 0
@@ -185,5 +188,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Speed: 10
   myParent: {fileID: 5602221241257552024, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}

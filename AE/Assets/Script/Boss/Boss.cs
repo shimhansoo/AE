@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss: BossAttack, IPerception
+public class Boss: BossAttack, GameManager.IPerception
 {
     // 유한 상태기계
     public State myState = State.Create;
