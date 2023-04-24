@@ -12,6 +12,14 @@ public class Map_Portal : MonoBehaviour
     public bool usePortal;
     public bool isInsidePortal;
 
+    public GameObject oneMini;
+    public GameObject secondMini;
+    public GameObject thirdMini;
+    public GameObject fourthMini;
+    public GameObject fifthMini;
+    public GameObject sixthMini;
+    public GameObject seventhMini;
+
     public int portalIndex = 0;
     // 1-1 -> 2-1 : 1
     // 2-1 -> 2-2 : 2
@@ -22,6 +30,7 @@ public class Map_Portal : MonoBehaviour
     
 
     Map2_CameraLimit map2_CameraLimit;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +74,9 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.yMax = -28.0f;
                     map2_CameraLimit.yMin = -37.5f;
                     map2_CameraLimit.Teleport();
+                    map2_CameraLimit.SecondStage();
+                    oneMini.SetActive(false);
+                    secondMini.SetActive(true);
                     break;
                 case 2:
                     // 2 - 2 狼 规 力茄
@@ -73,6 +85,8 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.yMax = -27.5f;
                     map2_CameraLimit.yMin = -37.5f;
                     map2_CameraLimit.Teleport();
+                    secondMini.SetActive(false);
+                    thirdMini.SetActive(true);
                     break;
                 case 3:
                     // 2 - 3 狼 规 力茄
@@ -81,6 +95,8 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.yMax = -29.5f;
                     map2_CameraLimit.yMin = -37.5f;
                     map2_CameraLimit.Teleport();
+                    thirdMini.SetActive(false);
+                    fourthMini.SetActive(true);
                     break;
                 case 4:
                     // 3 - 1 狼 规 力茄
@@ -89,6 +105,9 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.yMax = -50.5f;
                     map2_CameraLimit.yMin = -62.5f;
                     map2_CameraLimit.Teleport();
+                    map2_CameraLimit.ThirdStage();
+                    fourthMini.SetActive(false);
+                    fifthMini.SetActive(true);
                     break;
                 case 5:
                     // 3 - 2 狼 规 力茄
@@ -97,6 +116,8 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.yMax = -50.5f;
                     map2_CameraLimit.yMin = -62.5f;
                     map2_CameraLimit.Teleport();
+                    fifthMini.SetActive(false);
+                    sixthMini.SetActive(true);
                     break;
                 case 6:
                     // 3 - 3 狼 规 力茄
@@ -105,6 +126,8 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.yMax = -52.5f;
                     map2_CameraLimit.yMin = -62.5f;
                     map2_CameraLimit.Teleport();
+                    sixthMini.SetActive(false);
+                    seventhMini.SetActive(true);
                     break;
             }
         }

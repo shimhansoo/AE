@@ -6,7 +6,7 @@ public class Map2_CameraLimit : MonoBehaviour
 {
 
     public GameObject target;
-    
+    public Camera mainCam;
 
     public float xMin = -26.0f, xMax = 4.0f;
     public float yMin = -13.0f, yMax = 0.0f;
@@ -16,7 +16,10 @@ public class Map2_CameraLimit : MonoBehaviour
 
     public float xPos = 0.0f;
     public float yPos = 0.0f;
-    
+
+    public Material cave;
+    public Material iceCave;
+    public Material forest;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,5 +45,13 @@ public class Map2_CameraLimit : MonoBehaviour
     public void Teleport()
     {
         target.transform.position = transform.position;
+    }
+    public void SecondStage()
+    {
+        mainCam.GetComponent<Skybox>().material = forest;
+    }
+    public void ThirdStage()
+    {
+        mainCam.GetComponent<Skybox>().material = iceCave;
     }
 }
