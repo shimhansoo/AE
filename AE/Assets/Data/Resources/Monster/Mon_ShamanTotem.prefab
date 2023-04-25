@@ -180,8 +180,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1642846160800701519}
   - component: {fileID: 1290421297906002095}
-  m_Layer: 7
-  m_Name: Square
+  m_Layer: 13
+  m_Name: MiniMapIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

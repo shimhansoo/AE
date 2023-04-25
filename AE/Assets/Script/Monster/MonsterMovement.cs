@@ -6,6 +6,7 @@ public class MonsterMovement : MonsterAttack
 {
     // Normal 상태에서의 이동
     public int MoveDir = 1;
+    protected Vector2 frontVec = Vector2.zero;
 
     protected void ChangeDirection()  // 이동 방향을 정할 함수
     {
@@ -103,7 +104,7 @@ public class MonsterMovement : MonsterAttack
     // 절벽 체크
     protected void CliffCheck()
     {
-        Vector2 frontVec = new Vector2(transform.position.x + (MoveDir * 0.5f), transform.position.y);
+        frontVec = new Vector2(transform.position.x + (MoveDir * 0.5f), transform.position.y);
         Debug.DrawRay(frontVec, Vector2.down, Color.yellow);
         RaycastHit2D cliffRay = Physics2D.Raycast(frontVec, Vector2.down, 1f, groundMask);
         if (cliffRay.collider == null)

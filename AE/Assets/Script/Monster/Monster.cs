@@ -32,7 +32,7 @@ public class Monster : MonsterMovement, GameManager.IPerception, GameManager.IBa
                 StopAllCoroutines();
                 StartCoroutine(Death());
                 break;
-        }   
+        }
     }
     void ProcessState()
     {
@@ -69,7 +69,7 @@ public class Monster : MonsterMovement, GameManager.IPerception, GameManager.IBa
     // Find Target
     public void FindTarget(Transform target)
     {
-        myTarget= target;
+        myTarget = target;
         attackTarget = target;
         ChangeState(State.Battle);
     }
@@ -84,7 +84,12 @@ public class Monster : MonsterMovement, GameManager.IPerception, GameManager.IBa
     public void OnTakeDamage(float dmg)
     {
         curHp -= dmg;
-        myAnim.SetTrigger("OnDamage");
+        if (!myAnim.GetBool("isAttacking"))
+        {
+            myAnim.SetTrigger("OnDamage");
+            if (!myRenderer.flipX) myRigid.AddForce(-transform.right * 10f);
+            else myRigid.AddForce(transform.right * 10f);
+        }
         if (Mathf.Approximately(curHp, 0f))
         {
             Collider2D[] colList = transform.GetComponentsInChildren<Collider2D>();

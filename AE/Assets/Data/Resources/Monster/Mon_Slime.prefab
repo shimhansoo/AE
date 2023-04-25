@@ -319,7 +319,7 @@ MonoBehaviour:
   moveSpeed: 1
   attackRange: 6
   attackDelay: 3
-  attackPoint: 1
+  attackPoint: 10
   myTarget: {fileID: 0}
   myRightRayPos: {fileID: 968226305}
   myLeftRayPos: {fileID: 516608099}
@@ -389,7 +389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3132784315207736064}
   - component: {fileID: 61446028227484871}
-  m_Layer: 7
+  m_Layer: 13
   m_Name: MiniMapIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
