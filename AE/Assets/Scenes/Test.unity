@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5602221241257552024, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5602221241257552024, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -217,7 +217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3722041285877393812, guid: 242bd2415615fbb43a74022f60a0d772, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3722041285877393812, guid: 242bd2415615fbb43a74022f60a0d772, type: 3}
       propertyPath: m_LocalPosition.x
@@ -277,24 +277,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1813740299, guid: b4033e14597d27041a15985c9eb68351, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1752523637}
-    - target: {fileID: 1813740299, guid: b4033e14597d27041a15985c9eb68351, type: 3}
-      propertyPath: mainCam
-      value: 
-      objectReference: {fileID: 1752523639}
-    - target: {fileID: 1813740299, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041106, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9012221850467041110, guid: b4033e14597d27041a15985c9eb68351, type: 3}
-      propertyPath: playerDamege
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_RootOrder
@@ -4036,11 +4024,6 @@ CompositeCollider2D:
       - {x: 71.00003, y: -5}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
---- !u!4 &1070930731 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
-  m_PrefabInstance: {fileID: 689199503}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1250546854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4054,7 +4037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 651299212822886147, guid: 7505f37040d37604bb0ba4dcf01e6bb9, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 651299212822886147, guid: 7505f37040d37604bb0ba4dcf01e6bb9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4188,12 +4171,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752523637}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.071039, y: 2.5130064, z: -15}
+  m_LocalPosition: {x: 12.200001, y: 0.3399999, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1070930731}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!45 &1752523641
 Skybox:
@@ -4331,5 +4314,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -1,16 +1,18 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : BattleSystem
+public class SpearMan : BattleSystem
 {
+    public bool berserk = false;
     void Start()
     {
         playerLayer = LayerMask.NameToLayer("Player");
         groundLayer = LayerMask.NameToLayer("Ground");
         playerCurHp = playerMaxHp;
+        StartCoroutine(AirChecking());
     }
-    
+
     private void FixedUpdate()
     {
         OnMove();
@@ -22,7 +24,7 @@ public class Player : BattleSystem
 
         //대쉬
         Dash();
-        
+
         //좌우반전
         Scalesetting();
 
@@ -36,6 +38,13 @@ public class Player : BattleSystem
                 attackTime = 0.0f;
             }
         }
+
+        //스킬 1
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            StartCoroutine(Berserk());
+        }
+
         //무한 점프 제어
         isJump = rayHitLeft || rayHitRight ? isJump = false : isJump = true;
         if (!isJump)
@@ -43,9 +52,33 @@ public class Player : BattleSystem
         else
             collisionCheck();
     }
+
+    IEnumerator Berserk()
+    {
+        if (berserk) yield break;
+        berserk = true;
+        playerSkillMoveSpeed_1 = playerMoveSpeed;
+        playerSkillDamage_1 = playerDamege;
+
+        playerMoveSpeed *= 1.5f;
+        playerDamege *= 2.0f;
+        attackSpeed = 10.0f;
+
+        GameObject temp = Instantiate(skillEffect1, new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);
+        temp.transform.SetParent(this.transform);
+        yield return new WaitForSeconds(5.0f);
+
+        Destroy(temp);
+        berserk = false;
+        playerMoveSpeed = playerSkillMoveSpeed_1;
+        playerDamege = playerSkillDamage_1;
+        attackSpeed = 1.0f;
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (attackPoint == null) return;
         Gizmos.DrawSphere(attackPoint.position, attackRange);
     }
 }
+

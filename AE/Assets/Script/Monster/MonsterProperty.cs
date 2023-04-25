@@ -9,7 +9,7 @@ public class MonsterProperty : MonoBehaviour
     public float moveSpeed = 1.0f;    // 몬스터의 이동 속도
     public float attackRange = 2.0f;    // 몬스터의 공격 사거리
     public float attackDelay = 3.0f;    // 몬스터의 공격 딜레이
-    public float attackPoint = 3.0f;    // 몬스터의 공격력
+    public float attackDamage = 3.0f;    // 몬스터의 공격력
     protected float playTime = 0.0f;    // 공격 딜레이 검사할 변수
     public Transform myTarget = null; // 타겟 저장
     public Transform myRightRayPos = null;  // 우측 레이 위치

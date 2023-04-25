@@ -4,17 +4,49 @@ using UnityEngine;
 
 public class CharacterProperty : MonoBehaviour
 {
-    public float playerMaxHp = 100.0f;
+    //체력 관련
+    protected float playerMaxHp = 100.0f;
     public float playerCurHp = 0;
-    // 플레이어의 기본 속도, 현재 속도, 속도 증감치
-    public float playerMoveSpeed = 5.0f;
+    
+    
+    //이동 관련
+    public float playerMoveSpeed = 3.0f;
     public float playerCurrentMoveSpeed = 0.0f;
     public float additionalSpeed = 0.0f;
 
-    public float playerDamege = 7.0f;
-    public float playerJumpPower = 5.0f;
+    //대쉬 관련
+    protected float collTime = 0.0f;
+
+    //점프 관련
+    protected bool isJump = false;
+    protected int playerLayer, groundLayer;
+    protected RaycastHit2D rayHitLeft = new RaycastHit2D();
+    protected RaycastHit2D rayHitRight = new RaycastHit2D();
+    public float playerJumpPower = 16.0f;
+    public LayerMask groundMask;
+    public GameObject dashEffect;
+
+    //전투 관련
+    protected float attackTime = 0.0f;
+    protected float attackSpeed = 1.0f;
+    public float playerDamege = 25.0f;
+    public Transform attackPoint;
+    public float attackRange = 0.7f;
+    public GameObject DebuffIcon = null;
+    public LayerMask enemyLayers;
+
+    //스킬 관련
+    protected int dashCount = 0;
+    protected Vector2 dir = Vector2.zero;
+    protected Vector2 frontVec = Vector2.zero;
+    protected float playerSkillMoveSpeed_1 = 0f;
+    protected float playerSkillDamage_1 = 0f;
+    public GameObject skillEffect1;
+
+    //property 관련
     Animator _anim = null;
-    SpriteRenderer _renderer=null;
+    SpriteRenderer _renderer = null;
+    Rigidbody2D _rigid = null;
 
     protected SpriteRenderer myRenderer
     {
@@ -31,7 +63,7 @@ public class CharacterProperty : MonoBehaviour
             return _renderer;
         }
     }
-    
+
     protected Animator myAnim
     {
         get
@@ -45,6 +77,22 @@ public class CharacterProperty : MonoBehaviour
                 }
             }
             return _anim;
+        }
+    }
+
+    protected Rigidbody2D myRigid
+    {
+        get
+        {
+            if (_rigid == null)
+            {
+                _rigid = GetComponent<Rigidbody2D>();
+                if (_rigid == null)
+                {
+                    _rigid = GetComponentInChildren<Rigidbody2D>();
+                }
+            }
+            return _rigid;
         }
     }
 }

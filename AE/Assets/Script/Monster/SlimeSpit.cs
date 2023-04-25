@@ -15,7 +15,7 @@ public class SlimeSpit : MonsterProperty
     void Start()
     {
         StartCoroutine(Moving());
-        this.attackPoint = myParent.attackPoint;
+        this.attackDamage = myParent.attackDamage;
         transform.SetParent(null);
     }
 
@@ -29,6 +29,7 @@ public class SlimeSpit : MonsterProperty
         Vector2 dir = myParent.attackTarget.position - transform.position;
         dir.Normalize();
         float angle = Vector2.Angle(transform.right, dir);
+        if(dir.y < 0.0f) angle = -angle;
         transform.Rotate(0, 0, angle);
         if (dir.x < 0.0f) myRenderer.flipY = true;
 
@@ -47,7 +48,7 @@ public class SlimeSpit : MonsterProperty
         myAnim.SetTrigger("OnHit");
         if ((1 << collision.gameObject.layer & targetMask) != 0)
         {
-            collision.transform.GetComponent<Player>().OnTakeDamage(attackPoint);
+            collision.transform.GetComponent<GameManager.IBattle>().OnTakeDamage(attackDamage);
         }
     }
     public void DestroyObj()

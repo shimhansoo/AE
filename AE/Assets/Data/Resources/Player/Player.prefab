@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9012221850467041111}
-  - component: {fileID: 9012221850467041110}
+  - component: {fileID: 2388334415598723724}
   - component: {fileID: 9012221850467041105}
   - component: {fileID: 9012221850467041104}
   - component: {fileID: 9012221850467041107}
@@ -154,7 +154,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9012221850467041110
+--- !u!114 &2388334415598723724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,26 +163,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 9012221850467041106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40d8bc0bea05ed443a3a8e88dfed9dd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 35e132d1931a6cc40b2f30004e5b4964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxHp: 100
   playerCurHp: 0
   playerMoveSpeed: 5
   playerCurrentMoveSpeed: 0
   additionalSpeed: 0
-  playerDamege: 25
   playerJumpPower: 16
-  GroundMask:
+  groundMask:
     serializedVersion: 2
     m_Bits: 4616
-  DebuffIcon: {fileID: 0}
   dashEffect: {fileID: 5225893648906430629, guid: 3d616fa6e8c00c448bf52c08c9749df5, type: 3}
+  playerDamege: 25
   attackPoint: {fileID: 1348091287}
   attackRange: 0.7
+  DebuffIcon: {fileID: 0}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+  skillEffect1: {fileID: 5979677498427948310, guid: e535cebbdcacd4f45bd3e28c0d067eb2, type: 3}
+  berserk: 0
 --- !u!50 &9012221850467041105
 Rigidbody2D:
   serializedVersion: 4
@@ -198,11 +199,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 3.4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &9012221850467041104
 CapsuleCollider2D:
@@ -383,28 +384,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 996313eb5192455439d94f3f2e9ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxHp: 100
   playerCurHp: 0
   playerMoveSpeed: 5
   playerCurrentMoveSpeed: 0
   additionalSpeed: 0
-  playerDamege: 7
   playerJumpPower: 5
-  GroundMask:
+  groundMask:
     serializedVersion: 2
     m_Bits: 0
-  DebuffIcon: {fileID: 0}
   dashEffect: {fileID: 0}
+  playerDamege: 7
   attackPoint: {fileID: 0}
   attackRange: 0.7
+  DebuffIcon: {fileID: 0}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
+  skillEffect1: {fileID: 0}
   OnAttack:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9012221850467041110}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 2388334415598723724}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
         m_MethodName: OnAttack
         m_Mode: 1
         m_Arguments:

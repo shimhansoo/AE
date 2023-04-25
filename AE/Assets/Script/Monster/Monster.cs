@@ -87,8 +87,8 @@ public class Monster : MonsterMovement, GameManager.IPerception, GameManager.IBa
         if (!myAnim.GetBool("isAttacking"))
         {
             myAnim.SetTrigger("OnDamage");
-            if (!myRenderer.flipX) myRigid.AddForce(-transform.right * 10f);
-            else myRigid.AddForce(transform.right * 10f);
+            if (!myRenderer.flipX) myRigid.AddForce(-transform.right * 20f);
+            else myRigid.AddForce(transform.right * 20f);
         }
         if (Mathf.Approximately(curHp, 0f))
         {
