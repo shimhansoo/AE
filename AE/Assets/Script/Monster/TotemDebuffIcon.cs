@@ -18,10 +18,10 @@ public class TotemDebuffIcon : Totem
     void Start()
     {
         transform.position = new Vector2(transform.parent.position.x, transform.parent.position.y + 1f);
-        tmpAdditionalSpeed = transform.parent.GetComponent<Player>().additionalSpeed;
+        tmpAdditionalSpeed = transform.parent.GetComponent<CharacterProperty>().additionalSpeed;
 
-        slowSpeed = transform.parent.GetComponent<Player>().playerMoveSpeed * (SlowPercentage * 0.01f);
-        transform.parent.GetComponent<Player>().additionalSpeed = -slowSpeed;
+        slowSpeed = transform.parent.GetComponent<CharacterProperty>().playerMoveSpeed * (SlowPercentage * 0.01f);
+        transform.parent.GetComponent<CharacterProperty>().additionalSpeed = -slowSpeed;
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class TotemDebuffIcon : Totem
     {
         if(buffTime < 0.0f)
         {
-            transform.parent.GetComponent<Player>().additionalSpeed = tmpAdditionalSpeed;
+            transform.parent.GetComponent<CharacterProperty>().additionalSpeed = tmpAdditionalSpeed;
             //totem.isSlow = false;
             Destroy(gameObject);
         }

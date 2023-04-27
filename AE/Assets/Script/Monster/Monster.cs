@@ -81,16 +81,26 @@ public class Monster : MonsterMovement, GameManager.IPerception, GameManager.IBa
         ChangeState(State.Normal);
     }
     // IBattle
+    public bool isLive
+    {
+        get => myState != State.Death;
+    }
     public void OnTakeDamage(float dmg)
     {
         curHp -= dmg;
-        if (!myAnim.GetBool("isAttacking"))
+        myAnim.SetTrigger("OnDamageColor"); // 피격시 이미지의 색상을 바꿔주도록 Animator에서 설정
+        
+        if (!Mathf.Approximately(curHp, 0f))
         {
-            myAnim.SetTrigger("OnDamage");
-            if (!myRenderer.flipX) myRigid.AddForce(-transform.right * 20f);
-            else myRigid.AddForce(transform.right * 20f);
+            if (!myAnim.GetBool("isAttacking"))
+                myAnim.SetTrigger("OnDamage");  // 공격중엔 애니메이션 호출 안 함
+
+            if (!myRenderer.flipX)
+                myRigid.AddForce(-transform.right * 20f);    // 넉백
+            else
+                myRigid.AddForce(transform.right * 20f);
         }
-        if (Mathf.Approximately(curHp, 0f))
+        else
         {
             Collider2D[] colList = transform.GetComponentsInChildren<Collider2D>();
             foreach (Collider2D col in colList) col.enabled = false;

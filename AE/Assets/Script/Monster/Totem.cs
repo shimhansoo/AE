@@ -27,7 +27,7 @@ public class Totem : MonsterMovement, GameManager.IPerception, GameManager.ITote
     public void FindTarget(Transform target)    // 플레이어를 찾으면 슬로우 디버프 시작
     {
         myTarget = target;
-        slowDebuff = target.GetComponent<Player>().DebuffIcon;
+        slowDebuff = target.GetComponent<CharacterProperty>().DebuffIcon;
         StartSlowDebuff(target);
         myAnim.SetBool("isActive", true);
     }
@@ -53,13 +53,17 @@ public class Totem : MonsterMovement, GameManager.IPerception, GameManager.ITote
         {
             if ((targetMask & 1 << target.gameObject.layer) != 0)
             {
-                target.GetComponent<Player>().DebuffIcon = slowDebuff = Instantiate(Resources.Load("Monster/Totem_DeBuff"), target) as GameObject;
+                target.GetComponent<CharacterProperty>().DebuffIcon = slowDebuff = Instantiate(Resources.Load("Monster/Totem_DeBuff"), target) as GameObject;
                 SetDebuffTime(slowDebuffTime);
                 isSlow = true;
             }
         }
     }
-
+    // Interface IBattle
+    public bool isLive
+    {
+        get => !Mathf.Approximately(curHp, 0f);
+    }
     public void OnTakeDamage(float dmg)
     {
         curHp -= dmg;

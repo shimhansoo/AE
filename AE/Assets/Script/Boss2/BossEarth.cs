@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossEarth : StateMachineBehaviour, GameManager.IBattle
+public class BossEarth : StateMachineBehaviour
 {
     public float maxHealth = 100.0f;
     private float currentHealth;
@@ -53,10 +53,6 @@ public class BossEarth : StateMachineBehaviour, GameManager.IBattle
 
     }
 
-    public void OnTakeDamage(float dmg)
-    {
-        throw new NotImplementedException();
-    }
 }
 
 

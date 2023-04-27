@@ -83,6 +83,10 @@ public class BossMonster : BossMonsterMovement, GameManager.IPerception, GameMan
         ChangeState(State.Normal);
     }
     // IBattle
+    public bool isLive
+    {
+        get => myState != State.Death;
+    }
     public void OnTakeDamage(float dmg)
     {
         curHp -= dmg;

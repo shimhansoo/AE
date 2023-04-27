@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BattleSystem : PlayerMovement, GameManager.IBattle
 {
+    public bool isLive
+    {
+        get => !Mathf.Approximately(playerCurHp, 0f);
+    }
     public void OnTakeDamage(float damage)
     {
         playerCurHp -= damage;

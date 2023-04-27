@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public Transform camera;
     public interface IPerception
     {
         void FindTarget(Transform target);
@@ -19,6 +18,7 @@ public class GameManager : MonoBehaviour
     public interface IBattle
     {
         void OnTakeDamage(float dmg);
+        bool isLive { get; }
     }
 
     private void Awake()
