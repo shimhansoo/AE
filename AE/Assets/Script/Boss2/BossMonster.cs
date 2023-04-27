@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameManager;
 
-public class Boss: BossAttack, GameManager.IPerception
+public class BossMonster : BossMonsterMovement, GameManager.IPerception, GameManager.IBattle
 {
+   
+    public Transform attackTarget = null;
+    public static BossMonster MonsterInstance;
     // 유한 상태기계
     public State myState = State.Create;
     public enum State
@@ -27,8 +31,10 @@ public class Boss: BossAttack, GameManager.IPerception
                 OnTrace(myTarget);
                 break;
             case State.Death:
+                StopAllCoroutines();
+                StartCoroutine(Death());
                 break;
-        }
+        }   
     }
     void ProcessState()
     {
@@ -47,6 +53,7 @@ public class Boss: BossAttack, GameManager.IPerception
 
     void Start()
     {
+        MonsterInstance = this;
         Invoke("ChangeDirection", 5);
         ChangeState(State.Normal);
     }
@@ -54,6 +61,7 @@ public class Boss: BossAttack, GameManager.IPerception
     private void FixedUpdate()
     {
         AirCheck();
+        CliffCheck();
     }
 
     void Update()
@@ -63,7 +71,8 @@ public class Boss: BossAttack, GameManager.IPerception
     // Find Target
     public void FindTarget(Transform target)
     {
-        myTarget = target;
+        myTarget= target;
+        attackTarget = target;
         ChangeState(State.Battle);
     }
     // Lost Target
@@ -73,4 +82,29 @@ public class Boss: BossAttack, GameManager.IPerception
         coTrace = null;
         ChangeState(State.Normal);
     }
-}
+    // IBattle
+    public void OnTakeDamage(float dmg)
+    {
+        curHp -= dmg;
+        myAnim.SetTrigger("Damage");
+        if (Mathf.Approximately(curHp, 0f))
+        {
+            Collider2D[] colList = transform.GetComponentsInChildren<Collider2D>();
+            foreach (Collider2D col in colList) col.enabled = false;
+            myRigid.simulated = false;
+            ChangeState(State.Death);
+        }
+    }
+
+    IEnumerator Death()
+    {
+        myAnim.SetTrigger("Death");
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+    }
+   
+} 
+    
+   
+
+
