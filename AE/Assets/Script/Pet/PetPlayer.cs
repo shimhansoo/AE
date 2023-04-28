@@ -12,6 +12,10 @@ public class PetPlayer : CharacterProperty
 
     public float MoveSpeed = 2.0f;
     public float PlayerJump = 10.0f;
+    public GameObject BasicDragon;
+    public GameObject FireDragon;
+    public GameObject EarthDragon;
+    public GameObject DarkDragon;
     // Update is called once per frame
     void Update()
     {
@@ -34,5 +38,21 @@ public class PetPlayer : CharacterProperty
         transform.Translate(dir * MoveSpeed * Time.deltaTime);
         dir.y = Input.GetAxisRaw("Vertical");
         transform.Translate(dir * PlayerJump * Time.deltaTime);
+        if(Input.GetKeyDown(KeyCode.F1))
+        {
+            Instantiate(BasicDragon, transform.position, Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            Instantiate(FireDragon, transform.position, Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            Instantiate(EarthDragon, transform.position, Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            Instantiate(DarkDragon, transform.position, Quaternion.identity);
+        }
     }
 }
