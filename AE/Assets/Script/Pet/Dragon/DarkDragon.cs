@@ -19,12 +19,6 @@ public class DarkDragon : PetMoveMent
         ChangeState(State.Normal);
     }
 
-    private void Awake()
-    {
-        // 플레이어 바인딩 대신에 임시로.
-        GameObject PlayerPos = GameObject.Find("DragonTarget");
-        player = PlayerPos.transform;
-    }
 
     // 다크 드래곤 상태 변경 함수.
     void ChangeState(State s)

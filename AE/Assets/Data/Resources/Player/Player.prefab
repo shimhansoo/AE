@@ -31,6 +31,37 @@ Transform:
   m_Father: {fileID: 9012221850467041111}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2375686588531097002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1554163186803506954}
+  m_Layer: 0
+  m_Name: DragonTargetPlayerPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1554163186803506954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2375686588531097002}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.063, y: 0.67, z: -0.13449979}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9012221850467041111}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5001684952995496663
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +182,7 @@ Transform:
   - {fileID: 9012221851352616278}
   - {fileID: 1348091287}
   - {fileID: 2660216676555907240}
+  - {fileID: 1554163186803506954}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -183,6 +215,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   skillEffect1: {fileID: 5979677498427948310, guid: e535cebbdcacd4f45bd3e28c0d067eb2, type: 3}
+  BasicDragon: {fileID: 5990443681879294167, guid: c896ecfa5979b644493b4d6b95529058, type: 3}
+  FireDragon: {fileID: 1385979651342774976, guid: 4329450b67a587f4f955ef620783bf33, type: 3}
+  EarthDragon: {fileID: 2278172737845734212, guid: a11e0a2201ec11f4693e84c94dfe36a6, type: 3}
+  DarkDragon: {fileID: 8782368268330848607, guid: f0e21e0a885ffa64a83e2de9543f43c4, type: 3}
   berserk: 0
 --- !u!50 &9012221850467041105
 Rigidbody2D:
@@ -262,9 +298,9 @@ MonoBehaviour:
   y: 0
   xPos: 0
   yPos: 0
-  cave: {fileID: 0}
-  iceCave: {fileID: 0}
-  forest: {fileID: 0}
+  cave: {fileID: 2100000, guid: 039b7f5ce6dde8c42a82918d61f53e41, type: 2}
+  iceCave: {fileID: 2100000, guid: 899f90b4b6ff8774cb3b628ca6dac8ff, type: 2}
+  forest: {fileID: 2100000, guid: 7811f4f100c3ccc40b90d63d6d5be9c6, type: 2}
 --- !u!1 &9012221851352616273
 GameObject:
   m_ObjectHideFlags: 0

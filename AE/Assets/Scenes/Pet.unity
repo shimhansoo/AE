@@ -1034,12 +1034,12 @@ GameObject:
   - component: {fileID: 277642751}
   - component: {fileID: 277642750}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: TutoCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &277642750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,7 +1125,7 @@ RectTransform:
   - {fileID: 2027453435}
   - {fileID: 1544279693}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1421,10 +1421,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693f38a37d7f1e54cbe35c1c5b0e6258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHp: 100
+  playerCurHp: 0
   playerMoveSpeed: 5
-  playerDamege: 7
+  playerCurrentMoveSpeed: 0
+  additionalSpeed: 0
   playerJumpPower: 5
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  dashEffect: {fileID: 0}
+  playerDamege: 7
+  attackPoint: {fileID: 0}
+  attackRange: 0.7
+  DebuffIcon: {fileID: 0}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  skillEffect1: {fileID: 0}
   MoveSpeed: 2
   PlayerJump: 10
   BasicDragon: {fileID: 5990443681879294167, guid: 7f12fe67e7016bd4ca23523ca4d0b9ab, type: 3}
@@ -4269,9 +4282,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08a29a29852e2b43bc5de26a071ada8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 1.2
-  AttackRange: 1.3
-  AttackDelay: 2
+  maxHp: 100
+  _curHp: -1
+  moveSpeed: 1
+  attackRange: 2
+  attackDelay: 3
+  attackDamage: 3
   myTarget: {fileID: 0}
   myRightRayPos: {fileID: 0}
   myLeftRayPos: {fileID: 0}
@@ -4299,7 +4315,7 @@ Transform:
   - {fileID: 855794242}
   - {fileID: 176743321}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &855794241
 GameObject:
@@ -5554,7 +5570,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1352846243
 MonoBehaviour:
@@ -5572,6 +5588,7 @@ MonoBehaviour:
   PetJump: 3
   DragonSpeed: 5
   ThrowSkillSpeed: 10
+  WolfTPdist: 5
   BasicAttackCoolTime: 5
   TarGetSkillDuration: 3
   DurationCountTime: 0
@@ -5666,137 +5683,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 382202401}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1524917669
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1524917673}
-  - component: {fileID: 1524917672}
-  - component: {fileID: 1524917671}
-  - component: {fileID: 1524917670}
-  m_Layer: 0
-  m_Name: DragonSkill1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1524917670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524917669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad3f7bdb7eb113147aea61d5f291414b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WolfSpeed: 2
-  PetJump: 3
-  DragonSpeed: 5
-  ThrowSkillSpeed: 10
-  BasicAttackCoolTime: 5
-  TarGetSkillDuration: 3
-  DurationCountTime: 0
-  player: {fileID: 0}
-  TarGet: {fileID: 0}
-  GroundMask:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!212 &1524917671
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524917669}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!95 &1524917672
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524917669}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: feebb4a3b946fce428fe4571dc113295, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!4 &1524917673
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524917669}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1544279692
 GameObject:
@@ -6129,7 +6015,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1678082174
 GameObject:
@@ -6475,7 +6361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1861649358
 Animator:
   serializedVersion: 5
@@ -6580,6 +6466,7 @@ MonoBehaviour:
   PetJump: 6.5
   DragonSpeed: 5
   ThrowSkillSpeed: 10
+  WolfTPdist: 5
   BasicAttackCoolTime: 5
   TarGetSkillDuration: 3
   DurationCountTime: 0
@@ -6752,6 +6639,7 @@ MonoBehaviour:
   Tutorial4: {fileID: 1037355359}
   Tutorial5: {fileID: 2105014346}
   Tutorial6: {fileID: 2027453433}
+  TutoEnd: {fileID: 0}
   TutoCount: 0
 --- !u!4 &1920264537
 Transform:
@@ -6766,7 +6654,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2006912478
 MonoBehaviour:

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class SpearMan : BattleSystem
 {
+    // 드래곤 임시.
+    public GameObject BasicDragon;
+    public GameObject FireDragon;
+    public GameObject EarthDragon;
+    public GameObject DarkDragon;
+
     public bool berserk = false;
     void Start()
     {
@@ -51,6 +57,24 @@ public class SpearMan : BattleSystem
             OnJump();
         else
             collisionCheck();
+
+        // 드래곤 구현 확인을 위한 구문.
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Instantiate(BasicDragon, transform.position, Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            Instantiate(FireDragon, transform.position, Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            Instantiate(EarthDragon, transform.position, Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            Instantiate(DarkDragon, transform.position, Quaternion.identity);
+        }
     }
 
     IEnumerator Berserk()

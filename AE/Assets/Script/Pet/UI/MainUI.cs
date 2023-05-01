@@ -16,6 +16,7 @@ public class MainUI : MonoBehaviour
     public GameObject Tutorial4 = null;
     public GameObject Tutorial5 = null;
     public GameObject Tutorial6 = null;
+    public GameObject TutoEnd = null;
     public int TutoCount = 0;
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class MainUI : MonoBehaviour
         if (TutoCount == 28) PlayerStartScript4.SetActive(true);
         if (TutoCount == 29) UIWolf.SetActive(false);
         if (TutoCount == 29) Wolf.SetActive(true);
+        if (TutoCount == 30) TutoEnd.SetActive(true);
     }
     IEnumerator CountPlus()
     {

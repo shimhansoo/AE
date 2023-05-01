@@ -116,20 +116,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1385979651342774976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee835aa57dc767469d863d6059ff63f, type: 3}
+  m_Script: {fileID: 11500000, guid: 46f7f4927516e8c499dd862496189a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragonSpeed: 5
   WolfSpeed: 2
   PetJump: 3
+  DragonSpeed: 5
+  ThrowSkillSpeed: 10
+  WolfTPdist: 5
+  BasicAttackCoolTime: 5
+  TarGetSkillDuration: 3
+  DurationCountTime: 0
   player: {fileID: 0}
   TarGet: {fileID: 0}
-  DragonSkill:
-    m_PersistentCalls:
-      m_Calls: []
-  FireDragonSprit1: {fileID: 1312781049609935298, guid: acc4e76f8dd62424da0a0d2c411e6415, type: 3}
-  FireDragonSprit2: {fileID: 1818135575647796258, guid: 1e4316dc98fc0834ab51df2128a179f5, type: 3}
-  FireDragonSprit3: {fileID: 6841552907994995340, guid: dedb2722017c77d4e93e1b615eeef419, type: 3}
-  FireDragonSprit4: {fileID: 1769246501714930145, guid: b535b4db266246a4ba1ca0918190db60, type: 3}
-  FireDragonSkill2: {fileID: 5913476999592761246, guid: 6a8ed6227a36c5f41a6155d0270c700e, type: 3}
-  DragonState: 0
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  FireDragonSprit1: {fileID: 0}
+  FireDragonSprit2: {fileID: 0}
+  FireDragonSprit3: {fileID: 0}
+  FireDragonSprit4: {fileID: 0}
+  isspirit: 1
+  FireDragonSkill2: {fileID: 0}

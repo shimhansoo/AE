@@ -7,7 +7,7 @@ public class PetMoveMent : PetProperty
     private void Awake()
     {
         // 플레이어 타겟 바인딩 대신 임시로
-        GameObject PlayerPos = GameObject.Find("DragonTarget");
+        GameObject PlayerPos = GameObject.Find("DragonTargetPlayerPos");
         player = PlayerPos.transform;
 
     }

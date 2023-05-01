@@ -119,9 +119,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02497fea5f499a141ba7e1527402e872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragonSpeed: 5
   WolfSpeed: 2
   PetJump: 3
+  DragonSpeed: 5
+  ThrowSkillSpeed: 10
+  WolfTPdist: 5
+  BasicAttackCoolTime: 5
+  TarGetSkillDuration: 3
+  DurationCountTime: 0
   player: {fileID: 0}
   TarGet: {fileID: 0}
-  DragonState: 0
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 0
