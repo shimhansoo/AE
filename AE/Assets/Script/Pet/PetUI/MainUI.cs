@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainUI : MonoBehaviour
 {
+    public GameObject Player = null;
     public GameObject Wolf = null;
     public GameObject UIWolf = null;
     public GameObject PlayerStartScript1 = null;
@@ -25,6 +26,12 @@ public class MainUI : MonoBehaviour
         /*PlayerStartScript.SetActive(true);*/
     }
 
+    private void Awake()
+    {
+        GameObject PlayerScriptControl = GameObject.Find("Player");
+        Player = PlayerScriptControl;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -33,8 +40,12 @@ public class MainUI : MonoBehaviour
         if (TutoCount == 5) PlayerStartScript2.SetActive(true);
         if (TutoCount == 7) Tutorial2.SetActive(true);
         if (TutoCount == 9) PlayerStartScript3.SetActive(true);
-        if (TutoCount == 11) Tutorial3.SetActive(true);
-        if (TutoCount == 15) Tutorial4.SetActive(true);
+        if (TutoCount == 11) Tutorial3.SetActive(true);    
+        if (TutoCount == 15)
+        {
+            Tutorial4.SetActive(true);
+            if (!Player.GetComponent<SpearMan>().enabled) Player.GetComponent<SpearMan>().enabled = true;
+        }
         if (TutoCount == 20) Tutorial5.SetActive(true);
         if (TutoCount == 25) Tutorial6.SetActive(true);
         if (TutoCount == 28) PlayerStartScript4.SetActive(true);

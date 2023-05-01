@@ -22,7 +22,7 @@ TagManager:
   - Wall
   - MiniMapIcon
   - Boss
-  - 
+  - Wolf
   - 
   - 
   - 
@@ -48,6 +48,9 @@ TagManager:
     locked: 0
   - name: Monster_Struct
     uniqueID: 1109676699
+    locked: 0
+  - name: Pet
+    uniqueID: 2983037305
     locked: 0
   - name: Monster
     uniqueID: 36837441
