@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class FireDragon : PetMoveMent
 {
+    public BattleSystem testClass;
+
     // 파이어 드래곤 스킬 1 오브젝트
     public GameObject FireDragonSprit1;
     public GameObject FireDragonSprit2;
@@ -54,8 +56,10 @@ public class FireDragon : PetMoveMent
         switch (DragonState)
         {
             case State.Normal:
+                TarGet = testClass.DragonTarget.transform;
                 break;
             case State.Battle:
+                if (TarGet == null) ChangeState(State.Normal);
                 break;
             default:
                 Debug.Log("없는 상태 입니다.");
@@ -65,6 +69,9 @@ public class FireDragon : PetMoveMent
     // Update is called once per frame
     void Update()
     {
+        testClass = player.parent.GetComponent<BattleSystem>();
+        if(TarGet != null) ChangeState(State.Battle);
+
         StateProcess();
 
         // 파이어 드래곤 3번 스킬

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BattleSystem : PlayerMovement, GameManager.IBattle
 {
+    public GameObject DragonTarget = null;
     public bool isLive
     {
         get => !Mathf.Approximately(playerCurHp, 0f);
@@ -25,6 +26,7 @@ public class BattleSystem : PlayerMovement, GameManager.IBattle
         foreach (Collider2D enemy in hitEnemys)
         {
             enemy.GetComponent<GameManager.IBattle>().OnTakeDamage(playerDamege);
+            DragonTarget = enemy.gameObject;
         }
     }
 }
