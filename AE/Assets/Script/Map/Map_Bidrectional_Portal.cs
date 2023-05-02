@@ -42,7 +42,7 @@ public class Map_Bidrectional_Portal : MonoBehaviour
             
             if (image != null)
             {
-                StartCoroutine(FadeCoroutine());
+                //StartCoroutine(FadeCoroutine());
             }
             
         }
