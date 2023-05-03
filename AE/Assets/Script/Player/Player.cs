@@ -13,35 +13,45 @@ public class Player : BattleSystem
     
     private void FixedUpdate()
     {
+        if (isLive)
+        {
         OnMove();
+        }
     }
 
     void Update()
     {
-        playerCurrentMoveSpeed = playerMoveSpeed + additionalSpeed;
-
-        //대쉬
-        Dash();
-        
-        //좌우반전
-        Scalesetting();
-
-        //기본공격 시간 제어
-        attackTime += Time.deltaTime * attackSpeed;
-        if (attackTime >= 0.5f)
+        if (isLive)
         {
-            if (Input.GetKey(KeyCode.X))
+            playerCurrentMoveSpeed = playerMoveSpeed + additionalSpeed;
+
+            //대쉬
+            Dash();
+
+            //좌우반전
+            Scalesetting();
+
+            //기본공격 시간 제어
+            attackTime += Time.deltaTime * attackSpeed;
+            if (attackTime >= 0.5f)
             {
-                myAnim.SetTrigger("Attack");
-                attackTime = 0.0f;
+                if (Input.GetKey(KeyCode.X))
+                {
+                    myAnim.SetTrigger("Attack");
+                    attackTime = 0.0f;
+                }
             }
+            //무한 점프 제어
+            isJump = rayHitLeft || rayHitRight ? isJump = false : isJump = true;
+            jumpCool += Time.deltaTime;
+            if (!isJump && jumpCool >= 0.5f)
+            {
+                OnJump();
+            }
+            else
+                collisionCheck();
         }
-        //무한 점프 제어
-        isJump = rayHitLeft || rayHitRight ? isJump = false : isJump = true;
-        if (!isJump)
-            OnJump();
-        else
-            collisionCheck();
+        
     }
     private void OnDrawGizmosSelected()
     {

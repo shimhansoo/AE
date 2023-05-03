@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SpearMan : BattleSystem
 {
-    // 드래곤 임시.
-    public GameObject BasicDragon;
-    public GameObject FireDragon;
-    public GameObject EarthDragon;
-    public GameObject DarkDragon;
-
-    public bool berserk = false;
+    //스킬 관련
+    protected float playerSkillMoveSpeed_1 = 0f;
+    protected float playerSkillDamage_1 = 0f;
+    public GameObject SpearManskillEffect1;
+    public GameObject SpearManskillEffect2;
+    float spearmanSkillCoolTime1 = 7.0f;
+    float spearmanSkillCoolTime2 = 10.0f;
     void Start()
     {
         playerLayer = LayerMask.NameToLayer("Player");
@@ -21,66 +21,86 @@ public class SpearMan : BattleSystem
 
     private void FixedUpdate()
     {
-        OnMove();
+        if (isLive)
+        {
+            OnMove();
+        }
     }
 
     void Update()
     {
-        playerCurrentMoveSpeed = playerMoveSpeed + additionalSpeed;
-
-        //대쉬
-        Dash();
-
-        //좌우반전
-        Scalesetting();
-
-        //기본공격 시간 제어
-        attackTime += Time.deltaTime * attackSpeed;
-        if (attackTime >= 0.5f)
+        if (isLive)
         {
-            if (Input.GetKey(KeyCode.X))
+            playerCurrentMoveSpeed = playerMoveSpeed + additionalSpeed;
+            spearmanSkillCoolTime1 += Time.deltaTime;
+            spearmanSkillCoolTime2 += Time.deltaTime;
+            //대쉬
+            Dash();
+
+            //좌우반전
+            Scalesetting();
+
+            //기본공격 시간 제어
+            attackTime += Time.deltaTime * attackSpeed;
+            if (attackTime >= 0.5f)
             {
-                myAnim.SetTrigger("Attack");
-                attackTime = 0.0f;
+                if (Input.GetKey(KeyCode.X))
+                {
+                    myAnim.SetTrigger("Attack");
+                    attackTime = 0.0f;
+                }
+            }
+
+            //스킬 1
+            if (spearmanSkillCoolTime1 >= 7.0f)//7초 이후
+            {
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    spearmanSkillCoolTime1 = 0f;
+                    StartCoroutine(Berserk());
+                }
+            }
+            //스킬 2
+            if (spearmanSkillCoolTime2 >= 2.0f)
+            {
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    spearmanSkillCoolTime2 = 0f;
+                    GameObject temp = Instantiate(SpearManskillEffect2, new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);
+                }
+            }
+
+            //무한 점프 제어
+            isJump = rayHitLeft || rayHitRight ? isJump = false : isJump = true;
+            jumpCool += Time.deltaTime;
+            if (!isJump && jumpCool >= 0.5f)
+            {
+                OnJump();
+            }
+            else
+                collisionCheck();
+
+            // 드래곤 구현 확인을 위한 구문.
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                Instantiate(BasicDragon, transform.position, Quaternion.identity);
+            }
+            if (Input.GetKeyDown(KeyCode.F2))
+            {
+                Instantiate(FireDragon, transform.position, Quaternion.identity);
+            }
+            if (Input.GetKeyDown(KeyCode.F3))
+            {
+                Instantiate(EarthDragon, transform.position, Quaternion.identity);
+            }
+            if (Input.GetKeyDown(KeyCode.F4))
+            {
+                Instantiate(DarkDragon, transform.position, Quaternion.identity);
             }
         }
-
-        //스킬 1
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            StartCoroutine(Berserk());
-        }
-
-        //무한 점프 제어
-        isJump = rayHitLeft || rayHitRight ? isJump = false : isJump = true;
-        if (!isJump)
-            OnJump();
-        else
-            collisionCheck();
-
-        // 드래곤 구현 확인을 위한 구문.
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            Instantiate(BasicDragon, transform.position, Quaternion.identity);
-        }
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            Instantiate(FireDragon, transform.position, Quaternion.identity);
-        }
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            Instantiate(EarthDragon, transform.position, Quaternion.identity);
-        }
-        if (Input.GetKeyDown(KeyCode.F4))
-        {
-            Instantiate(DarkDragon, transform.position, Quaternion.identity);
-        }
     }
-
     IEnumerator Berserk()
     {
-        if (berserk) yield break;
-        berserk = true;
         playerSkillMoveSpeed_1 = playerMoveSpeed;
         playerSkillDamage_1 = playerDamege;
 
@@ -88,12 +108,11 @@ public class SpearMan : BattleSystem
         playerDamege *= 2.0f;
         attackSpeed = 10.0f;
 
-        GameObject temp = Instantiate(skillEffect1, new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);
+        GameObject temp = Instantiate(SpearManskillEffect1, new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);
         temp.transform.SetParent(this.transform);
         yield return new WaitForSeconds(5.0f);
 
         Destroy(temp);
-        berserk = false;
         playerMoveSpeed = playerSkillMoveSpeed_1;
         playerDamege = playerSkillDamage_1;
         attackSpeed = 1.0f;

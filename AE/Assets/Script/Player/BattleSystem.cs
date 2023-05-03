@@ -16,10 +16,9 @@ public class BattleSystem : PlayerMovement, GameManager.IBattle
         if (playerCurHp <= 0)
         {
             myAnim.SetTrigger("Death");
-            //Destroy(gameObject);
         }
     }
-
+    
     public void OnAttack()
     {
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);

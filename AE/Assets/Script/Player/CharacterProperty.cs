@@ -7,21 +7,25 @@ public class CharacterProperty : MonoBehaviour
     //체력 관련
     protected float playerMaxHp = 100.0f;
     public float playerCurHp = 0;
-    
-    
+
+
     //이동 관련
+    protected Vector2 dir = Vector2.zero;
     public float playerMoveSpeed = 3.0f;
     public float playerCurrentMoveSpeed = 0.0f;
     public float additionalSpeed = 0.0f;
 
     //대쉬 관련
     protected float collTime = 0.0f;
+    protected Vector2 frontVec = Vector2.zero;
+    protected int dashCount = 0;
 
     //점프 관련
     protected bool isJump = false;
     protected int playerLayer, groundLayer;
     protected RaycastHit2D rayHitLeft = new RaycastHit2D();
     protected RaycastHit2D rayHitRight = new RaycastHit2D();
+    protected float jumpCool = 0.0f;
     public float playerJumpPower = 16.0f;
     public LayerMask groundMask;
     public GameObject dashEffect;
@@ -35,13 +39,11 @@ public class CharacterProperty : MonoBehaviour
     public GameObject DebuffIcon = null;
     public LayerMask enemyLayers;
 
-    //스킬 관련
-    protected int dashCount = 0;
-    protected Vector2 dir = Vector2.zero;
-    protected Vector2 frontVec = Vector2.zero;
-    protected float playerSkillMoveSpeed_1 = 0f;
-    protected float playerSkillDamage_1 = 0f;
-    public GameObject skillEffect1;
+    // 드래곤 관련
+    protected GameObject BasicDragon;
+    protected GameObject FireDragon;
+    protected GameObject EarthDragon;
+    protected GameObject DarkDragon;
 
     //property 관련
     Animator _anim = null;

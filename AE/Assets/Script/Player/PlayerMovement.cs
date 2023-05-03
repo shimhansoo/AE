@@ -6,7 +6,7 @@ public class PlayerMovement : CharacterProperty
 {
     protected void collisionCheck()//Ground 충돌 무시
     {
-        if (GetComponent<Rigidbody2D>().velocity.y > 0.0f)
+        if (myRigid.velocity.y > 0.0f)
         {
             Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, true);
         }
@@ -46,16 +46,19 @@ public class PlayerMovement : CharacterProperty
         collTime += Time.deltaTime;
         if (collTime >= 2.0f)
         {
-            if (dashCount < 2) dashCount++;
-            collTime = 0.0f;
+            if (dashCount < 2)
+            {
+                dashCount++;
+                collTime = 0.0f;
+            }
         }
         if (dashCount > 0)
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 dashCount--;
-                GetComponent<Rigidbody2D>().AddForce(frontVec * 10.0f, ForceMode2D.Impulse);
-                Instantiate(dashEffect, transform.position, Quaternion.identity);
+                myRigid.AddForce(frontVec * 7.0f, ForceMode2D.Impulse);
+                Instantiate(dashEffect, new Vector2(transform.position.x, transform.position.y + 0.4f), Quaternion.identity);
             }
         }
     }
@@ -63,8 +66,10 @@ public class PlayerMovement : CharacterProperty
     protected void OnJump()//↑ 점프, ↓ 점프
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower, ForceMode2D.Impulse);
-
+        {
+            myRigid.AddForce(Vector2.up * playerJumpPower, ForceMode2D.Impulse);
+            jumpCool = 0.0f;
+        }
         if (Input.GetKeyDown(KeyCode.DownArrow))
             Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, true);
     }
@@ -73,8 +78,8 @@ public class PlayerMovement : CharacterProperty
     {
         while (true)
         {
-            rayHitRight = Physics2D.Raycast(GetComponent<Rigidbody2D>().position + new Vector2(-0.6f, 1) * 0.5f, Vector2.down, GetComponent<Rigidbody2D>().velocity.magnitude * Time.fixedDeltaTime + 1.5f, groundMask);
-            rayHitLeft = Physics2D.Raycast(GetComponent<Rigidbody2D>().position + new Vector2(0.6f, 1) * 0.5f, Vector2.down, GetComponent<Rigidbody2D>().velocity.magnitude * Time.fixedDeltaTime + 1.5f, groundMask);
+            rayHitRight = Physics2D.Raycast(myRigid.position + new Vector2(-0.6f, 1) * 0.5f, Vector2.down, GetComponent<Rigidbody2D>().velocity.magnitude * Time.fixedDeltaTime + 1.5f, groundMask);
+            rayHitLeft = Physics2D.Raycast(myRigid.position + new Vector2(0.6f, 1) * 0.5f, Vector2.down, GetComponent<Rigidbody2D>().velocity.magnitude * Time.fixedDeltaTime + 1.5f, groundMask);
             yield return new WaitForFixedUpdate();
         }
     }
