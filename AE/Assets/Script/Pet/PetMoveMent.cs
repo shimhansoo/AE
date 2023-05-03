@@ -48,21 +48,18 @@ public class PetMoveMent : PetProperty
             if (BasicAttackCoolTime >= 5.0f)
             {
                 PetRenderer.flipX = dir.x < 0.0f ? true : false;
-                if (Mathf.Abs(target.position.x - transform.position.x) > 1.3f)
+                if (Mathf.Abs(target.position.x - transform.position.x) > 1.0f)
                 {
                     PetAnim.SetBool("isAttacking", true);
                     transform.Translate(dir * delta);
                 }
                 else
                 {
-                    if (BasicAttackCoolTime >= 5.0f)
-                    {
                         PetAnim.SetTrigger("isAttack");
                         BasicAttackCoolTime = 0.0f;
-                    }
                 }
             }
-            else if (BasicAttackCoolTime >= 1.0f) ComeBack();
+            else if (BasicAttackCoolTime >= 1.0f && BasicAttackCoolTime <= 5.0f) ComeBack();
             yield return null;
         }
     }
@@ -81,7 +78,6 @@ public class PetMoveMent : PetProperty
         else
         {
             PetAnim.SetBool("isAttacking", false);
-            PetRenderer.flipX = TarGet.position.x - transform.position.x > 0.0f ? false : true;
             PetAnim.SetBool("isFlying", false);
         }
         if (transform.position.y - player.position.y > 0.5)
