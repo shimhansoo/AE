@@ -2,19 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragonTarGetSkill : PetProperty
-{
-    // °ø°Ý Å¸°Ù °ª.
-    public Transform Target;    
-    
+public class DragonTarGetSkill : FireDragon
+{    
     private void Start()
     {
-        transform.position = Target.position;
+        transform.position = TarGet.position;
     }
     private void Awake()
     {
-        GameObject TargetPos = GameObject.Find("OrcWarrior");
-        Target = TargetPos.transform;
+        TarGet = player.parent.GetComponent<BattleSystem>().DragonTarget.transform;
     }
     private void Update()
     {
@@ -22,7 +18,7 @@ public class DragonTarGetSkill : PetProperty
     }
     void TartGetSkill()
     {
-        transform.position = Target.position;
+        transform.position = TarGet.position;
         DurationCountTime += Time.deltaTime;
         if (TarGetSkillDuration < DurationCountTime)
         {

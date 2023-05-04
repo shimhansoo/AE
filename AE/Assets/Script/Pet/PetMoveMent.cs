@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PetMoveMent : PetProperty
+public class PetMoveMent : PetProperty /*, GameManager.IBattle*/
 {
     private void Awake()
     {
@@ -10,6 +10,17 @@ public class PetMoveMent : PetProperty
         GameObject PlayerPos = GameObject.Find("DragonTargetPlayerPos");
         player = PlayerPos.transform;
 
+    }
+    /*public void OnTakeDamage(float dmg)
+    {
+    }
+    public bool isLive
+    {
+        get; 
+    }*/
+    public void OnAttack()
+    {
+            TarGet.GetComponent<GameManager.IBattle>().OnTakeDamage(DragonATK);
     }
 
     // 노말 상태.

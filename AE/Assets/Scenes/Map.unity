@@ -18971,14 +18971,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d485a66a1a522514cb90b95f6e5b625b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WolfSpeed: 2
-  PetJump: 3
   DragonSpeed: 5
   ThrowSkillSpeed: 10
-  WolfTPdist: 5
-  BasicAttackCoolTime: 5
+  DragonATK: 50
   TarGetSkillDuration: 3
   DurationCountTime: 0
+  BasicAttackCoolTime: 5
+  WolfSpeed: 2
+  PetJump: 3
+  WolfTPdist: 5
   player: {fileID: 0}
   TarGet: {fileID: 0}
   GroundMask:
@@ -47717,14 +47718,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c09d0645104344681e13a3b560b3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WolfSpeed: 2
-  PetJump: 6.5
   DragonSpeed: 5
   ThrowSkillSpeed: 10
-  WolfTPdist: 5
-  BasicAttackCoolTime: 5
+  DragonATK: 50
   TarGetSkillDuration: 3
   DurationCountTime: 0
+  BasicAttackCoolTime: 5
+  WolfSpeed: 2
+  PetJump: 6.5
+  WolfTPdist: 5
   player: {fileID: 1813740304}
   TarGet: {fileID: 0}
   GroundMask:

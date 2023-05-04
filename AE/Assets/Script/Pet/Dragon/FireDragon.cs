@@ -22,7 +22,7 @@ public class FireDragon : PetMoveMent
     public GameObject FireDragonSkill2;
 
     // 첫 생성 상태
-    State DragonState = State.Creat;
+    [SerializeField]State DragonState = State.Creat;
 
     void Start()
     {        
@@ -61,13 +61,12 @@ public class FireDragon : PetMoveMent
         switch (DragonState)
         {
             case State.Normal:
-                if (testClass.DragonTarget != null)
-                TarGet = testClass.DragonTarget.transform;
+                if (testClass.DragonTarget != null) TarGet = testClass.DragonTarget.transform;
                 if (TarGet != null) ChangeState(State.Battle);
                 break;
-            case State.Battle:      
+            case State.Battle:     
                 if (TarGet == null || NowTarget != TarGet) ChangeState(State.Normal);
-                TarGet = testClass.DragonTarget.transform;
+                else TarGet = testClass.DragonTarget.transform;
                 break;
             default:
                 Debug.Log("없는 상태 입니다.");
@@ -96,7 +95,9 @@ public class FireDragon : PetMoveMent
         // 파이어 드래곤 4번 스킬
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            Instantiate(FireDragonSkill2, transform.position, Quaternion.identity);
+            GameObject test = Instantiate(FireDragonSkill2, transform.position, Quaternion.identity);
+            test.GetComponent<DragonThrowSkill>().enabled=true;
+            test.GetComponent<DragonThrowSkill>().TarGet = TarGet;
         }
 
     }    

@@ -8,21 +8,21 @@ public class PetProperty : MonoBehaviour
     protected enum State
     {
         Creat, Normal, Battle
-    }    
+    }
+
+    // 드래곤 float 값
+    public float DragonSpeed = 5.0f; // 드래곤 스피드
+    public float ThrowSkillSpeed = 10.0f; // 드래곤 투척스킬 스피드
+    public float DragonATK = 50.0f;
+    // 시간관련
+    public float TarGetSkillDuration = 3.0f; // 타겟 스킬 지속시간
+    public float DurationCountTime = 0.0f; // 타겟 스킬 지속시간 비교 값
+    public float BasicAttackCoolTime = 5.0f; // 드래곤 기본공격 쿨타임
 
     // 속도 관련
     public float WolfSpeed = 2.0f; // 울프 스피드
     public float PetJump = 3.0f; // 울프 점프 힘
-
-    public float DragonSpeed = 5.0f; // 드래곤 스피드
-    public float ThrowSkillSpeed = 10.0f; // 드래곤 투척스킬 스피드
     public float WolfTPdist = 5.0f; // 울프 텔레포트 거리
-
-    // 시간 관련
-    public float BasicAttackCoolTime = 5.0f; // 드래곤 기본공격 쿨타임
-
-    public float TarGetSkillDuration = 3.0f; // 타겟 스킬 지속시간
-    public float DurationCountTime = 0.0f; // 타겟 스킬 지속시간 비교 값
 
     // 오브젝트 참조 관련.
     public Transform player = null;
