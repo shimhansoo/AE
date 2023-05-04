@@ -7,6 +7,7 @@ public class BossMonsterMovement : Boss_Attk
 {
 
     public int MoveDir = 1;
+    protected Vector2 frontVec = Vector2.zero;
 
     protected void ChangeDirection()  // 이동 방향을 정할 함수
     {
@@ -49,7 +50,7 @@ public class BossMonsterMovement : Boss_Attk
                 myAnim.SetBool("isMoving", false);
                 dir = target.position - transform.position;
                 dir.y = 0;
-                dist = dir.magnitude - AttackRange;
+                dist = dir.magnitude - attackRange;
                 dir.Normalize();
                 delta = MoveSpeed * Time.deltaTime;
                 SetForward(dir);
@@ -62,7 +63,7 @@ public class BossMonsterMovement : Boss_Attk
                 {
                     if (!myAnim.GetBool("isAttacking"))
                     {
-                        if (playTime > AttackDelay)
+                        if (playTime > attackDelay)
                         {
                             int n = Random.Range(0, 3);
                             playTime = 0.0f;
@@ -76,6 +77,7 @@ public class BossMonsterMovement : Boss_Attk
                                     break;
                                 case 2:
                                     myAnim.SetTrigger("Earthquake");
+
                                     break;
 
                             }
@@ -126,7 +128,7 @@ public class BossMonsterMovement : Boss_Attk
     // 절벽 체크
     protected void CliffCheck()
     {
-        Vector2 frontVec = new Vector2(transform.position.x + (MoveDir * 0.5f), transform.position.y);
+        frontVec = new Vector2(transform.position.x + (MoveDir * 0.5f), transform.position.y);
         Debug.DrawRay(frontVec, Vector2.down, Color.yellow);
         RaycastHit2D cliffRay = Physics2D.Raycast(frontVec, Vector2.down, 1f, groundMask);
         if (cliffRay.collider == null)

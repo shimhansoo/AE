@@ -5,33 +5,23 @@ using UnityEngine;
 
 public class BossEarth : StateMachineBehaviour
 {
-    public float maxHealth = 100.0f;
-    private float currentHealth;
+  
+    
     public float EarthDamage = 10.0f;
-    public float attackRange = 5.0f;
-    private void DealDamage(Animator Earthquake)
-    {
-        Collider[] colliders = Physics.OverlapSphere(Earthquake.transform.position, attackRange);
-        foreach (Collider enemyCollider in colliders)
-        {
-            if (enemyCollider.gameObject.CompareTag("Player"))
-            {
-                GameManager.IBattle player = enemyCollider.gameObject.GetComponent<GameManager.IBattle>();
-                if (player != null)
-                {
-                    player.OnTakeDamage(EarthDamage);
-                }
-            }
-        }
-    }
+    public float attackRange = 10.0f;
+    
 
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("isAttacking", true);
         animator.SetTrigger("Earthquake");
+      
+        GameObject objLeft = Instantiate(Resources.Load("BossMonsters/Earth")) as GameObject;
+        objLeft.transform.position = new Vector3(animator.transform.position.x - 2.0f, animator.transform.position.y, animator.transform.position.z);
+        GameObject objRight = Instantiate(Resources.Load("BossMonsters/Earth")) as GameObject;
+        objRight.transform.position = new Vector3(animator.transform.position.x + 2.0f, animator.transform.position.y, animator.transform.position.z);
 
-        DealDamage(animator);
 
 
     }
@@ -48,11 +38,17 @@ public class BossEarth : StateMachineBehaviour
         animator.SetBool("isAttacking", false);
         animator.ResetTrigger("Earthquake");
 
-        DealDamage(animator);
-
+        GameObject objLeft = Instantiate(Resources.Load("BossMonsters/Earth")) as GameObject;
+        objLeft.transform.position = new Vector3(animator.transform.position.x - 2.0f, animator.transform.position.y, animator.transform.position.z);
+        GameObject objRight = Instantiate(Resources.Load("BossMonsters/Earth")) as GameObject;
+        objRight.transform.position = new Vector3(animator.transform.position.x + 2.0f, animator.transform.position.y, animator.transform.position.z);
 
     }
 
+
+
 }
+
+
 
 

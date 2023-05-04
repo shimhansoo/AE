@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69204709320734622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.02, y: -0.1, z: 0}
+  m_LocalPosition: {x: 1.54, y: -0.1, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 69204709376094919}
   - component: {fileID: 69204709376094917}
   - component: {fileID: 69204709376094918}
+  - component: {fileID: 2683195240042609662}
   m_Layer: 7
   m_Name: Img
   m_TagString: Untagged
@@ -57,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69204709376094920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33, y: 0.38, z: 0}
+  m_LocalPosition: {x: 0.06, y: 0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -137,6 +138,66 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2683195240042609662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69204709376094920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0966bdf54b8146b40aa0b84b40ee10e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6778802666276391392}
+        m_TargetAssemblyTypeName: BossMonster, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SwingFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6778802666276391392}
+        m_TargetAssemblyTypeName: BossMonster, Assembly-CSharp
+        m_MethodName: OnSwing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EarthFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6778802666276391392}
+        m_TargetAssemblyTypeName: BossMonster, Assembly-CSharp
+        m_MethodName: OnEarth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DeadFunc:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &69204709579944473
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,9 +207,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 69204709579944469}
-  - component: {fileID: 69204709579945455}
-  - component: {fileID: 8454480945641289467}
-  - component: {fileID: 5115905493729470462}
+  - component: {fileID: 8426686500762936989}
+  - component: {fileID: 658033303851147471}
+  - component: {fileID: 6778802666276391392}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -175,38 +236,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &69204709579945455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69204709579944473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4f395339bd73834e889827e000d99b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  AttackRange: 2
-  AttackDelay: 3
-  AttackPoint: 10
-  myTarget: {fileID: 0}
-  myRightRayPos: {fileID: 69204709320734621}
-  myLeftRayPos: {fileID: 69204711000296463}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 64
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 520
-  damge: 10
-  maxHp: 100
-  _curHp: -1
-  MoveDir: 1
-  attackTarget: {fileID: 0}
-  myState: 0
---- !u!50 &8454480945641289467
+--- !u!50 &8426686500762936989
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -226,8 +256,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!61 &5115905493729470462
+  m_Constraints: 0
+--- !u!61 &658033303851147471
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,7 +270,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3843193, y: 0.36630535}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -251,8 +281,42 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2338562, y: 2.6213455}
+  m_Size: {x: 3, y: 2.5}
   m_EdgeRadius: 0
+--- !u!114 &6778802666276391392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69204709579944473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f395339bd73834e889827e000d99b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 3
+  attackRange: 2
+  attackDelay: 2
+  attackDamge: 10
+  SwingDamage: 2
+  EarthDamage: 20
+  EarthEffect: {fileID: 341550822029039997, guid: 261c1db2f3122d44ea6b1bdad73aa27a, type: 3}
+  myTarget: {fileID: 0}
+  myRightRayPos: {fileID: 69204709320734621}
+  myLeftRayPos: {fileID: 69204711000296463}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 520
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  maxHp: 100
+  _curHp: -1
+  MoveDir: 1
+  attackTarget: {fileID: 0}
+  earthquake: 0
+  myState: 0
 --- !u!1 &69204710093859197
 GameObject:
   m_ObjectHideFlags: 0

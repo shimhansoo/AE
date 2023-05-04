@@ -5,17 +5,20 @@ using UnityEngine;
 public class BossProperty : MonoBehaviour
 {
     public float MoveSpeed = 1.0f;    // 몬스터의 이동 속도
-    public float AttackRange = 2.0f;    // 몬스터의 공격 사거리
-    public float AttackDelay = 3.0f;    // 몬스터의 공격 딜레이
-    public float AttackPoint = 10.0f;
+    public float attackRange = 1.0f;    // 몬스터의 공격 사거리
+    public float attackDelay = 2.0f;    // 몬스터의 공격 딜레이
+    public float attackDamge = 10.0f;   //몬스터의 공격력
+    public float SwingDamage = 2.0f;
+    public float EarthDamage = 20.0f;
+    public GameObject EarthEffect;
     protected float playTime = 0.0f;    // 공격 딜레이 검사할 변수
     public Transform myTarget = null; // 타겟 저장
     public Transform myRightRayPos = null;
     public Transform myLeftRayPos = null;
     public LayerMask targetMask;   // 타겟 레이어 지정
     public LayerMask groundMask;    // 땅 체크
-    public float damge = 10.0f;
-    public float maxHp = 100.0f;
+    
+    public float maxHp = 100f;
     public float _curHp = -1f;
    
   

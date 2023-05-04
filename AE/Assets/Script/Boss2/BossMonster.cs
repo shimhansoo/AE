@@ -8,6 +8,7 @@ public class BossMonster : BossMonsterMovement, GameManager.IPerception, GameMan
    
     public Transform attackTarget = null;
     public static BossMonster MonsterInstance;
+    public bool earthquake = false;
     // 유한 상태기계
     public State myState = State.Create;
     public enum State
@@ -63,6 +64,7 @@ public class BossMonster : BossMonsterMovement, GameManager.IPerception, GameMan
         AirCheck();
         CliffCheck();
     }
+    
 
     void Update()
     {
@@ -82,6 +84,21 @@ public class BossMonster : BossMonsterMovement, GameManager.IPerception, GameMan
         coTrace = null;
         ChangeState(State.Normal);
     }
+    public void OnAttack()
+    {
+        myTarget.GetComponent<IBattle>()?.OnTakeDamage(attackDamge);
+        
+
+
+    }
+    public void OnSwing()
+    {
+        myTarget.GetComponent<IBattle>()?.OnTakeDamage(SwingDamage);
+    }
+    public void OnEarth()
+    {
+        myTarget.GetComponent<IBattle>()?.OnTakeDamage(EarthDamage);
+    }
     // IBattle
     public bool isLive
     {
@@ -90,14 +107,21 @@ public class BossMonster : BossMonsterMovement, GameManager.IPerception, GameMan
     public void OnTakeDamage(float dmg)
     {
         curHp -= dmg;
-        myAnim.SetTrigger("Damage");
-        if (Mathf.Approximately(curHp, 0f))
-        {
-            Collider2D[] colList = transform.GetComponentsInChildren<Collider2D>();
-            foreach (Collider2D col in colList) col.enabled = false;
-            myRigid.simulated = false;
-            ChangeState(State.Death);
-        }
+        myAnim.SetTrigger("OnDamage");
+       
+            if (!Mathf.Approximately(curHp, 0f))
+            {
+            if(myAnim.GetBool("isAttacking"))
+            myAnim.SetTrigger("OnDamage");
+            }
+        
+        else
+        { 
+        Collider2D[] colList = transform.GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D col in colList) col.enabled = false;
+        myRigid.simulated = false;
+        ChangeState(State.Death);
+         }
     }
 
     IEnumerator Death()
@@ -106,7 +130,7 @@ public class BossMonster : BossMonsterMovement, GameManager.IPerception, GameMan
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
-   
+  
 } 
     
    
