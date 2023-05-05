@@ -196,6 +196,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  AutoAttackFunc:
+    m_PersistentCalls:
+      m_Calls: []
   DeadFunc:
     m_PersistentCalls:
       m_Calls: []
@@ -208,8 +211,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5602221241060937573}
-  - component: {fileID: 5602221241060937575}
   - component: {fileID: 5602221241060937574}
+  - component: {fileID: 5602221241060937575}
   m_Layer: 8
   m_Name: AIPerception
   m_TagString: Untagged
@@ -232,6 +235,21 @@ Transform:
   m_Father: {fileID: 5602221241257552024}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5602221241060937574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5602221241060937570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0728943f7119dd409b1b5d9c91a545a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!58 &5602221241060937575
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -248,21 +266,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 10
---- !u!114 &5602221241060937574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5602221241060937570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0728943f7119dd409b1b5d9c91a545a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &5602221241257552025
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,24 +317,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08a29a29852e2b43bc5de26a071ada8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 50
   _curHp: -1
   moveSpeed: 1
-  attackRange: 6
-  attackDelay: 3
-  attackPoint: 10
+  attackDamage: 2
+  autoAttackRange: 5
+  attackDelay: 4
   myTarget: {fileID: 0}
-  myRightRayPos: {fileID: 968226305}
-  myLeftRayPos: {fileID: 516608099}
   targetMask:
     serializedVersion: 2
     m_Bits: 64
+  attackTarget: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
+  myRightRayPos: {fileID: 968226305}
+  myLeftRayPos: {fileID: 516608099}
   groundMask:
     serializedVersion: 2
     m_Bits: 520
-  MoveDir: 1
-  attackTarget: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
   myState: 0
+  throwCnt: 0
 --- !u!61 &5602221241257552026
 BoxCollider2D:
   m_ObjectHideFlags: 0

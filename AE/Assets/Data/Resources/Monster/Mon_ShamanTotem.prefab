@@ -48,7 +48,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 5
 --- !u!114 &1730383080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1109676699
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 904265157, guid: 4720ecf146b5dad47a3813e62bf47637, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -303,22 +303,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe53387a998af21479bcf1a602094038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 70
   _curHp: -1
   moveSpeed: 1
-  attackRange: 2
+  attackDamage: 3
+  autoAttackRange: 2
   attackDelay: 3
-  attackPoint: 3
   myTarget: {fileID: 8338022291246910990, guid: b4033e14597d27041a15985c9eb68351, type: 3}
-  myRightRayPos: {fileID: 0}
-  myLeftRayPos: {fileID: 0}
   targetMask:
     serializedVersion: 2
     m_Bits: 64
+  attackTarget: {fileID: 0}
+  myRightRayPos: {fileID: 0}
+  myLeftRayPos: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 520
-  MoveDir: 1
+  myState: 0
+  throwCnt: 0
   isSlow: 0
   SlowPercentage: 50
   slowDebuffTime: 3

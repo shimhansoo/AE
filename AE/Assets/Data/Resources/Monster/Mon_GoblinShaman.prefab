@@ -113,24 +113,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08a29a29852e2b43bc5de26a071ada8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 50
   _curHp: -1
   moveSpeed: 1
-  attackRange: 2
-  attackDelay: 3
-  attackPoint: 3
+  attackDamage: 3
+  autoAttackRange: 7
+  attackDelay: 10
   myTarget: {fileID: 0}
-  myRightRayPos: {fileID: 622449231}
-  myLeftRayPos: {fileID: 620672552}
   targetMask:
     serializedVersion: 2
     m_Bits: 64
+  attackTarget: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
+  myRightRayPos: {fileID: 622449231}
+  myLeftRayPos: {fileID: 620672552}
   groundMask:
     serializedVersion: 2
     m_Bits: 520
-  MoveDir: 1
-  attackTarget: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
   myState: 0
+  throwCnt: 0
 --- !u!61 &5610976048636743017
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -312,6 +312,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  AutoAttackFunc:
+    m_PersistentCalls:
+      m_Calls: []
   DeadFunc:
     m_PersistentCalls:
       m_Calls: []
@@ -378,7 +381,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 8
 --- !u!1 &7315619107377915632
 GameObject:
   m_ObjectHideFlags: 0

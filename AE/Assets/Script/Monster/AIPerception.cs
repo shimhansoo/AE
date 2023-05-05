@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[RequireComponent(typeof(CircleCollider2D))]
 public class AIPerception : MonoBehaviour
 {
     public LayerMask targetMask;
@@ -10,7 +10,7 @@ public class AIPerception : MonoBehaviour
     GameManager.ITotem myTotem = null;
     Transform myTarget = null;
     bool isPlayerIn = false;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +31,7 @@ public class AIPerception : MonoBehaviour
         {
             if (myTarget == null)
             {
-                if(myTotem != null)isPlayerIn = true;   // 토템이면 isPlayerIn = true
+                if (myTotem != null) isPlayerIn = true;   // 토템이면 isPlayerIn = true
                 myTarget = collision.transform;
                 myParent.FindTarget(myTarget);
             }

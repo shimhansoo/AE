@@ -6,10 +6,15 @@ using UnityEngine.Events;
 public class MonsterAnimEvent : MonoBehaviour
 {
     public UnityEvent AttackFunc;
+    public UnityEvent AutoAttackFunc;
     public UnityEvent DeadFunc;
-    void OnAttack()
+    public void OnAttack()
     {
         AttackFunc?.Invoke();
+    }
+    public void OnAutoAttack()
+    {
+        AutoAttackFunc?.Invoke();
     }
     public void OnDead()
     {

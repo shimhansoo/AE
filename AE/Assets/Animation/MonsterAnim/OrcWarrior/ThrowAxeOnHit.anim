@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack
+  m_Name: ThrowAxeOnHit
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,24 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -998184728, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
-    - time: 0.083333336
-      value: {fileID: -1485381877, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
-    - time: 0.16666667
-      value: {fileID: 513394048, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
-    - time: 0.25
-      value: {fileID: -42249521, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
-    - time: 0.33333334
-      value: {fileID: -175280222, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
-    - time: 0.41666666
-      value: {fileID: -139037060, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
-    - time: 0.5
-      value: {fileID: -1058576408, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
+      value: {fileID: 21300000, guid: 064227e61593e4746b1db76f0ea13248, type: 3}
+    - time: 0.1
+      value: {fileID: 21300000, guid: 4bef1416e8b822e4bab7ce5131f0d95a, type: 3}
+    - time: 0.18333334
+      value: {fileID: 21300000, guid: 59a8814efd7ebcc468fdcad80cb0f1f0, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -52,24 +44,20 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -998184728, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
-    - {fileID: -1485381877, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
-    - {fileID: 513394048, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
-    - {fileID: -42249521, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
-    - {fileID: -175280222, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
-    - {fileID: -139037060, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
-    - {fileID: -1058576408, guid: 5493d4911b8af80409d807f872dfb0c8, type: 3}
+    - {fileID: 21300000, guid: 064227e61593e4746b1db76f0ea13248, type: 3}
+    - {fileID: 21300000, guid: 4bef1416e8b822e4bab7ce5131f0d95a, type: 3}
+    - {fileID: 21300000, guid: 59a8814efd7ebcc468fdcad80cb0f1f0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5833333
+    m_StopTime: 0.2
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -84,8 +72,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.25
-    functionName: OnAutoAttack
+  - time: 0.18333334
+    functionName: DestroyObj
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

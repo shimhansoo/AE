@@ -43,9 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: ThrowObj
-    uniqueID: 3276804527
-    locked: 0
   - name: Monster_Struct
     uniqueID: 1109676699
     locked: 0
@@ -60,4 +57,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2265589535
+    locked: 0
+  - name: ThrowObj
+    uniqueID: 3276804527
     locked: 0

@@ -125,7 +125,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 8
 --- !u!1 &651299212641287523
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 651299212641287520}
   - component: {fileID: 651299212641287550}
   - component: {fileID: 651299212641287521}
+  - component: {fileID: 4873340944202702354}
   m_Layer: 7
   m_Name: IMG
   m_TagString: Untagged
@@ -232,6 +233,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4873340944202702354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651299212641287523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b750bb6219bebae46b6d2cb9ca6e3cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 651299212822886174}
+        m_TargetAssemblyTypeName: MonsterAttack, Assembly-CSharp
+        m_MethodName: OrcThrowAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AutoAttackFunc:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 651299212822886174}
+        m_TargetAssemblyTypeName: MonsterAttack, Assembly-CSharp
+        m_MethodName: AutoAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DeadFunc:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &651299212822886146
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,24 +329,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08a29a29852e2b43bc5de26a071ada8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 140
   _curHp: -1
   moveSpeed: 1
-  attackRange: 2
-  attackDelay: 3
-  attackPoint: 3
+  attackDamage: 3
+  autoAttackRange: 1.5
+  attackDelay: 1.5
   myTarget: {fileID: 0}
-  myRightRayPos: {fileID: 106541020}
-  myLeftRayPos: {fileID: 1205956358}
   targetMask:
     serializedVersion: 2
     m_Bits: 64
+  attackTarget: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
+  myRightRayPos: {fileID: 106541020}
+  myLeftRayPos: {fileID: 1205956358}
   groundMask:
     serializedVersion: 2
     m_Bits: 520
-  MoveDir: 1
-  attackTarget: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
   myState: 0
+  throwCnt: 0
 --- !u!61 &651299212822886145
 BoxCollider2D:
   m_ObjectHideFlags: 0

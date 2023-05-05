@@ -1,17 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Monster : MonsterMovement, GameManager.IPerception, GameManager.IBattle
+[RequireComponent(typeof(Rigidbody2D), (typeof(BoxCollider2D)))]
+public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBattle
 {
-    public Transform attackTarget = null;
     public static Monster MonsterInstance;
-    // 유한 상태기계
-    public State myState = State.Create;
-    public enum State
-    {
-        Create, Normal, Battle, Death
-    }
     void ChangeState(State s)
     {
         if (myState == s) return;
