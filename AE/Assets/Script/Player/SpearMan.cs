@@ -11,6 +11,7 @@ public class SpearMan : BattleSystem
     public GameObject SpearManskillEffect2;
     float spearmanSkillCoolTime1 = 7.0f;
     float spearmanSkillCoolTime2 = 10.0f;
+    
     void Start()
     {
         playerLayer = LayerMask.NameToLayer("Player");

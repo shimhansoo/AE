@@ -15,6 +15,7 @@ public class PlayerMovement : CharacterProperty
             Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, false);
         }
     }
+    Vector2 test = Vector2.zero;
 
     protected void Scalesetting()//좌우반전
     {
@@ -29,7 +30,6 @@ public class PlayerMovement : CharacterProperty
         dir.x = Input.GetAxisRaw("Horizontal");
         if (dir.x == 1) frontVec.x = 1;
         else if (dir.x == -1) frontVec.x = -1;
-
         if (!Mathf.Approximately(dir.x, 0.0f))
         {
             myAnim.SetBool("isMoving", true);
@@ -39,6 +39,18 @@ public class PlayerMovement : CharacterProperty
             myAnim.SetBool("isMoving", false);
         }
         transform.Translate(dir * playerCurrentMoveSpeed * Time.deltaTime);
+        if(transform.localScale.x == 1.0f)
+        {
+            test.x = dir.x;
+        }
+        else
+        {
+            test.x = -dir.x;
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            transform.Translate(test * Time.deltaTime * playerMoveSpeed);
+        }
     }
 
     protected void Dash()//대쉬
