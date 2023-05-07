@@ -95,9 +95,9 @@ public class FireDragon : PetMoveMent
         // 파이어 드래곤 4번 스킬
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            GameObject test = Instantiate(FireDragonSkill2, transform.position, Quaternion.identity);
-            test.GetComponent<DragonThrowSkill>().enabled=true;
-            test.GetComponent<DragonThrowSkill>().TarGet = TarGet;
+            GameObject SkillTarget = Instantiate(FireDragonSkill2, transform.position, Quaternion.identity);
+            SkillTarget.GetComponent<DragonThrowSkill>().enabled=true;
+            SkillTarget.GetComponent<DragonThrowSkill>().TarGet = TarGet;
         }
 
     }    

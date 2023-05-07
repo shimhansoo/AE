@@ -11,16 +11,17 @@ public class PetMoveMent : PetProperty /*, GameManager.IBattle*/
         player = PlayerPos.transform;
 
     }
-    /*public void OnTakeDamage(float dmg)
-    {
-    }
-    public bool isLive
-    {
-        get; 
-    }*/
+
+    // 드래곤 일반 공격 데미지 적용 함수.
     public void OnAttack()
     {
             TarGet.GetComponent<GameManager.IBattle>().OnTakeDamage(DragonATK);
+    }
+
+    // 드래곤 스킬 공격 데미지 적용 함수.
+    protected void SkillDamage(float Damage)
+    {
+        TarGet.GetComponent<GameManager.IBattle>().OnTakeDamage(Damage);
     }
 
     // 노말 상태.
