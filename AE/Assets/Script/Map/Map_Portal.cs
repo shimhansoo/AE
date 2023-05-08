@@ -16,11 +16,13 @@ public class Map_Portal : MonoBehaviour
     public GameObject secondMini;
     public GameObject thirdMini;
     public GameObject fourthMini;
+    public GameObject boss;
     public GameObject fifthMini;
     public GameObject sixthMini;
     public GameObject seventhMini;
 
     public int portalIndex = 0;
+
     // 1-1 -> 2-1 : 1
     // 2-1 -> 2-2 : 2
     // 2-2 -> 2-3 : 3
@@ -30,11 +32,12 @@ public class Map_Portal : MonoBehaviour
     
 
     Map2_CameraLimit map2_CameraLimit;
-    
+    public GameObject cam;
 
     // Start is called before the first frame update
     void Start()
     {
+
         map2_CameraLimit.Teleport();
     }
 
@@ -97,6 +100,7 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.Teleport();
                     thirdMini.SetActive(false);
                     fourthMini.SetActive(true);
+                    boss.SetActive(true);
                     break;
                 case 4:
                     // 3 - 1 狼 规 力茄
@@ -108,6 +112,7 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.ThirdStage();
                     fourthMini.SetActive(false);
                     fifthMini.SetActive(true);
+                    
                     break;
                 case 5:
                     // 3 - 2 狼 规 力茄
@@ -118,6 +123,7 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.Teleport();
                     fifthMini.SetActive(false);
                     sixthMini.SetActive(true);
+                    cam.GetComponent<CameraShake>().MapShake();
                     break;
                 case 6:
                     // 3 - 3 狼 规 力茄
@@ -128,6 +134,7 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.Teleport();
                     sixthMini.SetActive(false);
                     seventhMini.SetActive(true);
+                    cam.GetComponent<CameraShake>().MapShakeEnd();
                     break;
             }
         }

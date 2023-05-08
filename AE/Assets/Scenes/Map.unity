@@ -1646,6 +1646,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 69204709579944473, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
 --- !u!1 &238214496
@@ -8438,11 +8442,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.9
+      value: 58.39
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11
+      value: -23.05
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9902,6 +9906,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -3.43
       objectReference: {fileID: 0}
+    - target: {fileID: 8992312194720688024, guid: cb413741a680c4b4683de5d8cc55fed5, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 738063025}
     - target: {fileID: 8992312194720688024, guid: cb413741a680c4b4683de5d8cc55fed5, type: 3}
       propertyPath: image
       value: 
@@ -16587,6 +16595,10 @@ PrefabInstance:
       value: -3.39
       objectReference: {fileID: 0}
     - target: {fileID: 8992312194720688024, guid: cb413741a680c4b4683de5d8cc55fed5, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 738063025}
+    - target: {fileID: 8992312194720688024, guid: cb413741a680c4b4683de5d8cc55fed5, type: 3}
       propertyPath: image
       value: 
       objectReference: {fileID: 1611809475}
@@ -18258,6 +18270,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2.19
       objectReference: {fileID: 0}
+    - target: {fileID: 8992312194720688024, guid: cb413741a680c4b4683de5d8cc55fed5, type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1557834452}
     - target: {fileID: 8992312194720688024, guid: cb413741a680c4b4683de5d8cc55fed5, type: 3}
       propertyPath: image
       value: 
@@ -45478,6 +45494,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 242bd2415615fbb43a74022f60a0d772, type: 3}
+--- !u!1 &1557834452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 69204709579944473, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
+  m_PrefabInstance: {fileID: 228308472}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1571060684
 GameObject:
   m_ObjectHideFlags: 0
@@ -47792,7 +47813,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1311929991
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -7008412969330441016, guid: fda15868c79002f43b34fb4565d0aaf6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -15,6 +15,7 @@ public class CameraShake : MonoBehaviour
     public float shakeAmount = 4.0f;
 
     public Transform cam;
+    Coroutine mapShake;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,14 @@ public class CameraShake : MonoBehaviour
         }
         
     }
+    public void MapShake()
+    {
+        mapShake = StartCoroutine(MapShaking());
+    }
+    public void MapShakeEnd()
+    {
+        StopCoroutine(mapShake);
+    }
     IEnumerator LightShake()
     {
         Vector3 originPosition = cam.transform.position;
@@ -55,6 +64,7 @@ public class CameraShake : MonoBehaviour
         cam.localPosition = originPosition;
         Debug.Log("LightShake");
     }
+    
     IEnumerator Shake()
     {
         Vector3 originPosition = cam.transform.position;
@@ -70,5 +80,17 @@ public class CameraShake : MonoBehaviour
         }
         cam.localPosition = originPosition;
         Debug.Log("Shake");
+    }
+
+    public IEnumerator MapShaking()
+    {
+        while (true)
+        {
+            Vector3 originPosition = cam.transform.position;
+            Vector3 randomPoint = originPosition + Random.insideUnitSphere * shakeAmount * 2;
+            cam.localPosition = Vector3.Lerp(cam.localPosition, randomPoint, Time.deltaTime * shakeSpeed);
+            yield return null;
+            Debug.Log("Map");
+        }
     }
 }
