@@ -214,12 +214,13 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
-  skillEffect1: {fileID: 5979677498427948310, guid: e535cebbdcacd4f45bd3e28c0d067eb2, type: 3}
   BasicDragon: {fileID: 5990443681879294167, guid: c896ecfa5979b644493b4d6b95529058, type: 3}
   FireDragon: {fileID: 1385979651342774976, guid: 4329450b67a587f4f955ef620783bf33, type: 3}
   EarthDragon: {fileID: 2278172737845734212, guid: a11e0a2201ec11f4693e84c94dfe36a6, type: 3}
   DarkDragon: {fileID: 8782368268330848607, guid: f0e21e0a885ffa64a83e2de9543f43c4, type: 3}
-  berserk: 0
+  DragonTarget: {fileID: 0}
+  SpearManskillEffect1: {fileID: 1519848516903536081, guid: 0dfb3b625f4d9e14e8eff025d4693dbc, type: 3}
+  SpearManskillEffect2: {fileID: 6907581190293098521, guid: 7fe6788e4a7c5324d91e08ea13834415, type: 3}
 --- !u!50 &9012221850467041105
 Rigidbody2D:
   serializedVersion: 4
@@ -436,7 +437,11 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
-  skillEffect1: {fileID: 0}
+  BasicDragon: {fileID: 0}
+  FireDragon: {fileID: 0}
+  EarthDragon: {fileID: 0}
+  DarkDragon: {fileID: 0}
+  DragonTarget: {fileID: 0}
   OnAttack:
     m_PersistentCalls:
       m_Calls:

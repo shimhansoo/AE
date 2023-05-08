@@ -33,7 +33,7 @@ public class PetProperty : MonoBehaviour
     Animator _PetAnim;
     SpriteRenderer _PetRenderer;
 
-    // Æê ¾Ö´Ï¸ÞÀÌ¼Ç ±Ì³‚Ç´‡»Åý
+    // Æê ¾Ö´Ï¸ÞÀÌ¼Ç °ÙÄÄÆ÷³ÍÆ®
     protected Animator PetAnim
     {
         get

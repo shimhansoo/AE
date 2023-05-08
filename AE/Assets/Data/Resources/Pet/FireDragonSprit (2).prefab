@@ -97,13 +97,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0dc276c94cb30419ab49a9e073550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  DRG: {fileID: 0}
+  DragonSpeed: 5
+  ThrowSkillSpeed: 10
+  DragonATK: 50
+  TarGetSkillDuration: 3
+  DurationCountTime: 0
+  BasicAttackCoolTime: 5
+  WolfSpeed: 2
+  PetJump: 3
+  WolfTPdist: 5
+  player: {fileID: 0}
+  TarGet: {fileID: 0}
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 0
   Reset:
     m_PersistentCalls:
       m_Calls: []
   ThrowSpeed: 10
   Count: 0
-  CountCount: 3
+  CountCount: 2
   StartXPos: 1
   StartYPos: 2

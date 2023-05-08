@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8867333859783043926}
   - component: {fileID: 8867333859783043921}
   - component: {fileID: 6915153924361130611}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: FireDragonSkill2Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

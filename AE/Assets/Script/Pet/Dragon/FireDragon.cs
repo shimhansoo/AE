@@ -16,7 +16,15 @@ public class FireDragon : PetMoveMent
     public GameObject FireDragonSprit3;
     public GameObject FireDragonSprit4;
     // 파이어 드래곤 스킬 1 임시 락
-    public bool isspirit = true;
+    [SerializeField] bool _isSprit = true;
+    public bool isspirit
+    {
+        get => _isSprit;
+        set
+        {
+            _isSprit = value;
+        }
+    }
 
     // 파이어 드래곤 스킬 2 오브젝트
     public GameObject FireDragonSkill2;
@@ -28,7 +36,7 @@ public class FireDragon : PetMoveMent
     {        
         // 생성되고 첫 상태 노말
         ChangeState(State.Normal);
-        testClass = player.parent.GetComponent<BattleSystem>();
+        testClass = player.parent.GetComponent<BattleSystem>();        
     }
 
     // 파이어 드래곤 상태 변경 함수.
@@ -76,30 +84,45 @@ public class FireDragon : PetMoveMent
     // Update is called once per frame
     void Update()
     {
-        // 배틀시스템 스크립트를 참조함
-        
-        
-
         StateProcess();
 
         // 파이어 드래곤 3번 스킬
         if(Input.GetKeyDown(KeyCode.Alpha3) && isspirit)
         {
-            isspirit = false;
-            Instantiate(FireDragonSprit1, transform.position, Quaternion.identity);
-            Instantiate(FireDragonSprit2, transform.position, Quaternion.identity);
-            Instantiate(FireDragonSprit3, transform.position, Quaternion.identity);
-            Instantiate(FireDragonSprit4, transform.position, Quaternion.identity);
+            if(isspirit)isspirit = false;
+            GameObject FireSpritSkill1 = Instantiate(FireDragonSprit1, transform.position + new Vector3(0.5f,1.5f,0), Quaternion.identity, transform);
+            GameObject FireSpritSkill2 = Instantiate(FireDragonSprit2, transform.position + new Vector3(-0.5f, 1.5f, 0), Quaternion.identity, transform);
+            GameObject FireSpritSkill3 = Instantiate(FireDragonSprit3, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, transform);
+            GameObject FireSpritSkill4 = Instantiate(FireDragonSprit4, transform.position + new Vector3(-0.5f, 0.5f, 0), Quaternion.identity, transform);
+            DragonFireSpritSkillTargetSetting(FireSpritSkill1);
+            DragonFireSpritSkillTargetSetting(FireSpritSkill2);
+            DragonFireSpritSkillTargetSetting(FireSpritSkill3);
+            DragonFireSpritSkillTargetSetting(FireSpritSkill4);
+            FireSpritSkill4.GetComponent<FireSpritSkill>().FireSpritReset.AddListener(FireSpiritReset);
         }
 
         // 파이어 드래곤 4번 스킬
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            GameObject SkillTarget = Instantiate(FireDragonSkill2, transform.position, Quaternion.identity);
-            SkillTarget.GetComponent<DragonThrowSkill>().enabled=true;
-            SkillTarget.GetComponent<DragonThrowSkill>().TarGet = TarGet;
+            GameObject FireThrowSkill = Instantiate(FireDragonSkill2, transform.position, Quaternion.identity);
+            DragonThrowSkillTargetSetting(FireThrowSkill);
         }
-
-    }    
+    }
+    public void FireSpiritReset()
+    {
+        isspirit = true;
+    }
+    // 파이어 드래곤 3번스킬 타겟설정.
+    void DragonFireSpritSkillTargetSetting(GameObject Target)
+    {
+        //Target.GetComponent<DragonThrowSkill>().enabled = true;
+        Target.GetComponent<FireSpritSkill>().TarGet = TarGet;
+    }
+    // 파이어 드래곤 4번스킬 타겟설정.
+    void DragonThrowSkillTargetSetting(GameObject Target)
+    {
+        //Target.GetComponent<DragonThrowSkill>().enabled = true;
+        Target.GetComponent<DragonThrowSkill>().TarGet = TarGet;
+    }
 }
 

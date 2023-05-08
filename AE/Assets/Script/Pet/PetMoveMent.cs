@@ -15,6 +15,7 @@ public class PetMoveMent : PetProperty /*, GameManager.IBattle*/
     // 드래곤 일반 공격 데미지 적용 함수.
     public void OnAttack()
     {
+        if(TarGet!=null)
             TarGet.GetComponent<GameManager.IBattle>().OnTakeDamage(DragonATK);
     }
 
