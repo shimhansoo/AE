@@ -8,7 +8,8 @@ public class DragonThrowSkill : PetProperty
     public GameObject Effect;
     private void Update()
     {
-        ThrowSkill();
+        if (TarGet == null) Destroy(gameObject);
+        else ThrowSkill();
     }
 
     void ThrowSkill()

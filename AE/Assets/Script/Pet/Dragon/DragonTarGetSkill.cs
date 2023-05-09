@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class DragonTarGetSkill : PetMoveMent
 {
-    float count = 2.0f;
     private void Start()
     {
-        StartCoroutine(SkillDamageCount());
+        StartCoroutine(OnDamage(2.0f));
     }
     private void Update()
     {
-        TartGetSkill();
+        if (TarGet == null) Destroy(gameObject);
+        else TartGetSkill();        
     }
+    // 정해진 시간동안 타겟을 따라다니는 타겟 스킬.
     void TartGetSkill()
     {
+        
         transform.position = TarGet.position + new Vector3(0,0.5f,0);
         DurationCountTime += Time.deltaTime;
         if (TarGetSkillDuration < DurationCountTime)
@@ -23,17 +25,13 @@ public class DragonTarGetSkill : PetMoveMent
             Destroy(gameObject);
         }        
     }
-    IEnumerator SkillDamageCount()
+    // DamageDelay초마다 데미지를 입힌다.
+    IEnumerator OnDamage(float DamageDelay)
     {
         while(true)
         {
-            count += Time.deltaTime;
-            if(count >2.0f)
-            {
-                SkillDamage(20.0f);
-                count = 0;
-            }
-            yield return null;
+            SkillDamage(20.0f);
+            yield return new WaitForSeconds(DamageDelay);
         }
     }
 }

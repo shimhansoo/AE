@@ -146,4 +146,21 @@ public class PetMoveMent : PetProperty /*, GameManager.IBattle*/
             yield return null;
         }
     }
+
+    protected IEnumerator Skill1CoolTimeCheck()
+    {
+        while(Skill1CoolTime >= 0.0f)
+        {
+            Skill1CoolTime -= Time.deltaTime;
+            yield return null;
+        }
+    }
+    protected IEnumerator Skill2CoolTimeCheck()
+    {
+        while (Skill2CoolTime >= 0.0f)
+        {
+            Skill2CoolTime -= Time.deltaTime;
+            yield return null;
+        }
+    }
 }

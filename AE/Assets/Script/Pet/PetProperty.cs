@@ -18,6 +18,8 @@ public class PetProperty : MonoBehaviour
     public float TarGetSkillDuration = 3.0f; // 타겟 스킬 지속시간
     public float DurationCountTime = 0.0f; // 타겟 스킬 지속시간 비교 값
     public float BasicAttackCoolTime = 5.0f; // 드래곤 기본공격 쿨타임
+    public float Skill1CoolTime = 0.0f; // 드래곤 스킬1(3번) 쿨타임
+    public float Skill2CoolTime = 0.0f; // 드래곤 스킬2(4번) 쿨타임
 
     // 속도 관련
     public float WolfSpeed = 2.0f; // 울프 스피드

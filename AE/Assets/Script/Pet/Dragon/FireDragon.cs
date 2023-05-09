@@ -15,28 +15,22 @@ public class FireDragon : PetMoveMent
     public GameObject FireDragonSprit2;
     public GameObject FireDragonSprit3;
     public GameObject FireDragonSprit4;
-    // 파이어 드래곤 스킬 1 임시 락
-    [SerializeField] bool _isSprit = true;
-    public bool isspirit
-    {
-        get => _isSprit;
-        set
-        {
-            _isSprit = value;
-        }
-    }
-
+    // 파이어 드래곤 스킬 1 중복사용 제한 bool 값.
+    public bool issprit = true;
     // 파이어 드래곤 스킬 2 오브젝트
     public GameObject FireDragonSkill2;
+
+    Coroutine coDragonMoving = null;
+    Coroutine coAttacking = null;
 
     // 첫 생성 상태
     [SerializeField]State DragonState = State.Creat;
 
     void Start()
-    {        
+    {
         // 생성되고 첫 상태 노말
         ChangeState(State.Normal);
-        testClass = player.parent.GetComponent<BattleSystem>();        
+        testClass = player.parent.GetComponent<BattleSystem>();
     }
 
     // 파이어 드래곤 상태 변경 함수.
@@ -48,13 +42,15 @@ public class FireDragon : PetMoveMent
         {
             // 노말 상태일때는 플레이어만 따라다니게끔
             case State.Normal:
-                StopAllCoroutines();
-                StartCoroutine(DragonMoving());
+                if(coAttacking != null) StopCoroutine(coAttacking);
+                //StopAllCoroutines();
+                coDragonMoving = StartCoroutine(DragonMoving());
                 break;
             // 배틀 상태 공격.
             case State.Battle:
-                StopAllCoroutines();
-                StartCoroutine(Attacking(TarGet));
+                if(coDragonMoving != null) StopCoroutine(coDragonMoving);
+                //StopAllCoroutines();
+                coAttacking = StartCoroutine(Attacking(TarGet));
                 NowTarget = TarGet;
                 break;
             default:
@@ -85,32 +81,35 @@ public class FireDragon : PetMoveMent
     void Update()
     {
         StateProcess();
-
         // 파이어 드래곤 3번 스킬
-        if(Input.GetKeyDown(KeyCode.Alpha3) && isspirit)
+        if(Input.GetKeyDown(KeyCode.Alpha3) && issprit && Skill1CoolTime <= 0.0f)
         {
-            if(isspirit)isspirit = false;
+            issprit = false;
+            Skill1CoolTime = 10.0f;
             GameObject FireSpritSkill1 = Instantiate(FireDragonSprit1, transform.position + new Vector3(0.5f,1.5f,0), Quaternion.identity, transform);
             GameObject FireSpritSkill2 = Instantiate(FireDragonSprit2, transform.position + new Vector3(-0.5f, 1.5f, 0), Quaternion.identity, transform);
             GameObject FireSpritSkill3 = Instantiate(FireDragonSprit3, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, transform);
             GameObject FireSpritSkill4 = Instantiate(FireDragonSprit4, transform.position + new Vector3(-0.5f, 0.5f, 0), Quaternion.identity, transform);
+            FireSpritSkill4.GetComponent<FireSpritSkill>().FireSpritReset.AddListener(FireSpiritResetFunc);
             DragonFireSpritSkillTargetSetting(FireSpritSkill1);
             DragonFireSpritSkillTargetSetting(FireSpritSkill2);
             DragonFireSpritSkillTargetSetting(FireSpritSkill3);
             DragonFireSpritSkillTargetSetting(FireSpritSkill4);
-            FireSpritSkill4.GetComponent<FireSpritSkill>().FireSpritReset.AddListener(FireSpiritReset);
+            StartCoroutine(Skill1CoolTimeCheck());
         }
 
         // 파이어 드래곤 4번 스킬
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && Skill2CoolTime <= 0.0f && TarGet != null)
         {
+            Skill2CoolTime = 5.0f;
             GameObject FireThrowSkill = Instantiate(FireDragonSkill2, transform.position, Quaternion.identity);
             DragonThrowSkillTargetSetting(FireThrowSkill);
+            StartCoroutine(Skill2CoolTimeCheck());
         }
     }
-    public void FireSpiritReset()
+    public void FireSpiritResetFunc()
     {
-        isspirit = true;
+        issprit = true;
     }
     // 파이어 드래곤 3번스킬 타겟설정.
     void DragonFireSpritSkillTargetSetting(GameObject Target)

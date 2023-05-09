@@ -7,50 +7,42 @@ public class FireSpritSkill : PetMoveMent
 {
     public UnityEvent FireSpritReset = null;
 
-    public float ThrowSpeed = 10.0f;
+    public float ThrowSpeed = 3.0f;
     public int Count = 0;
     public int CountCount = 0;
-    // Start is called before the first frame update
-    private void Awake()
-    {
-    }
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
+    bool Shooting = true;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3))++Count;
-        if(Count == CountCount)
+        if (transform.parent != null)
         {
-            StopAllCoroutines();
-            StartCoroutine(ThrowSkill());
-        }        
+          if (GetComponentInParent<FireDragon>().TarGet != null)
+          {
+              if (Input.GetKeyDown(KeyCode.Alpha3) && Count <CountCount) ++Count;
+          }
+        }
+        if (Count == CountCount && Shooting)StartCoroutine(ThrowSkill());
     }
     IEnumerator ThrowSkill()
     {
-        if (!TarGet)
-        {
-            TarGet = GetComponentInParent<FireDragon>().TarGet;
-            if (TarGet == null)
-            {
-                --Count;
-                StopAllCoroutines();
-            }
-        }
-        gameObject.transform.SetParent(null);
+        Shooting = false;
+        TarGet = GetComponentInParent<FireDragon>().TarGet;
         Vector2 dir = TarGet.position - transform.position;
         float delta = ThrowSpeed * Time.deltaTime;
         while (true)
         {
-            transform.Translate(dir * delta);
-            if (Mathf.Abs(dir.x ) < 0.5f)
+            gameObject.transform.SetParent(null);
+            if (TarGet == null)
+            {
+                FireSpritReset?.Invoke();
+                Destroy(gameObject);
+            }
+            else if (Mathf.Abs(TarGet.position.x - transform.position.x) < 0.5f && Mathf.Abs(TarGet.position.y - transform.position.y) < 0.5f)
             {
                 FireSpritReset?.Invoke();
                 SkillDamage(10.0f);
-                Destroy(gameObject);                
+                Destroy(gameObject);
             }
+            else transform.Translate(dir * delta);
             yield return null;
         }
         

@@ -125,6 +125,8 @@ MonoBehaviour:
   TarGetSkillDuration: 3
   DurationCountTime: 0
   BasicAttackCoolTime: 5
+  Skill1CoolTime: 0
+  Skill2CoolTime: 0
   WolfSpeed: 2
   PetJump: 3
   WolfTPdist: 5
@@ -139,5 +141,6 @@ MonoBehaviour:
   FireDragonSprit2: {fileID: 6841552907994995340, guid: dedb2722017c77d4e93e1b615eeef419, type: 3}
   FireDragonSprit3: {fileID: 1769246501714930145, guid: b535b4db266246a4ba1ca0918190db60, type: 3}
   FireDragonSprit4: {fileID: 1312781049609935298, guid: acc4e76f8dd62424da0a0d2c411e6415, type: 3}
+  issprit: 1
   FireDragonSkill2: {fileID: 5913476999592761246, guid: 6a8ed6227a36c5f41a6155d0270c700e, type: 3}
   DragonState: 0
