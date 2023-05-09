@@ -15,44 +15,31 @@ public class PlayerMovement : CharacterProperty
             Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, false);
         }
     }
-    Vector2 test = Vector2.zero;
 
     protected void Scalesetting()//좌우반전
     {
-        if (!Mathf.Approximately(dir.x, 0.0f))
-        {
-            transform.localScale = dir.x < 0.0f ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
-        }
+            transform.localScale = frontVec.x < 0.0f ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
     }
-
+    
     protected void OnMove()//이동
     {
         dir.x = Input.GetAxisRaw("Horizontal");
         if (dir.x == 1) frontVec.x = 1;
         else if (dir.x == -1) frontVec.x = -1;
-        if (!Mathf.Approximately(dir.x, 0.0f))
+
+        if (canMove)
         {
-            myAnim.SetBool("isMoving", true);
-        }
-        else
-        {
-            myAnim.SetBool("isMoving", false);
-        }
-        transform.Translate(dir * playerCurrentMoveSpeed * Time.deltaTime);
-        if(transform.localScale.x == 1.0f)
-        {
-            test.x = dir.x;
-        }
-        else
-        {
-            test.x = -dir.x;
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            transform.Translate(test * Time.deltaTime * playerMoveSpeed);
+            if (!Mathf.Approximately(dir.x, 0.0f))
+            {
+                myAnim.SetBool("isMoving", true);
+            }
+            else
+            {
+                myAnim.SetBool("isMoving", false);
+            }
+            transform.Translate(dir * playerCurrentMoveSpeed * Time.fixedDeltaTime);
         }
     }
-
     protected void Dash()//대쉬
     {
         collTime += Time.deltaTime;
@@ -69,12 +56,13 @@ public class PlayerMovement : CharacterProperty
             if (Input.GetKeyDown(KeyCode.Z))
             {
                 dashCount--;
-                myRigid.AddForce(frontVec * 7.0f, ForceMode2D.Impulse);
+                myRigid.AddForce(frontVec * 10.0f, ForceMode2D.Impulse);
+                canMove = false;
                 Instantiate(dashEffect, new Vector2(transform.position.x, transform.position.y + 0.4f), Quaternion.identity);
             }
         }
     }
-
+    
     protected void OnJump()//↑ 점프, ↓ 점프
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -83,15 +71,23 @@ public class PlayerMovement : CharacterProperty
             jumpCool = 0.0f;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
             Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, true);
+        }
     }
-
+    protected Collider2D groundCheck;
     protected IEnumerator AirChecking()//바닥이 Ground, Wall 확인
     {
         while (true)
         {
-            rayHitRight = Physics2D.Raycast(myRigid.position + new Vector2(-0.6f, 1) * 0.5f, Vector2.down, GetComponent<Rigidbody2D>().velocity.magnitude * Time.fixedDeltaTime + 1.5f, groundMask);
-            rayHitLeft = Physics2D.Raycast(myRigid.position + new Vector2(0.6f, 1) * 0.5f, Vector2.down, GetComponent<Rigidbody2D>().velocity.magnitude * Time.fixedDeltaTime + 1.5f, groundMask);
+            //rayHitDownRight = Physics2D.Raycast(myRigid.position + new Vector2(-0.6f, 1) * 0.5f, Vector2.down, GetComponent<Rigidbody2D>().velocity.magnitude * Time.fixedDeltaTime + 1.5f, groundMask);
+            //rayHitDownLeft = Physics2D.Raycast(myRigid.position + new Vector2(0.6f, 1) * 0.5f, Vector2.down, GetComponent<Rigidbody2D>().velocity.magnitude * Time.fixedDeltaTime + 1.5f, groundMask);
+            groundCheck = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y - 0.5f), 0.3f, groundMask);
+
+            if (groundCheck != null)
+            {
+                canMove = true;
+            }
             yield return new WaitForFixedUpdate();
         }
     }

@@ -16,6 +16,9 @@ public class BattleSystem : PlayerMovement, GameManager.IBattle
         if (playerCurHp <= 0)
         {
             myAnim.SetTrigger("Death");
+            Destroy(this.myRigid);
+            StopAllCoroutines();
+            transform.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         }
     }
     
