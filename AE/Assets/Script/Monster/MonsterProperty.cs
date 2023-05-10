@@ -110,6 +110,10 @@ public class MonsterProperty : MonoBehaviour
             if(_collider == null)
             {
                 _collider = GetComponent<Collider2D>();
+                if(_collider == null)
+                {
+                    _collider = GetComponentInChildren<Collider2D>();
+                }
             }return _collider;
         }
     }
