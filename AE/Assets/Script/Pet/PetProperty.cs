@@ -9,11 +9,14 @@ public class PetProperty : MonoBehaviour
     {
         Creat, Normal, Battle
     }
+    protected State DragonState = State.Creat; // 드래곤 첫 생성상태
 
     // 드래곤 float 값
     public float DragonSpeed = 5.0f; // 드래곤 스피드
     public float ThrowSkillSpeed = 10.0f; // 드래곤 투척스킬 스피드
-    public float DragonATK = 50.0f;
+    public float DragonATK = 50.0f; // 드래곤 공격력
+    public float CowRot = 0.0f; // 다크 드래곤 스킬 2 카우 회전값
+
     // 시간관련
     public float TarGetSkillDuration = 3.0f; // 타겟 스킬 지속시간
     public float DurationCountTime = 0.0f; // 타겟 스킬 지속시간 비교 값
@@ -26,16 +29,29 @@ public class PetProperty : MonoBehaviour
     public float PetJump = 3.0f; // 울프 점프 힘
     public float WolfTPdist = 5.0f; // 울프 텔레포트 거리
 
-    // 오브젝트 참조 관련.
-    public Transform player = null;
-    public Transform TarGet = null;
-    public LayerMask GroundMask; // 울프 그라운드 마스크
+    // 오브젝트 참조 관련
+    public Transform player = null; // 드래곤 플레이어(주인)
+    public Transform TarGet = null; // 드래곤 공격,스킬 타겟
+    public Transform NowTarget; // 드래곤 일반공격 현재 타겟
+
+    // 스크립트 참조
+    protected BattleSystem TarGetRepScript; // 플레이어의 공격 타겟값을 받기위한 배틀 시스템 스크립트를 참조 변수.
+
+    // Ray 변수
+    protected RaycastHit2D rayHitCowPos; // 다크 드래곤 4번 스킬 CowPosition Ray
+
+    // Layer 변수
+    public LayerMask GroundMask; // 그라운드 마스크
+    public LayerMask MonsterMask; // 몬스터 마스크
+
+    // bool 값
+    protected bool issprit = true; // 파이어 드래곤 스킬 1 중복사용 제한 bool 값.
 
     // 애니메이션 관련
-    Animator _PetAnim;
-    SpriteRenderer _PetRenderer;
+    Animator _PetAnim; // 펫 애니메이터 참조 변수
+    SpriteRenderer _PetRenderer; // 펫 렌더러 참조 변수
 
-    // 펫 애니메이션 겟컴포넌트
+    // 펫 애니메이션 참조
     protected Animator PetAnim
     {
         get
@@ -52,7 +68,7 @@ public class PetProperty : MonoBehaviour
         }
     }
 
-    // 펫 렌더러 궷퀌풔눤퉈
+    // 펫 렌더러 참조
     protected SpriteRenderer PetRenderer
     {
         get

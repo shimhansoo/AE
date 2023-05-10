@@ -121,7 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DragonSpeed: 5
   ThrowSkillSpeed: 10
-  DragonATK: 50
+  DragonATK: 10
+  CowRot: 0
   TarGetSkillDuration: 3
   DurationCountTime: 0
   BasicAttackCoolTime: 5
@@ -132,13 +133,9 @@ MonoBehaviour:
   WolfTPdist: 5
   player: {fileID: 0}
   TarGet: {fileID: 0}
+  NowTarget: {fileID: 0}
   GroundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4608
   DarkDragonSkill1: {fileID: 7845853470508988649, guid: f967662d073c32e4a841530711c6930a, type: 3}
   DarkDragonSkill2: {fileID: 4763481377378695687, guid: 9667a292f2d688747b77d208e9c9ec2e, type: 3}
-  testClass: {fileID: 0}
-  Test:
-    serializedVersion: 2
-    m_Bits: 4608
-  NowTarget: {fileID: 0}
