@@ -17,8 +17,10 @@ public class Map_Portal : MonoBehaviour
     public GameObject thirdMini;
     public GameObject fourthMini;
     public GameObject boss;
+    public GameObject miniBoss;
     public GameObject fifthMini;
     public GameObject sixthMini;
+    
     public GameObject seventhMini;
 
     public int portalIndex = 0;
@@ -123,6 +125,8 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.Teleport();
                     fifthMini.SetActive(false);
                     sixthMini.SetActive(true);
+                    miniBoss.SetActive(true);
+                    Debug.Log("미니보스");
                     cam.GetComponent<CameraShake>().MapShake();
                     break;
                 case 6:

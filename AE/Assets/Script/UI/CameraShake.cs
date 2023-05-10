@@ -90,7 +90,6 @@ public class CameraShake : MonoBehaviour
             Vector3 randomPoint = originPosition + Random.insideUnitSphere * shakeAmount * 2;
             cam.localPosition = Vector3.Lerp(cam.localPosition, randomPoint, Time.deltaTime * shakeSpeed);
             yield return null;
-            Debug.Log("Map");
         }
     }
 }
