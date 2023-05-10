@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FireDragon : PetMoveMent
 {
+    // 현재 타겟
     public Transform NowTarget;
 
     // 배틀 시스템 스크립트를 참조하기위한 변수.
@@ -19,9 +20,6 @@ public class FireDragon : PetMoveMent
     public bool issprit = true;
     // 파이어 드래곤 스킬 2 오브젝트
     public GameObject FireDragonSkill2;
-
-    Coroutine coDragonMoving = null;
-    Coroutine coAttacking = null;
 
     // 첫 생성 상태
     [SerializeField]State DragonState = State.Creat;

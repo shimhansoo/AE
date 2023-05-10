@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PetMoveMent : PetProperty /*, GameManager.IBattle*/
 {
+    protected Coroutine coDragonMoving = null;
+    protected Coroutine coAttacking = null;
     private void Awake()
     {
         // 플레이어 타겟 바인딩 대신 임시로

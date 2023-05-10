@@ -41,10 +41,10 @@ public class CharacterProperty : MonoBehaviour
     public LayerMask enemyLayers;
 
     // 드래곤 관련
-    protected GameObject BasicDragon;
-    protected GameObject FireDragon;
-    protected GameObject EarthDragon;
-    protected GameObject DarkDragon;
+    public GameObject BasicDragon;
+    public GameObject FireDragon;
+    public GameObject EarthDragon;
+    public GameObject DarkDragon;
 
     //property 관련
     Animator _anim = null;
