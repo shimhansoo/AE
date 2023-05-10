@@ -20,10 +20,7 @@ public class SpearAttack : BattleSystem
         GameObject attackPos = GameObject.Find("AttackPoint");
         pos = attackPos.transform;
         spearDir.y = transform.position.x - pos.transform.position.x > 0 ? -1 : 1;
-        if (!Mathf.Approximately(spearDir.y, 0.0f))
-        {
-            transform.localScale = spearDir.y < 0.0f ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
-        }
+        transform.localScale = spearDir.y < 0.0f ? new Vector3(1, -1, 1) : new Vector3(1, 1, 1);
     }
     void Update()
     {

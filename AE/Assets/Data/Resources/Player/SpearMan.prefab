@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 9012221850467041107}
   - component: {fileID: 1813740299}
   m_Layer: 6
-  m_Name: Player
+  m_Name: SpearMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,8 +371,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2029377761
-  m_SortingLayer: 5
-  m_SortingOrder: 1
+  m_SortingLayer: 6
+  m_SortingOrder: 0
   m_Sprite: {fileID: 5546671543968653177, guid: 0b634806438a5a4429efaf42643d463e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -434,10 +434,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   DragonTarget: {fileID: 0}
-  gvs: 5
-  jumpAmount: 35
-  gravityScale: 10
-  fallingGravity: 40
   OnAttack:
     m_PersistentCalls:
       m_Calls:

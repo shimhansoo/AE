@@ -11,6 +11,7 @@ public class CharacterProperty : MonoBehaviour
 
     //이동 관련
     protected Vector2 dir = Vector2.zero;
+    protected bool canMove = true;
     public float playerMoveSpeed = 3.0f;
     public float playerCurrentMoveSpeed = 0.0f;
     public float additionalSpeed = 0.0f;
@@ -23,8 +24,8 @@ public class CharacterProperty : MonoBehaviour
     //점프 관련
     protected bool isJump = false;
     protected int playerLayer, groundLayer;
-    protected RaycastHit2D rayHitLeft = new RaycastHit2D();
-    protected RaycastHit2D rayHitRight = new RaycastHit2D();
+    protected RaycastHit2D rayHitDownLeft = new RaycastHit2D();
+    protected RaycastHit2D rayHitDownRight = new RaycastHit2D();
     protected float jumpCool = 0.0f;
     public float playerJumpPower = 16.0f;
     public LayerMask groundMask;
@@ -40,10 +41,10 @@ public class CharacterProperty : MonoBehaviour
     public LayerMask enemyLayers;
 
     // 드래곤 관련
-    public GameObject BasicDragon;
-    public GameObject FireDragon;
-    public GameObject EarthDragon;
-    public GameObject DarkDragon;
+    protected GameObject BasicDragon;
+    protected GameObject FireDragon;
+    protected GameObject EarthDragon;
+    protected GameObject DarkDragon;
 
     //property 관련
     Animator _anim = null;

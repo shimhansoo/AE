@@ -11,7 +11,6 @@ public class SpearMan : BattleSystem
     public GameObject SpearManskillEffect2;
     float spearmanSkillCoolTime1 = 7.0f;
     float spearmanSkillCoolTime2 = 10.0f;
-    
     void Start()
     {
         playerLayer = LayerMask.NameToLayer("Player");
@@ -37,10 +36,8 @@ public class SpearMan : BattleSystem
             spearmanSkillCoolTime2 += Time.deltaTime;
             //대쉬
             Dash();
-
             //좌우반전
             Scalesetting();
-
             //기본공격 시간 제어
             attackTime += Time.deltaTime * attackSpeed;
             if (attackTime >= 0.5f)
@@ -51,7 +48,7 @@ public class SpearMan : BattleSystem
                     attackTime = 0.0f;
                 }
             }
-
+            
             //스킬 1
             if (spearmanSkillCoolTime1 >= 7.0f)//7초 이후
             {
@@ -62,7 +59,7 @@ public class SpearMan : BattleSystem
                 }
             }
             //스킬 2
-            if (spearmanSkillCoolTime2 >= 2.0f)
+            if (spearmanSkillCoolTime2 >= 10.0f)
             {
                 if (Input.GetKeyDown(KeyCode.W))
                 {
@@ -72,15 +69,17 @@ public class SpearMan : BattleSystem
             }
 
             //무한 점프 제어
-            isJump = rayHitLeft || rayHitRight ? isJump = false : isJump = true;
+            //isJump = rayHitDownLeft || rayHitDownRight ? isJump = false : isJump = true;
+            isJump = groundCheck ? isJump = false : isJump = true;
             jumpCool += Time.deltaTime;
             if (!isJump && jumpCool >= 0.5f)
             {
                 OnJump();
             }
             else
+            {
                 collisionCheck();
-
+            }
             // 드래곤 구현 확인을 위한 구문.
             if (Input.GetKeyDown(KeyCode.F1))
             {
@@ -109,7 +108,7 @@ public class SpearMan : BattleSystem
         playerDamege *= 2.0f;
         attackSpeed = 10.0f;
 
-        GameObject temp = Instantiate(SpearManskillEffect1, new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);
+        GameObject temp = Instantiate(SpearManskillEffect1, new Vector2(transform.position.x, transform.position.y+0.2f), Quaternion.identity);
         temp.transform.SetParent(this.transform);
         yield return new WaitForSeconds(5.0f);
 
@@ -121,8 +120,12 @@ public class SpearMan : BattleSystem
 
     private void OnDrawGizmosSelected()
     {
-        if (attackPoint == null) return;
+        if(attackPoint == null) return;
+        Gizmos.DrawSphere(new Vector2(transform.position.x, transform.position.y - 0.5f), 0.3f);
         Gizmos.DrawSphere(attackPoint.position, attackRange);
     }
+    /*private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null) return;
+    }*/
 }
-

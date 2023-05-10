@@ -9,14 +9,16 @@ public class Player : BattleSystem
         playerLayer = LayerMask.NameToLayer("Player");
         groundLayer = LayerMask.NameToLayer("Ground");
         playerCurHp = playerMaxHp;
+        StartCoroutine(AirChecking());
     }
-    
+    public float gvs = 5f;
     private void FixedUpdate()
     {
         if (isLive)
         {
         OnMove();
         }
+        //myRigid.AddForce(Physics2D.gravity * (gvs - 1) * myRigid.mass);
     }
 
     void Update()
@@ -27,7 +29,7 @@ public class Player : BattleSystem
 
             //대쉬
             Dash();
-
+            //test();
             //좌우반전
             Scalesetting();
 
@@ -42,20 +44,41 @@ public class Player : BattleSystem
                 }
             }
             //무한 점프 제어
-            isJump = rayHitLeft || rayHitRight ? isJump = false : isJump = true;
+            //isJump = rayHitDownLeft || rayHitDownRight ? isJump = false : isJump = true;
+            isJump = groundCheck ? isJump = false : isJump = true;
             jumpCool += Time.deltaTime;
             if (!isJump && jumpCool >= 0.5f)
             {
                 OnJump();
             }
             else
+            {
                 collisionCheck();
+            }
         }
-        
+    }
+    public float jumpAmount = 35;
+    public float gravityScale = 10;
+    public float fallingGravity = 40;
+    public void test()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            myRigid.AddForce(Vector2.up * jumpAmount, ForceMode2D.Impulse);
+        }
+        if(myRigid.velocity.y >= 0)
+        {
+            myRigid.gravityScale = gravityScale;
+        }
+        else if(myRigid.velocity.y < 0)
+        {
+            myRigid.gravityScale = fallingGravity;
+        }
     }
     private void OnDrawGizmosSelected()
     {
         if (attackPoint == null) return;
-        Gizmos.DrawSphere(attackPoint.position, attackRange);
+        //Gizmos.DrawSphere(new Vector2(transform.position.x, transform.position.y - 0.5f), 0.3f);
+        //Gizmos.DrawSphere(attackPoint.position, attackRange);
     }
 }
