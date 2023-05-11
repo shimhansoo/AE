@@ -138,6 +138,7 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.Teleport();
                     sixthMini.SetActive(false);
                     seventhMini.SetActive(true);
+                    miniBoss.SetActive(false);
                     cam.GetComponent<CameraShake>().MapShakeEnd();
                     break;
             }
