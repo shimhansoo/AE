@@ -23,7 +23,7 @@ TagManager:
   - MiniMapIcon
   - Boss
   - Wolf
-  - Object
+  - 
   - 
   - 
   - 
@@ -57,9 +57,6 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2265589535
-    locked: 0
-  - name: Item
-    uniqueID: 1192825261
     locked: 0
   - name: ThrowObj
     uniqueID: 3276804527

@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D),typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D), (typeof(BoxCollider2D)))]
 public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBattle
 {
     public static Monster MonsterInstance;
@@ -108,23 +107,7 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
     IEnumerator Death()
     {
         myAnim.SetTrigger("Death");
-        StartCoroutine(DroppingItem());
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
-    }
-
-    IEnumerator DroppingItem()
-    {
-        Vector2 orgPos = transform.position;
-        GameObject obj = new GameObject();
-        obj.transform.position = orgPos;
-        obj.name = "_Coin";
-        int coinNum = Random.Range(1, 11);
-        for(int i = 0; i < 100; i++)
-        {
-            yield return new WaitForSeconds(0.05f);
-            GameObject coinObj = Instantiate(Resources.Load("Item/Coin"), orgPos, Quaternion.identity, obj.transform) as GameObject;
-            coinObj.GetComponent<Rigidbody2D>()?.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(1f, 2.5f)), ForceMode2D.Impulse);
-        }
     }
 }
