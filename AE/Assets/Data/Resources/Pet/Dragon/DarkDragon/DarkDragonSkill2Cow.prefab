@@ -134,6 +134,7 @@ MonoBehaviour:
   DragonSpeed: 5
   ThrowSkillSpeed: 10
   DragonATK: 50
+  CowRot: 0
   TarGetSkillDuration: 3
   DurationCountTime: 0
   BasicAttackCoolTime: 5
@@ -144,13 +145,14 @@ MonoBehaviour:
   WolfTPdist: 5
   player: {fileID: 0}
   TarGet: {fileID: 0}
+  NowTarget: {fileID: 0}
   GroundMask:
     serializedVersion: 2
     m_Bits: 0
-  Laser: {fileID: 4763481377212631298}
-  enemyMask:
+  MonsterMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 16512
+  Laser: {fileID: 4763481377212631298}
 --- !u!95 &4763481377378695681
 Animator:
   serializedVersion: 5

@@ -26,7 +26,8 @@ public class DarkDragon : PetMoveMent
         // 다크 드래곤 3번 스킬
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Instantiate(DarkDragonSkill1, transform.position, Quaternion.identity);
+            GameObject DarkDragonThrowSkill = Instantiate(DarkDragonSkill1, transform.position, Quaternion.identity);
+            DarkDragonThrowSkill.GetComponent<DragonThrowSkill>().TarGet = TarGet;
         }
 
         // 다크 드래곤 4번 스킬 레이 쏜 후 저장.

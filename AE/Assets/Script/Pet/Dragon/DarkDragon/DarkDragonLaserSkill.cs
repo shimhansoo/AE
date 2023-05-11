@@ -4,38 +4,32 @@ using UnityEngine;
 
 public class DarkDragonLaserSkill : PetProperty
 {
+    // 레이저 공격 범위 오브젝트 참조
     public GameObject Laser = null;
-    // Start is called before the first frame update
     void Start()
     {
+        // 스킬 애니메이션 트리거
         PetAnim.SetTrigger("isSkill");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     void OnLaser()
     {
+        // 레이저 킴
         Laser.SetActive(true);
     }
     void OffLaser()
     {
+        // 레이저 끔
         Laser.SetActive(false);
     }
 
     void OnAttack()
     {
+        // 레이저 크기만큼 오버랩 생성
         Collider2D[] hitEnemys = Physics2D.OverlapBoxAll(Laser.transform.position, new Vector2(5.0f,0.5f),0.0f, MonsterMask);
         foreach (Collider2D enemy in hitEnemys)
         {
+            // 오버랩에 닿았을경우 데미지
             enemy.GetComponent<GameManager.IBattle>().OnTakeDamage(20.0f);  
         }       
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawCube(Laser.transform.position, new Vector2(5.0f, 0.5f));
     }
 }

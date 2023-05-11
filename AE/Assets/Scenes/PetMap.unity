@@ -19004,7 +19004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1273782721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19068,6 +19068,9 @@ MonoBehaviour:
   ThrowSkillSpeed: 10
   DragonATK: 50
   CowRot: 0
+  DragonSkillDamage1: 20
+  DragonSkillDamage2: 15
+  DragonTargetSkillPosY: 0.5
   TarGetSkillDuration: 3
   DurationCountTime: 0
   BasicAttackCoolTime: 5
@@ -19079,6 +19082,7 @@ MonoBehaviour:
   player: {fileID: 0}
   TarGet: {fileID: 0}
   NowTarget: {fileID: 0}
+  SkillEffect: {fileID: 0}
   GroundMask:
     serializedVersion: 2
     m_Bits: 0
@@ -47827,6 +47831,9 @@ MonoBehaviour:
   ThrowSkillSpeed: 10
   DragonATK: 50
   CowRot: 0
+  DragonSkillDamage1: 20
+  DragonSkillDamage2: 15
+  DragonTargetSkillPosY: 0.5
   TarGetSkillDuration: 3
   DurationCountTime: 0
   BasicAttackCoolTime: 5
@@ -47838,6 +47845,7 @@ MonoBehaviour:
   player: {fileID: 1813740304}
   TarGet: {fileID: 0}
   NowTarget: {fileID: 0}
+  SkillEffect: {fileID: 0}
   GroundMask:
     serializedVersion: 2
     m_Bits: 4104

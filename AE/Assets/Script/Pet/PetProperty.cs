@@ -16,6 +16,9 @@ public class PetProperty : MonoBehaviour
     public float ThrowSkillSpeed = 10.0f; // 드래곤 투척스킬 스피드
     public float DragonATK = 50.0f; // 드래곤 공격력
     public float CowRot = 0.0f; // 다크 드래곤 스킬 2 카우 회전값
+    public float DragonSkillDamage1 = 20.0f; // 드래곤 스킬 데미지 1값
+    public float DragonSkillDamage2 = 15.0f; // 드래곤 스킬 데미지 2값
+    public float DragonTargetSkillPosY = 0.5f; // 드래곤 타겟스킬 포지션 y 값
 
     // 시간관련
     public float TarGetSkillDuration = 3.0f; // 타겟 스킬 지속시간
@@ -33,6 +36,7 @@ public class PetProperty : MonoBehaviour
     public Transform player = null; // 드래곤 플레이어(주인)
     public Transform TarGet = null; // 드래곤 공격,스킬 타겟
     public Transform NowTarget; // 드래곤 일반공격 현재 타겟
+    public GameObject SkillEffect; // 스킬 이펙트
 
     // 스크립트 참조
     protected BattleSystem TarGetRepScript; // 플레이어의 공격 타겟값을 받기위한 배틀 시스템 스크립트를 참조 변수.

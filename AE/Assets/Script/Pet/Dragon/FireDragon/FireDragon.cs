@@ -35,10 +35,6 @@ public class FireDragon : PetMoveMent
             GameObject FireSpritSkill3 = Instantiate(FireDragonSprit3, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, transform);
             GameObject FireSpritSkill4 = Instantiate(FireDragonSprit4, transform.position + new Vector3(-0.5f, 0.5f, 0), Quaternion.identity, transform);
             FireSpritSkill4.GetComponent<FireSpritSkill>().FireSpritReset.AddListener(FireSpiritResetFunc);
-            DragonFireSpritSkillTargetSetting(FireSpritSkill1);
-            DragonFireSpritSkillTargetSetting(FireSpritSkill2);
-            DragonFireSpritSkillTargetSetting(FireSpritSkill3);
-            DragonFireSpritSkillTargetSetting(FireSpritSkill4);
             StartCoroutine(Skill1CoolTimeCheck());
         }
 
@@ -56,12 +52,6 @@ public class FireDragon : PetMoveMent
     public void FireSpiritResetFunc()
     {
         issprit = true;
-    }
-
-    // 파이어 드래곤 3번스킬 타겟설정.
-    void DragonFireSpritSkillTargetSetting(GameObject Target)
-    {
-        Target.GetComponent<FireSpritSkill>().TarGet = TarGet;
     }
 
     // 파이어 드래곤 4번스킬 타겟설정.
