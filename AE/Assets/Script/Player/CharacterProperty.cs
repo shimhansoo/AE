@@ -43,7 +43,6 @@ public class CharacterProperty : MonoBehaviour
     // 드래곤 관련
     public GameObject BasicDragon;
     public GameObject FireDragon;
-    public GameObject EarthDragon;
     public GameObject DarkDragon;
 
     //property 관련

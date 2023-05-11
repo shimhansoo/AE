@@ -91,10 +91,6 @@ public class SpearMan : BattleSystem
             }
             if (Input.GetKeyDown(KeyCode.F3))
             {
-                Instantiate(EarthDragon, transform.position, Quaternion.identity);
-            }
-            if (Input.GetKeyDown(KeyCode.F4))
-            {
                 Instantiate(DarkDragon, transform.position, Quaternion.identity);
             }
         }

@@ -7,7 +7,18 @@ public class BattleSystem : PlayerMovement, GameManager.IBattle
     public GameObject DragonTarget = null;
     public bool isLive
     {
-        get => !Mathf.Approximately(playerCurHp, 0f);
+        get
+        {
+            if(playerCurHp >= 0)
+            {
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
     public void OnTakeDamage(float damage)
     {
@@ -17,7 +28,6 @@ public class BattleSystem : PlayerMovement, GameManager.IBattle
         {
             myAnim.SetTrigger("Death");
             Destroy(this.myRigid);
-            StopAllCoroutines();
             transform.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         }
     }

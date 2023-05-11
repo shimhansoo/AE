@@ -166,7 +166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9012221850467041111
 Transform:
   m_ObjectHideFlags: 0
@@ -214,6 +214,9 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 128
+  BasicDragon: {fileID: 5990443681879294167, guid: c896ecfa5979b644493b4d6b95529058, type: 3}
+  FireDragon: {fileID: 1385979651342774976, guid: 4329450b67a587f4f955ef620783bf33, type: 3}
+  DarkDragon: {fileID: 8782368268330848607, guid: f0e21e0a885ffa64a83e2de9543f43c4, type: 3}
   DragonTarget: {fileID: 0}
   SpearManskillEffect1: {fileID: 2420749118380007224, guid: f8d0cb46cc9e4874c8ce1b49243a2194, type: 3}
   SpearManskillEffect2: {fileID: 6907581190293098521, guid: 7fe6788e4a7c5324d91e08ea13834415, type: 3}
@@ -433,11 +436,10 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
+  BasicDragon: {fileID: 0}
+  FireDragon: {fileID: 0}
+  DarkDragon: {fileID: 0}
   DragonTarget: {fileID: 0}
-  gvs: 5
-  jumpAmount: 35
-  gravityScale: 10
-  fallingGravity: 40
   OnAttack:
     m_PersistentCalls:
       m_Calls:

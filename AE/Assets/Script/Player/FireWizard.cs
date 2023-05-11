@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : BattleSystem
+public class FireWizard : BattleSystem
 {
+    // Start is called before the first frame update
     void Start()
     {
         playerLayer = LayerMask.NameToLayer("Player");
@@ -11,6 +12,7 @@ public class Player : BattleSystem
         playerCurHp = playerMaxHp;
         StartCoroutine(AirChecking());
     }
+
     private void FixedUpdate()
     {
         if (isLive)
@@ -18,19 +20,19 @@ public class Player : BattleSystem
             OnMove();
         }
     }
-
+    // Update is called once per frame
     void Update()
     {
         if (isLive)
         {
             playerCurrentMoveSpeed = playerMoveSpeed + additionalSpeed;
 
-            //ÎåÄÏâ¨
+            //¥ÎΩ¨
             Dash();
-            //Ï¢åÏö∞Î∞òÏ†Ñ
+            //¡¬øÏπ›¿¸
             Scalesetting();
 
-            //Í∏∞Î≥∏Í≥µÍ≤© ÏãúÍ∞Ñ Ï†úÏñ¥
+            //±‚∫ª∞¯∞› Ω√∞£ ¡¶æÓ
             attackTime += Time.deltaTime * attackSpeed;
             if (attackTime >= 0.5f)
             {
@@ -40,7 +42,7 @@ public class Player : BattleSystem
                     attackTime = 0.0f;
                 }
             }
-            //Î¨¥Ìïú Ï†êÌîÑ Ï†úÏñ¥
+            //π´«— ¡°«¡ ¡¶æÓ
             //isJump = rayHitDownLeft || rayHitDownRight ? isJump = false : isJump = true;
             isJump = groundCheck ? isJump = false : isJump = true;
             jumpCool += Time.deltaTime;
@@ -53,11 +55,5 @@ public class Player : BattleSystem
                 collisionCheck();
             }
         }
-    }
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null) return;
-        //Gizmos.DrawSphere(new Vector2(transform.position.x, transform.position.y - 0.5f), 0.3f);
-        //Gizmos.DrawSphere(attackPoint.position, attackRange);
     }
 }
