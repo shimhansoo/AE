@@ -47,6 +47,7 @@ public class PetProperty : MonoBehaviour
     // Layer 변수
     public LayerMask GroundMask; // 그라운드 마스크
     public LayerMask MonsterMask; // 몬스터 마스크
+    public LayerMask ItemMask; // 아이템 마스크
 
     // bool 값
     protected bool issprit = true; // 파이어 드래곤 스킬 1 중복사용 제한 bool 값.

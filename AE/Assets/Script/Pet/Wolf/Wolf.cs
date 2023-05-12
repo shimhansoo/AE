@@ -7,5 +7,5 @@ public class Wolf : PetMoveMent
     private void Start()
     {
         StartCoroutine(WolfMoving());
-    }    
+    }
 }
