@@ -13,7 +13,19 @@ public class CharacterProperty : MonoBehaviour
     protected Vector2 dir = Vector2.zero;
     protected bool canMove = true;
     public float playerMoveSpeed = 3.0f;
-    public float playerCurrentMoveSpeed = 0.0f;
+    [SerializeField]float _moveSpeed = -1.0f;
+    public float playerCurrentMoveSpeed
+    {
+        get
+        {
+            if (_moveSpeed < 0) _moveSpeed = playerMoveSpeed;
+            return _moveSpeed;
+        }
+        set
+        {
+            _moveSpeed = playerMoveSpeed + additionalSpeed;
+        }
+    }
     public float additionalSpeed = 0.0f;
 
     //대쉬 관련
