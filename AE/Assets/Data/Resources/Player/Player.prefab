@@ -166,7 +166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9012221850467041111
 Transform:
   m_ObjectHideFlags: 0
@@ -198,9 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e132d1931a6cc40b2f30004e5b4964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCurHp: 0
+  playerCurHp: 100
   playerMoveSpeed: 5
-  playerCurrentMoveSpeed: 0
+  _moveSpeed: -1
   additionalSpeed: 0
   playerJumpPower: 16
   groundMask:
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9012221850467041106}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11b241853abbf2343a8725bced9dffe0, type: 3}
   m_Name: 
@@ -415,31 +415,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9012221851352616273}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 996313eb5192455439d94f3f2e9ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCurHp: 0
-  playerMoveSpeed: 5
-  playerCurrentMoveSpeed: 0
-  additionalSpeed: 0
-  playerJumpPower: 5
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  dashEffect: {fileID: 0}
-  playerDamege: 7
-  attackPoint: {fileID: 0}
-  attackRange: 0.7
-  DebuffIcon: {fileID: 0}
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  BasicDragon: {fileID: 0}
-  FireDragon: {fileID: 0}
-  DarkDragon: {fileID: 0}
-  DragonTarget: {fileID: 0}
   OnAttack:
     m_PersistentCalls:
       m_Calls:

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerAttack : Player
+public class PlayerAttack : MonoBehaviour
 {
     public UnityEvent OnAttack;
     // Start is called before the first frame update
