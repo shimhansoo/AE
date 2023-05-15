@@ -12,4 +12,5 @@ public class Boss_Attk : BossProperty
         obj.transform.position = transform.position;
        
     }
+
 }
