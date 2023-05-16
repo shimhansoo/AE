@@ -13,7 +13,6 @@ public class PetMoveMent : PetProperty
         // 플레이어를 따라다니기위한 플레이어 포스 값 Find
         GameObject PlayerPos = GameObject.Find("DragonTargetPlayerPos");
         player = PlayerPos.transform;
-
     }
 
     // 드래곤 일반 공격 데미지 적용 함수.

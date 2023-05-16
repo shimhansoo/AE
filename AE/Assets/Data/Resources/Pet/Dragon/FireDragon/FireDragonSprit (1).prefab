@@ -100,22 +100,33 @@ MonoBehaviour:
   DragonSpeed: 5
   ThrowSkillSpeed: 10
   DragonATK: 50
+  CowRot: 0
+  DragonSkillDamage1: 20
+  DragonSkillDamage2: 15
+  DragonTargetSkillPosY: 0.5
   TarGetSkillDuration: 3
   DurationCountTime: 0
   BasicAttackCoolTime: 5
+  Skill1CoolTime: 0
+  Skill2CoolTime: 0
   WolfSpeed: 2
   PetJump: 3
   WolfTPdist: 5
   player: {fileID: 0}
   TarGet: {fileID: 0}
+  NowTarget: {fileID: 0}
+  SkillEffect: {fileID: 0}
   GroundMask:
     serializedVersion: 2
     m_Bits: 0
-  Reset:
+  MonsterMask:
+    serializedVersion: 2
+    m_Bits: 0
+  ItemMask:
+    serializedVersion: 2
+    m_Bits: 0
+  FireSpritReset:
     m_PersistentCalls:
       m_Calls: []
-  ThrowSpeed: 10
-  Count: 0
-  CountCount: 1
-  StartXPos: -1
-  StartYPos: 1
+  NowCount: 0
+  StartCount: 1
