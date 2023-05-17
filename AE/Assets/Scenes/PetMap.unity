@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &17405392
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8426,7 +8426,7 @@ PrefabInstance:
       objectReference: {fileID: 738063027}
     - target: {fileID: 2388334415598723724, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2388334415598723724, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: DarkDragon
@@ -18947,7 +18947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1273782721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47825,7 +47825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &2065597591
 BoxCollider2D:
   m_ObjectHideFlags: 0
