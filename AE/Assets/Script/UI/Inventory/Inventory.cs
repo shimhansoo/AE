@@ -1,59 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public static bool inventoryActivated = false;
-
-    [SerializeField]
-    private GameObject go_InventoryBase;
+    public int gold;
+    public GameObject Inven;
+    public bool isInven = false;
     [SerializeField]
     private GameObject go_SlotsParent;
 
-    private Slot[] slots;
+    [SerializeField]
+    private Slots[] slot;
     // Start is called before the first frame update
     void Start()
     {
-        slots = go_SlotsParent.GetComponentsInChildren<Slot>();
+        slot = go_SlotsParent.GetComponentsInChildren<Slots>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        TryOpenInventory();
-    }
-    private void TryOpenInventory()
-    {
         if(Input.GetKeyDown(KeyCode.I))
         {
-            inventoryActivated = !inventoryActivated;
-
-            if(inventoryActivated )
+            if(!isInven)
             {
-                OpenInventory();
+                Inven.SetActive(true);
+                isInven = true;
             }
             else
             {
-                CloseInventory();
+                Inven.SetActive(false);
+                isInven = false;
             }
         }
+
     }
-    private void OpenInventory()
+    public void CloseBtn()
     {
-        go_InventoryBase.SetActive(true);
+        Inven.SetActive(false);
+        isInven = false;
     }
-    private void CloseInventory()
+    /*
+    public void AddItem(Sprite t)
     {
-        go_InventoryBase.SetActive(false);
+        Debug.Log(t);
     }
+    */
     public void AcquireItem(Item _item, int _count = 1)
     {
-        for(int i = 0; i < slots.Length; i++)
+        for(int i = 0; i < slot.Length; i++)
         {
-            if (slots[i].item == null)
+            if (slot[i].item == null)
             {
-                slots[i].AddItem(_item, _count);
+                slot[i].AddItem(_item, _count);
                 return;
             }
         }
