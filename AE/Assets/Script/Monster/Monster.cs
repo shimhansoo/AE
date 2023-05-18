@@ -6,7 +6,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), (typeof(BoxCollider2D)))]
 public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBattle
 {
+    /* test */
+    /* test */
+    public Transform TextArea;
     public static Monster MonsterInstance;
+    float healingTime = 0;
     void ChangeState(State s)
     {
         if (myState == s) return;
@@ -17,6 +21,7 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
                 break;
             case State.Normal:
                 StopAllCoroutines();
+                healingTime = 0f;
                 StartCoroutine(Roaming());
                 break;
             case State.Battle:
@@ -36,6 +41,12 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
             case State.Create:
                 break;
             case State.Normal:
+                healingTime += Time.deltaTime;
+                if(healingTime > 2)
+                {
+                    OnTakeDamage(-1f);
+                    healingTime = 0f;
+                }
                 break;
             case State.Battle:
                 break;
@@ -59,6 +70,7 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
 
     void Update()
     {
+        
         ProcessState();
     }
     // Find Target
@@ -82,9 +94,16 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
     }
     public void OnTakeDamage(float dmg)
     {
+        GameObject obj = Instantiate(Resources.Load("UI/DmgText"), TextArea) as GameObject;
+        obj.GetComponent<DamageText>().ChangeDamageText(dmg);
         curHp -= dmg;
+        if(dmg < 0)
+        {
+            myAnim.SetTrigger("OnHealColor");
+            return;
+        }
         myAnim.SetTrigger("OnDamageColor"); // 피격시 이미지의 색상을 바꿔주도록 Animator에서 설정
-        
+
         if (!Mathf.Approximately(curHp, 0f))
         {
             if (!myAnim.GetBool("isAttacking"))
@@ -110,17 +129,16 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
         yield return StartCoroutine(DroppingItem());
         Destroy(gameObject);
     }
+    WaitForSeconds waitCoinPop = new WaitForSeconds(0.05f);
     IEnumerator DroppingItem()
     {
         Vector2 orgPos = transform.position;
-        GameObject obj = new GameObject();
-        obj.transform.position = orgPos;
-        obj.name = $"{this.name}_Coin";
-        int coinNum = Random.Range(1, 11);
-        for (int i = 0; i < 100; i++)
+        int coinNum = Random.Range(1, 21);
+        for (int i = 0; i < coinNum; i++)
         {
-            yield return new WaitForSeconds(0.05f);
-            GameObject coinObj = Instantiate(Resources.Load("Item/Coin"), orgPos, Quaternion.identity, obj.transform) as GameObject;
+            // 나중에 ObjectPool 활용해서 구현할 것
+            yield return waitCoinPop;
+            GameObject coinObj = Instantiate(Resources.Load("Item/Coin"), orgPos, Quaternion.identity) as GameObject;
             coinObj.GetComponent<Rigidbody2D>()?.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(1f, 5f)), ForceMode2D.Impulse);
         }
     }

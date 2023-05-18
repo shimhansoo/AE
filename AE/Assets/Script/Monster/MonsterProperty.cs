@@ -39,7 +39,7 @@ public class MonsterProperty : MonoBehaviour
         get
         {
             // _curHp의 초기값이 음수, MaxHp 대입
-            if (_curHp < 0.0f) _curHp = maxHp;
+            if (_curHp < 0.0f || _curHp > maxHp) _curHp = maxHp;
             return _curHp;
         }
         // _curHp 값의 범위 지정
