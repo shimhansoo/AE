@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FireWizard : BattleSystem
 {    
@@ -8,8 +9,10 @@ public class FireWizard : BattleSystem
     public GameObject Firebolt; 
     public GameObject Fireblast; 
     public GameObject FireWizardMagicCircle;
+    public Slider AdogenCastingBar;
     float fireWizardSkill1 = 7f;
-    float fireWizardSkill2 = 10f;
+    float fireWizardSkill2 = 2f;
+    bool test=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,15 +69,13 @@ public class FireWizard : BattleSystem
             }
             //skill 2번
             fireWizardSkill2 += Time.deltaTime;
-            if (fireWizardSkill2 >= 10f)
+            if (fireWizardSkill2 >= 2f)
             {
-                if (Input.GetKeyDown(KeyCode.Alpha2))
-                {
-                    myAnim.SetTrigger("skill2");
-                    fireWizardSkill2 = 0.0f;
-                }
+            fireWizardSkill2 = 0;
             }
+                Skill2Casting();
 
+            
             //무한 점프 제어
             //isJump = rayHitDownLeft || rayHitDownRight ? isJump = false : isJump = true;
             isJump = groundCheck ? isJump = false : isJump = true;
@@ -87,6 +88,30 @@ public class FireWizard : BattleSystem
             {
                 collisionCheck();
             }
+        }
+    }
+    public void Skill2Casting()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !test)
+        {
+            test = true;
+            /*myAnim.SetBool("isSkill2Casting", true);*/
+            myAnim.SetTrigger("Skill2");
+        }
+        if (Input.GetKey(KeyCode.Alpha3) && test)
+        {
+            /*myAnim.SetTrigger("Skill2");*/
+            AdogenCastingBar.value += 0.1f * Time.deltaTime;
+            
+        }
+        if (Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            if (AdogenCastingBar.value >= 1)
+            {
+            }
+            test = false;
+            AdogenCastingBar.value = 0f;
+            myAnim.SetTrigger("testExit");
         }
     }
 }
