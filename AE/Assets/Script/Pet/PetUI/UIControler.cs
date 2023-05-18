@@ -20,8 +20,7 @@ public class UIControler : MonoBehaviour
             curTime += Time.deltaTime;
             if (curTime >= CoolTime)
             {
-                gameObject.SetActive(false);
-                curTime = 0.0f;
+                Destroy(gameObject);
             }
         }
     }

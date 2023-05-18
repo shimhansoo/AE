@@ -32,7 +32,7 @@ public class PetMoveMent : PetProperty
     protected IEnumerator DragonMoving()
     {
         while (true)
-        {
+        {            
             Vector2 dir = player.position - transform.position;
             dir.Normalize();
             PetRenderer.flipX = dir.x < 0.0 ? true : false;
@@ -177,6 +177,7 @@ public class PetMoveMent : PetProperty
             case State.Normal:
                 if (coAttacking != null) StopCoroutine(coAttacking);
                 coDragonMoving = StartCoroutine(DragonMoving());
+                if (PetAnim.GetBool("isAttacking")) PetAnim.SetBool("isAttacking", false);
                 break;
             // 배틀 상태 공격.
             case State.Battle:

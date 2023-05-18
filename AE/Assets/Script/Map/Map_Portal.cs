@@ -23,6 +23,10 @@ public class Map_Portal : MonoBehaviour
     
     public GameObject seventhMini;
 
+    // Dragon Canvas
+    public GameObject BasicDragonCanvas; // 2-1 BasicDragon등장 캔버스
+    public GameObject EvolutionCanvas; // 3-1 드래곤 진화 캔버스
+
     public int portalIndex = 0;
 
     // 1-1 -> 2-1 : 1
@@ -82,6 +86,7 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.SecondStage();
                     oneMini.SetActive(false);
                     secondMini.SetActive(true);
+                    if (BasicDragonCanvas) BasicDragonCanvas.SetActive(true);
                     break;
                 case 2:
                     // 2 - 2 의 방 제한
@@ -114,6 +119,7 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.ThirdStage();
                     fourthMini.SetActive(false);
                     fifthMini.SetActive(true);
+                    if(EvolutionCanvas) EvolutionCanvas.SetActive(true);
                     
                     break;
                 case 5:
