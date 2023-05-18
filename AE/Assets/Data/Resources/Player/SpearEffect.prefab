@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 377773974383222017}
   - component: {fileID: 6731773378871393677}
   - component: {fileID: 5314203677195142133}
-  - component: {fileID: 3890661764421155053}
+  - component: {fileID: -3055606710769440914}
   m_Layer: 0
   m_Name: SpearEffect
   m_TagString: Untagged
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &5314203677195142133
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,8 +105,9 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3890661764421155053
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3055606710769440914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,6 +116,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6607726484232672364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88373b752f8bd694f93e20b22098c41e, type: 3}
+  m_Script: {fileID: 11500000, guid: 836bf0942e1de524e82d6f3c96fcc4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

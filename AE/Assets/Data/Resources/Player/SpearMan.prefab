@@ -195,12 +195,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9012221850467041106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35e132d1931a6cc40b2f30004e5b4964, type: 3}
+  m_Script: {fileID: 11500000, guid: 2333f9558bec17346981cddb541f1fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerCurHp: 0
-  playerMoveSpeed: 5
-  playerCurrentMoveSpeed: 0
+  playerMoveSpeed: 3
+  _moveSpeed: -1
   additionalSpeed: 0
   playerJumpPower: 16
   groundMask:
@@ -213,7 +213,10 @@ MonoBehaviour:
   DebuffIcon: {fileID: 0}
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 16512
+  BasicDragon: {fileID: 5990443681879294167, guid: c896ecfa5979b644493b4d6b95529058, type: 3}
+  FireDragon: {fileID: 1385979651342774976, guid: 4329450b67a587f4f955ef620783bf33, type: 3}
+  DarkDragon: {fileID: 8782368268330848607, guid: f0e21e0a885ffa64a83e2de9543f43c4, type: 3}
   DragonTarget: {fileID: 0}
   SpearManskillEffect1: {fileID: 2420749118380007224, guid: f8d0cb46cc9e4874c8ce1b49243a2194, type: 3}
   SpearManskillEffect2: {fileID: 6907581190293098521, guid: 7fe6788e4a7c5324d91e08ea13834415, type: 3}
@@ -371,7 +374,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2029377761
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 5546671543968653177, guid: 0b634806438a5a4429efaf42643d463e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -414,26 +417,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 9012221851352616273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996313eb5192455439d94f3f2e9ca933, type: 3}
+  m_Script: {fileID: 11500000, guid: aa703f81aa86b104597b310a42a67a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCurHp: 0
-  playerMoveSpeed: 5
-  playerCurrentMoveSpeed: 0
-  additionalSpeed: 0
-  playerJumpPower: 5
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  dashEffect: {fileID: 0}
-  playerDamege: 7
-  attackPoint: {fileID: 0}
-  attackRange: 0.7
-  DebuffIcon: {fileID: 0}
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  DragonTarget: {fileID: 0}
   OnAttack:
     m_PersistentCalls:
       m_Calls:

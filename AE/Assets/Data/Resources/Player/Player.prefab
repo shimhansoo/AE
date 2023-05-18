@@ -195,11 +195,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9012221850467041106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35e132d1931a6cc40b2f30004e5b4964, type: 3}
+  m_Script: {fileID: 11500000, guid: 2333f9558bec17346981cddb541f1fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCurHp: 100
-  playerMoveSpeed: 5
+  playerCurHp: 0
+  playerMoveSpeed: 3
   _moveSpeed: -1
   additionalSpeed: 0
   playerJumpPower: 16
@@ -213,7 +213,7 @@ MonoBehaviour:
   DebuffIcon: {fileID: 0}
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 16512
   BasicDragon: {fileID: 5990443681879294167, guid: c896ecfa5979b644493b4d6b95529058, type: 3}
   FireDragon: {fileID: 1385979651342774976, guid: 4329450b67a587f4f955ef620783bf33, type: 3}
   DarkDragon: {fileID: 8782368268330848607, guid: f0e21e0a885ffa64a83e2de9543f43c4, type: 3}
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9012221850467041106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11b241853abbf2343a8725bced9dffe0, type: 3}
   m_Name: 
@@ -415,9 +415,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9012221851352616273}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996313eb5192455439d94f3f2e9ca933, type: 3}
+  m_Script: {fileID: 11500000, guid: aa703f81aa86b104597b310a42a67a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnAttack:

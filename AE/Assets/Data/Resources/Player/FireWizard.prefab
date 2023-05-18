@@ -358,14 +358,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6745616825825977293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca45d91c5d6429843b6dc7fdfc734068, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d41a97d14e4f2c499525b6c61a07793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerCurHp: 0
   playerMoveSpeed: 3
   _moveSpeed: -1
   additionalSpeed: 0
-  playerJumpPower: 18
+  playerJumpPower: 16
   groundMask:
     serializedVersion: 2
     m_Bits: 4616
@@ -377,9 +377,9 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 16512
-  BasicDragon: {fileID: 5990443681879294167, guid: c896ecfa5979b644493b4d6b95529058, type: 3}
-  FireDragon: {fileID: 1385979651342774976, guid: 4329450b67a587f4f955ef620783bf33, type: 3}
-  DarkDragon: {fileID: 8782368268330848607, guid: f0e21e0a885ffa64a83e2de9543f43c4, type: 3}
+  BasicDragon: {fileID: 0}
+  FireDragon: {fileID: 0}
+  DarkDragon: {fileID: 0}
   DragonTarget: {fileID: 0}
   Firebolt: {fileID: 32951938091273301, guid: a30621524140c7946b2acece678177ab, type: 3}
   Fireblast: {fileID: 5466207502924514911, guid: 3d7578cc46da1bb49933035c4eddba85, type: 3}

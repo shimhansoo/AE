@@ -160,12 +160,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6907581190293098521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96154443f3f5a7d48b3a3aa3ccbd4110, type: 3}
+  m_Script: {fileID: 11500000, guid: fef21fc13e1452f4d9fd6bd1bca91840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerCurHp: 0
   playerMoveSpeed: 3
-  playerCurrentMoveSpeed: 0
+  _moveSpeed: -1
   additionalSpeed: 0
   playerJumpPower: 16
   groundMask:
@@ -178,9 +178,12 @@ MonoBehaviour:
   DebuffIcon: {fileID: 0}
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 16512
+  BasicDragon: {fileID: 0}
+  FireDragon: {fileID: 0}
+  DarkDragon: {fileID: 0}
+  DragonTarget: {fileID: 0}
   spearEffect: {fileID: 6607726484232672364, guid: 9fa45f3554932dd4e820fc52105bb373, type: 3}
-  spearAttackPoint: {fileID: 0}
 --- !u!50 &2664731863821549527
 Rigidbody2D:
   serializedVersion: 4

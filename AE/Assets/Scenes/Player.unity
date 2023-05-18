@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5602221241257552024, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5602221241257552024, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -257,7 +257,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.55
+  orthographic size: 4.13
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4289,7 +4289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4342,7 +4342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5602221241257552024, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5602221241257552024, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5251,7 +5251,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3177509816742997251, guid: 7a2f018f643dd5944b286a804e01d72e, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3177509816742997251, guid: 7a2f018f643dd5944b286a804e01d72e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5311,12 +5311,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6745616825825977280, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
+      propertyPath: DarkDragon
+      value: 
+      objectReference: {fileID: 8782368268330848607, guid: f0e21e0a885ffa64a83e2de9543f43c4, type: 3}
+    - target: {fileID: 6745616825825977280, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
+      propertyPath: FireDragon
+      value: 
+      objectReference: {fileID: 1385979651342774976, guid: 4329450b67a587f4f955ef620783bf33, type: 3}
+    - target: {fileID: 6745616825825977280, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
+      propertyPath: BasicDragon
+      value: 
+      objectReference: {fileID: 5990443681879294167, guid: c896ecfa5979b644493b4d6b95529058, type: 3}
+    - target: {fileID: 6745616825825977280, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
       propertyPath: FireWizardMagicCircle
       value: 
       objectReference: {fileID: 2892702429691492283, guid: 92ce35e7406033545972f06123dfa2e7, type: 3}
     - target: {fileID: 6745616825825977292, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6745616825825977292, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5361,6 +5373,10 @@ PrefabInstance:
     - target: {fileID: 6745616825825977293, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
       propertyPath: m_Name
       value: FireWizard
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745616825825977293, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}

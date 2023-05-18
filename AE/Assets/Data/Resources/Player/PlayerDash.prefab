@@ -116,17 +116,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5225893648906430629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88373b752f8bd694f93e20b22098c41e, type: 3}
+  m_Script: {fileID: 11500000, guid: 836bf0942e1de524e82d6f3c96fcc4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxHp: 100
-  playerCurHp: 0
-  playerMoveSpeed: 5
-  playerCurrentMoveSpeed: 0
-  additionalSpeed: 0
-  playerDamege: 7
-  playerJumpPower: 5
-  PlayerDashFunc:
-    m_PersistentCalls:
-      m_Calls: []
-  myParent: {fileID: 0}

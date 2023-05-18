@@ -135,12 +135,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3177509816742997278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40d8bc0bea05ed443a3a8e88dfed9dd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f326c1b3ddc2404a9146593b0624e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerCurHp: 0
   playerMoveSpeed: 3
-  playerCurrentMoveSpeed: 0
+  _moveSpeed: -1
   additionalSpeed: 0
   playerJumpPower: 16
   groundMask:
@@ -156,7 +156,6 @@ MonoBehaviour:
     m_Bits: 16512
   BasicDragon: {fileID: 0}
   FireDragon: {fileID: 0}
-  EarthDragon: {fileID: 0}
   DarkDragon: {fileID: 0}
   DragonTarget: {fileID: 0}
 --- !u!1 &3177509816959922417
@@ -390,30 +389,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3177509817048734073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 996313eb5192455439d94f3f2e9ca933, type: 3}
+  m_Script: {fileID: 11500000, guid: aa703f81aa86b104597b310a42a67a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCurHp: 0
-  playerMoveSpeed: 3
-  playerCurrentMoveSpeed: 0
-  additionalSpeed: 0
-  playerJumpPower: 16
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  dashEffect: {fileID: 0}
-  playerDamege: 25
-  attackPoint: {fileID: 0}
-  attackRange: 0.7
-  DebuffIcon: {fileID: 0}
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  BasicDragon: {fileID: 0}
-  FireDragon: {fileID: 0}
-  EarthDragon: {fileID: 0}
-  DarkDragon: {fileID: 0}
-  DragonTarget: {fileID: 0}
   OnAttack:
     m_PersistentCalls:
       m_Calls:

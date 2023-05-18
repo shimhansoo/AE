@@ -52,7 +52,7 @@ public class SpearMan : BattleSystem
             //스킬 1
             if (spearmanSkillCoolTime1 >= 7.0f)//7초 이후
             {
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     spearmanSkillCoolTime1 = 0f;
                     StartCoroutine(Berserk());
@@ -61,7 +61,7 @@ public class SpearMan : BattleSystem
             //스킬 2
             if (spearmanSkillCoolTime2 >= 10.0f)
             {
-                if (Input.GetKeyDown(KeyCode.W))
+                if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
                     spearmanSkillCoolTime2 = 0f;
                     GameObject temp = Instantiate(SpearManskillEffect2, new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);
@@ -102,7 +102,7 @@ public class SpearMan : BattleSystem
 
         playerMoveSpeed *= 1.5f;
         playerDamege *= 2.0f;
-        attackSpeed = 10.0f;
+        attackSpeed = 5.0f;
 
         GameObject temp = Instantiate(SpearManskillEffect1, new Vector2(transform.position.x, transform.position.y+0.2f), Quaternion.identity);
         temp.transform.SetParent(this.transform);
