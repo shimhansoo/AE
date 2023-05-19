@@ -27,6 +27,9 @@ public class Map_Portal : MonoBehaviour
     public GameObject BasicDragonCanvas; // 2-1 BasicDragon등장 캔버스
     public GameObject EvolutionCanvas; // 3-1 드래곤 진화 캔버스
 
+    // BasicDragon Rep
+    public GameObject BasicDragon;
+
     public int portalIndex = 0;
 
     // 1-1 -> 2-1 : 1
@@ -87,6 +90,7 @@ public class Map_Portal : MonoBehaviour
                     oneMini.SetActive(false);
                     secondMini.SetActive(true);
                     if (BasicDragonCanvas) BasicDragonCanvas.SetActive(true);
+                    Instantiate(BasicDragon, transform.position, Quaternion.identity);
                     break;
                 case 2:
                     // 2 - 2 의 방 제한

@@ -8976,6 +8976,10 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 738063027}
+    - target: {fileID: 1813740299, guid: b4033e14597d27041a15985c9eb68351, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2388334415598723724, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -19800,8 +19804,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 934674438}
     - target: {fileID: 8992312194720688024, guid: cb413741a680c4b4683de5d8cc55fed5, type: 3}
+      propertyPath: BasicDragon
+      value: 
+      objectReference: {fileID: 5990443681879294167, guid: c896ecfa5979b644493b4d6b95529058, type: 3}
+    - target: {fileID: 8992312194720688024, guid: cb413741a680c4b4683de5d8cc55fed5, type: 3}
       propertyPath: portalIndex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992312194720688024, guid: cb413741a680c4b4683de5d8cc55fed5, type: 3}
+      propertyPath: EvolutionCanvas
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8992312194720688024, guid: cb413741a680c4b4683de5d8cc55fed5, type: 3}
       propertyPath: BasicDragonCanvas
@@ -50443,6 +50455,7 @@ MonoBehaviour:
   UIWolf: {fileID: 1273782720}
   TransparentWall: {fileID: 330456207}
   TutoSlime: {fileID: 1364322104}
+  BasicDragon: {fileID: 0}
   HPbar: {fileID: 920862606}
   MapUI: {fileID: 669018061}
   Setting: {fileID: 1232765350}

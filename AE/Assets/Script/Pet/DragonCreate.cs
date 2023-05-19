@@ -13,6 +13,7 @@ public class DragonCreate : MonoBehaviour
     {
         GameObject PlayerPos = GameObject.Find("DragonTargetPlayerPos");
         player = PlayerPos.transform;
+        BasicDragon = GameObject.Find("BasicDragon(Clone)");
     }
     public void CreatFireDragon()
     {
@@ -25,7 +26,8 @@ public class DragonCreate : MonoBehaviour
 
     IEnumerator CreateDragon(GameObject DRG)
     {
-        yield return new WaitForSeconds(1.5f);
+        Destroy(BasicDragon);
+        yield return new WaitForSeconds(1.5f);        
         Destroy(Canvas);
         Instantiate(DRG, player.position, Quaternion.identity);
     }

@@ -12,6 +12,7 @@ public class MainUI : MonoBehaviour
     public GameObject UIWolf = null;
     public GameObject TransparentWall = null;
     public GameObject TutoSlime = null;
+    public GameObject BasicDragon = null;
 
     // UI 그림
     public GameObject HPbar = null;
@@ -51,6 +52,7 @@ public class MainUI : MonoBehaviour
     //드래곤 대사
     public GameObject DragonSC1 = null;
     public GameObject DragonSC2 = null;
+
 
     // 튜토리얼 대사를 띄울 int형 카운트
     public int TutoCount = 0;
