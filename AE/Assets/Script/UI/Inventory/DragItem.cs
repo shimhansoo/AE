@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler
 {
     public Transform originalParent;
     public Vector2 startPosition;
@@ -38,6 +38,18 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         transform.position = Input.mousePosition;
     }
 
+
+    //우클릭으로 장착
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            //if(Item !- null)
+            //{
+
+            //}
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

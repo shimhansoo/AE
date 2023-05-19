@@ -13,9 +13,17 @@ public class Item : ScriptableObject
     }
 
     public string itemName; // 이름
+
+
     public ItemType itemType; // 무기 방어구 소울
+    public float itemHP = 0; // 추가 체력
+    public float itemAttack = 0; // 추가 공격력
+    public float itemSpeed = 0; // 추가 이속 ㅋ
+
+
+
     public Sprite itemImage; // 인벤토리에서 쓸 아이템 이미지
     public GameObject itemPrefab; // 프리팹
 
-    public string weaponType; // 유형
+    //public string weaponType; // 유형
 }

@@ -14,11 +14,14 @@ public class InventroySlot : MonoBehaviour, IDropHandler
         //
         if (newitem != null)
         {
+            
             if(curitem != null)
             {
                 curitem.transform.SetParent(newitem.originalParent, true);
-                //curitem.transform.position = newitem.or
+                curitem.transform.position = newitem.startPosition;
+                Debug.Log("위치이동ㅋ");
             }
+            
             // 아이템을 드롭된 슬롯으로 이동시키기
             newitem.transform.SetParent(transform);
             newitem.transform.position = transform.position;

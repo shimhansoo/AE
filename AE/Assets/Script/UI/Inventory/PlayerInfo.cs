@@ -13,19 +13,19 @@ public class PlayerInfo : MonoBehaviour
 
     public Inventory Inventory;
 
-    public GameObject Player1;
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        HP.text = "HP : " + Player1.GetComponent<CharacterProperty>().playerCurHp.ToString();
-        Attack.text = "ATK : " + Player1.GetComponent<CharacterProperty>().playerDamege.ToString();
-        Speed.text = "SPD : " + Player1.GetComponent<CharacterProperty>().playerCurrentMoveSpeed.ToString();
+        HP.text = "HP : " + Player.GetComponent<CharacterProperty>().playerCurHp.ToString();
+        Attack.text = "ATK : " + Player.GetComponent<CharacterProperty>().playerDamege.ToString();
+        Speed.text = "SPD : " + Player.GetComponent<CharacterProperty>().playerCurrentMoveSpeed.ToString();
         Gold.text = Inventory.gold.ToString();
 
     }
