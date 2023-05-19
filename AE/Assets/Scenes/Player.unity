@@ -265,7 +265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232362363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.32, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -306,7 +306,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -443,12 +443,12 @@ GameObject:
   - component: {fileID: 364701564}
   - component: {fileID: 364701563}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: WizardSKill2CastringBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &364701563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,10 +471,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -519,8 +519,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -80, y: -10}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: -304.1, y: -114.6}
+  m_SizeDelta: {x: 60, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &633408520
 GameObject:
@@ -3975,7 +3975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5759,25 +5759,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6745616825825977280, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
-      propertyPath: DarkDragon
+      propertyPath: testte
       value: 
-      objectReference: {fileID: 8782368268330848607, guid: f0e21e0a885ffa64a83e2de9543f43c4, type: 3}
-    - target: {fileID: 6745616825825977280, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
-      propertyPath: FireDragon
-      value: 
-      objectReference: {fileID: 1385979651342774976, guid: 4329450b67a587f4f955ef620783bf33, type: 3}
-    - target: {fileID: 6745616825825977280, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
-      propertyPath: BasicDragon
-      value: 
-      objectReference: {fileID: 5990443681879294167, guid: c896ecfa5979b644493b4d6b95529058, type: 3}
+      objectReference: {fileID: 364701562}
     - target: {fileID: 6745616825825977280, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
       propertyPath: AdogenCastingBar
       value: 
       objectReference: {fileID: 364701563}
     - target: {fileID: 6745616825825977280, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
-      propertyPath: FireWizardMagicCircle
+      propertyPath: FireWizardAdogen
       value: 
-      objectReference: {fileID: 2892702429691492283, guid: 92ce35e7406033545972f06123dfa2e7, type: 3}
+      objectReference: {fileID: 3535262193850767473, guid: 44028319927456441b94200e18814d9b, type: 3}
+    - target: {fileID: 6745616825825977280, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
+      propertyPath: AdogenCastingBar1
+      value: 
+      objectReference: {fileID: 364701562}
     - target: {fileID: 6745616825825977292, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -5825,10 +5821,6 @@ PrefabInstance:
     - target: {fileID: 6745616825825977293, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
       propertyPath: m_Name
       value: FireWizard
-      objectReference: {fileID: 0}
-    - target: {fileID: 6745616825825977293, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
