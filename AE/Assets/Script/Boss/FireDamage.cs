@@ -16,9 +16,10 @@ public class FireDamage : Boss2Property
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Moving());
+        StartCoroutine(Damage());
         this.SmashDamage = myParent.SmashDamage / 2;
         transform.SetParent(null);
+        
     }
 
     // Update is called once per frame
@@ -26,10 +27,10 @@ public class FireDamage : Boss2Property
     {
 
     }
-    IEnumerator Moving()
+    IEnumerator Damage()
     {
         float playTime = 0.0f;
-        Vector2 dir = myParent.attackTarget.position - transform.position;
+       Vector2 dir = myParent.attackTarget.position - transform.position;
         dir.Normalize();
         float angle = Vector2.Angle(transform.right, dir);
         if (dir.y < 0.0f) angle = -angle;
@@ -45,6 +46,16 @@ public class FireDamage : Boss2Property
             yield return null;
         }
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if ((1 << collision.gameObject.layer & groundMask) != 0) return;
+        StopAllCoroutines();
+        myAnim.SetTrigger("OnHit");
+        if ((1 << collision.gameObject.layer & targetMask) != 0)
+        {
+            collision.transform.GetComponent<GameManager.IBattle>().OnTakeDamage(attackDamage);
+        }
     }
 
     public void DestroyObj()

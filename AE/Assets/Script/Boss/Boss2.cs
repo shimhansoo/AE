@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static GameManager;
 
+[RequireComponent(typeof(Rigidbody2D), (typeof(BoxCollider2D)))]
 
 
 
@@ -81,7 +82,7 @@ public class Boss2 : Boss2_Atk, GameManager.IPerception, GameManager.IBattle
         coTrace = null;
         ChangeState(State.Normal);
     }
-    public void BossAttack()
+   public void OnAttack()
     {
         myTarget.GetComponent<IBattle>()?.OnTakeDamage(attackDamage);
     }
@@ -89,9 +90,9 @@ public class Boss2 : Boss2_Atk, GameManager.IPerception, GameManager.IBattle
     {
         myTarget.GetComponent<IBattle>()?.OnTakeDamage(SmashDamage);
     }
-    public void BossSkill()
+    public void OnSkill()
     {
-        myTarget.GetComponent<IBattle>()?.OnTakeDamage(SkillDamage);
+        myTarget.GetComponent<IBattle>()?.OnTakeDamage(SkillCooltime);
        
 
     }

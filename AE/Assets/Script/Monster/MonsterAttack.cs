@@ -27,4 +27,6 @@ public class MonsterAttack : MonsterMovement
         GameObject obj = Instantiate(Resources.Load("Monster/Mon_ShamanTotem"), transform) as GameObject;
         obj.transform.position = new Vector2(transform.position.x, transform.position.y + 0.1f);
     }
+   
+
 }

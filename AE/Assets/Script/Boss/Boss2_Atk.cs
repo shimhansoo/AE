@@ -13,13 +13,12 @@ public class Boss2_Atk : Boss2Movement
             col.GetComponent<GameManager.IBattle>().OnTakeDamage(attackDamage);
         }
     }
-    public void BossSkill()
+    public void fireslimeAttack()
     {
-        GameObject obj = Instantiate(Resources.Load("BossMonsters/Fire"), transform) as GameObject;
-        obj.transform.position = new Vector2(transform.position.x+(Random.Range(-5f, 5f)), transform.position.y + 5f);
-       
-
+        GameObject obj = Instantiate(Resources.Load("BossMonsters/fireslime_bolt"), transform) as GameObject;
+        obj.transform.position = transform.position;
     }
+
 
 
 }

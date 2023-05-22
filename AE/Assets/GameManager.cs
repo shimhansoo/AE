@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     {
         void OnTakeDamage(float dmg);
         bool isLive { get; }
+
     }
 
     private void Awake()

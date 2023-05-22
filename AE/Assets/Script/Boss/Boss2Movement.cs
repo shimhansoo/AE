@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss2Movement : Boss2Property
 {
-
+    protected bool SkillCool = false;
     bool Backmove = false;
     float BackmoveTime = 0f;
     public int MoveDir = 1;
@@ -86,26 +86,41 @@ public class Boss2Movement : Boss2Property
                             {
                                 case 0:
                                     myAnim.SetTrigger("Attack");
+                                   
                                     break;
+                             
                                 case 1:
-                                    myAnim.SetTrigger("Skill");
+                                    myAnim.SetTrigger("Smash");
                                     
                                     break;
                                 case 2:
-                                    myAnim.SetTrigger("Smash");
-                                    break;
-                                case 3:
                                     myAnim.SetTrigger("BreathSkill");
+                                    
                                     break;
 
+                                case 3:
+                                    if (!this.SkillCool)
+                                    {
+                                        SkillCooltime += Time.deltaTime;
+                                        if (SkillCooltime >= 20.0f)
+                                        {
 
+                                            myAnim.SetTrigger("Skill");
+                                            this.SkillCool = true;
+
+
+
+                                        }
+                                    }
+                                    break;
                             }
-
+                         
 
 
                         }
                     }
                 }
+
             }
 
             yield return null;
@@ -113,6 +128,7 @@ public class Boss2Movement : Boss2Property
 
     }
   
+
     // 방향 지정
     protected void SetForward(Vector2 dir)
     {

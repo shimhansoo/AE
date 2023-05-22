@@ -14,7 +14,7 @@ public class Boss2Property : MonoBehaviour
     public float attackDamage = 10.0f;   //몬스터의 공격력
     public float SmashDamage = 10.0f;
     public float BreathDamage = 3.0f;
-    public float SkillDamage = 3.0f;
+    public float SkillCooltime = 20.0f;
     protected float playTime = 0.0f;    // 공격 딜레이 검사할 변수
     
     [Header("Target")]
