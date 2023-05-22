@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecfb5457786417d4d91f956db7a47b05, type: 3}
-  m_Name: BasicSword(Normal)
+  m_Name: FireSoul(Rare)
   m_EditorClassIdentifier: 
-  itemName: BasicSword(Normal)
-  itemGrade: 0
-  itemType: 0
-  itemHP: 10
-  itemAttack: 5
+  itemName: FireSoul(Rare)
+  itemGrade: 1
+  itemType: 2
+  itemHP: 15
+  itemAttack: 10
   itemSpeed: 0
   itemImage: {fileID: 0}
-  itemPrefab: {fileID: 8128812653002951251, guid: 2872b23a4f2965a4bb7c5f0867d3c2b2, type: 3}
+  itemPrefab: {fileID: 8128812653002951251, guid: 460d9fc6792c0c24ca653b442b0e45eb, type: 3}

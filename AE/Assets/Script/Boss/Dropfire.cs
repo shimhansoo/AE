@@ -23,7 +23,7 @@ public class Dropfire : Boss2Property
     {
        
         StartCoroutine(Moving());
-        this.attackDamage = myParent.SkillDamage ;
+        /*this.attackDamage = myParent.SkillDamage;*/
         transform.SetParent(null);
       
        
