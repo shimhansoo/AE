@@ -96,6 +96,7 @@ public class FireWizard : BattleSystem
     {
         if (Input.GetKeyDown(KeyCode.S) && !isCasting)
         {
+            myAnim.ResetTrigger("Skill2Exit");
             isCasting = true;
             myAnim.SetTrigger("Skill2");
             isActionLimit = false;
