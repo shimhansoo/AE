@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 651299212641287550}
   - component: {fileID: 651299212641287521}
   - component: {fileID: 4873340944202702354}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: IMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,8 +347,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 520
   myState: 0
-  throwCnt: 0
-  TextArea: {fileID: 4422871559100630960}
 --- !u!61 &651299212822886145
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -489,7 +487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4422871559100630960}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: DMGTextArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

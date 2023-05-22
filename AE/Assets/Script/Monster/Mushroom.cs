@@ -2,50 +2,104 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mushroom : Monster
+public class Mushroom : MonsterProperty, GameManager.IBattle
 {
-    public Vector2 MoveArea;
-    float myDir = 0.0f;
-    public float moveSpeed = 0.0f;
+    Transform myCreatePoint;
+    [SerializeField]float createDelay = 5f;
+    PolygonCollider2D myPolygonCollider2D;
+    float tolerance = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
-        switch(Random.Range(0,0))
-        {
-            case 0:
-                myDir = -1.0f;
-                break;
-            case 1:
-                myDir = 1.0f;
-                break;
-        }
-        StartCoroutine(Dropping(0.0f));
+        myPolygonCollider2D = GetComponent<PolygonCollider2D>();
+        myCreatePoint = GetComponentInChildren<Transform>().Find("CreatePoint");
+        StartCoroutine(Creating());
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.right * myDir * moveSpeed * Time.deltaTime);
-        if(transform.position.x <= MoveArea.x)
-        {
-            myDir *= -1.0f;
-            transform.position = new Vector3(MoveArea.x, transform.position.y, transform.position.z);
-        }
-        if (transform.position.x <= MoveArea.y)
-        {
-            myDir *= 1.0f;
-            transform.position = new Vector3(MoveArea.y, transform.position.y, transform.position.z);
-        }
-
+        SetCollider();
     }
-    IEnumerator Dropping(float delay)
+    IEnumerator Creating()
     {
-        while(true)
+        float createTime = 0;
+        while (true)
         {
-            GameObject obj = Instantiate(Resources.Load("Item"), transform.position, Quaternion.identity) as GameObject;
-            int count = System.Enum.GetValues(typeof(MushromSkill.Type)).Length;
-            obj.GetComponent<MushromSkill>().SetType((MushromSkill.Type)Random.Range(0, count - 1));
-            yield return new WaitForSeconds(delay);
+            createTime += Time.deltaTime;
+            if(createTime > createDelay)
+            {
+                myAnim.SetTrigger("Attack");
+                createTime = 0;
+            }
+            yield return null;
+        }
+    }
+    public void CreateFungal()
+    {
+        Instantiate(Resources.Load("Fungal"), myCreatePoint.position, Quaternion.identity);
+    }
+
+    // Interface IBattle //
+    public bool isLive
+    {
+        get => myState != State.Death;
+    }
+    public void OnTakeDamage(float dmg)
+    {
+        GameObject obj = Instantiate(Resources.Load("UI/DmgText"), TextArea) as GameObject;
+        obj.GetComponent<DamageText>().ChangeDamageText(dmg);
+        curHp -= dmg;
+        if (dmg < 0)
+        {
+            myAnim.SetTrigger("OnHealColor");
+            return;
+        }
+        myAnim.SetTrigger("OnDamageColor"); // 피격시 이미지의 색상을 바꿔주도록 Animator에서 설정
+
+        if (!Mathf.Approximately(curHp, 0f))
+        {
+            if (!myAnim.GetBool("isAttacking"))
+                myAnim.SetTrigger("OnDamage");  // 공격중엔 애니메이션 호출 안 함
+        }
+        else
+        {
+            Collider2D[] colList = transform.GetComponentsInChildren<Collider2D>();
+            foreach (Collider2D col in colList) col.enabled = false;
+            StopAllCoroutines();
+            StartCoroutine(Death());
+        }
+    }
+    // Interface IBattle //
+    IEnumerator Death()
+    {
+        myAnim.SetTrigger("Death");
+        yield return StartCoroutine(DroppingItem());
+        yield return new WaitUntil(() => myAnim.GetBool("Done"));
+        Destroy(gameObject);
+    }
+    WaitForSeconds waitCoinPop = new WaitForSeconds(0.05f);
+    IEnumerator DroppingItem()
+    {
+        Vector2 orgPos = transform.position;
+        int coinNum = Random.Range(1, 21);
+        for (int i = 0; i < coinNum; i++)
+        {
+            yield return waitCoinPop;
+            GameObject coinObj = Instantiate(Resources.Load("Item/Coin"), orgPos, Quaternion.identity) as GameObject;
+            coinObj.GetComponent<Rigidbody2D>()?.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(1f, 5f)), ForceMode2D.Impulse);
+        }
+    }
+    void SetCollider()
+    {
+        List<Vector2> points = new List<Vector2>();
+        List<Vector2> simplifiedPoints = new List<Vector2>();
+        myPolygonCollider2D.pathCount = myRenderer.sprite.GetPhysicsShapeCount();
+        for (int i = 0; i < myPolygonCollider2D.pathCount; i++)
+        {
+            myRenderer.sprite.GetPhysicsShape(i, points);
+            LineUtility.Simplify(points, tolerance, simplifiedPoints);
+            myPolygonCollider2D.SetPath(i, simplifiedPoints);
         }
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 620672552}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: LeftRayPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 622449231}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RightRayPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -131,8 +131,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 520
   myState: 0
-  throwCnt: 0
-  TextArea: {fileID: 2951993720882380494}
 --- !u!61 &5610976048636743017
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,7 +190,7 @@ GameObject:
   - component: {fileID: 6516532468197461609}
   - component: {fileID: 4683558473953588754}
   - component: {fileID: 326496371}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: IMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2951993720882380494}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: DMGTextArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

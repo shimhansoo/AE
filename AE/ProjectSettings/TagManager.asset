@@ -62,3 +62,6 @@ TagManager:
   - name: ThrowObj
     uniqueID: 3276804527
     locked: 0
+  - name: Item
+    uniqueID: 820237155
+    locked: 0

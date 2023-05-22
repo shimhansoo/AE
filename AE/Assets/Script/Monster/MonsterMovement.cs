@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class MonsterMovement : MonsterProperty
 {
-    [SerializeField]int throwCnt = 0;
+    int throwCnt = 0;
     bool BackMove = false;
     float backMoveTime = 0f;
     // Normal 상태에서의 이동
-    int moveDir = 1;
+    int moveDir = 0;
     protected Vector2 frontVec = Vector2.zero; // 전방 벡터
 
     protected void ChangeDirection()  // 이동 방향을 정할 함수

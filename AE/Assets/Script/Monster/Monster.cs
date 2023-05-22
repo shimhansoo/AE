@@ -8,7 +8,6 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
 {
     /* test */
     /* test */
-    public Transform TextArea;
     public static Monster MonsterInstance;
     float healingTime = 0;
     void ChangeState(State s)
@@ -20,11 +19,13 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
             case State.Create:
                 break;
             case State.Normal:
+                if (!isLive) return;
                 StopAllCoroutines();
                 healingTime = 0f;
                 StartCoroutine(Roaming());
                 break;
             case State.Battle:
+                if (!isLive) return;
                 StopAllCoroutines();
                 OnTrace(myTarget);
                 break;
@@ -57,8 +58,9 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
 
     void Start()
     {
+        TextArea = GetComponentInChildren<Transform>().Find("DMGTextArea");
         MonsterInstance = this;
-        Invoke("ChangeDirection", 5);
+        ChangeDirection();
         ChangeState(State.Normal);
     }
 
@@ -127,6 +129,7 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
     {
         myAnim.SetTrigger("Death");
         yield return StartCoroutine(DroppingItem());
+        yield return new WaitUntil(() => myAnim.GetBool("Done"));
         Destroy(gameObject);
     }
     WaitForSeconds waitCoinPop = new WaitForSeconds(0.05f);

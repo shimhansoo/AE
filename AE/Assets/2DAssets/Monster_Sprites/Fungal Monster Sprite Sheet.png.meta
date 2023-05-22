@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b3f561546eea6bf4a9227ec22393d1aa
+guid: f22d5e0637d3cdb4a9d265e7cef89aa1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,12 +108,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 192
-        width: 22
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,12 +129,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_1
       rect:
         serializedVersion: 2
-        x: 37
+        x: 32
         y: 192
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 69
+        x: 64
         y: 192
-        width: 22
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,12 +171,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_3
       rect:
         serializedVersion: 2
-        x: 101
+        x: 96
         y: 192
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,12 +192,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_4
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 160
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -213,12 +213,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_5
       rect:
         serializedVersion: 2
-        x: 36
-        y: 162
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -234,12 +234,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_6
       rect:
         serializedVersion: 2
-        x: 68
-        y: 165
-        width: 24
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -255,12 +255,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_7
       rect:
         serializedVersion: 2
-        x: 100
-        y: 162
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -276,12 +276,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_8
       rect:
         serializedVersion: 2
-        x: 133
+        x: 128
         y: 160
-        width: 22
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -297,12 +297,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_9
       rect:
         serializedVersion: 2
-        x: 167
-        y: 163
-        width: 20
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -318,12 +318,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_10
       rect:
         serializedVersion: 2
-        x: 200
-        y: 165
-        width: 19
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 192
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -339,12 +339,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_11
       rect:
         serializedVersion: 2
-        x: 231
-        y: 163
-        width: 20
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 224
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -360,12 +360,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_12
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 128
-        width: 22
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -381,12 +381,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_13
       rect:
         serializedVersion: 2
-        x: 34
+        x: 32
         y: 128
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -402,12 +402,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_14
       rect:
         serializedVersion: 2
-        x: 66
+        x: 64
         y: 128
-        width: 21
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -423,12 +423,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_15
       rect:
         serializedVersion: 2
-        x: 100
+        x: 96
         y: 128
-        width: 28
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -444,12 +444,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_16
       rect:
         serializedVersion: 2
-        x: 134
+        x: 128
         y: 128
-        width: 23
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -465,12 +465,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_17
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 96
-        width: 22
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -486,12 +486,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_18
       rect:
         serializedVersion: 2
-        x: 37
+        x: 32
         y: 96
-        width: 22
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -507,12 +507,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_19
       rect:
         serializedVersion: 2
-        x: 69
+        x: 64
         y: 96
-        width: 22
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -528,12 +528,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_20
       rect:
         serializedVersion: 2
-        x: 99
+        x: 96
         y: 96
-        width: 26
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -549,12 +549,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_21
       rect:
         serializedVersion: 2
-        x: 133
+        x: 128
         y: 96
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -570,12 +570,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_22
       rect:
         serializedVersion: 2
-        x: 165
+        x: 160
         y: 96
-        width: 22
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -591,12 +591,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_23
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 64
-        width: 22
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -612,12 +612,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_24
       rect:
         serializedVersion: 2
-        x: 37
+        x: 32
         y: 64
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -633,12 +633,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_25
       rect:
         serializedVersion: 2
-        x: 69
+        x: 64
         y: 64
-        width: 22
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -654,12 +654,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_26
       rect:
         serializedVersion: 2
-        x: 101
+        x: 96
         y: 64
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -675,12 +675,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_27
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 32
-        width: 22
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -696,12 +696,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_28
       rect:
         serializedVersion: 2
-        x: 37
+        x: 32
         y: 32
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -717,12 +717,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_29
       rect:
         serializedVersion: 2
-        x: 69
+        x: 64
         y: 32
-        width: 24
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -738,12 +738,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_30
       rect:
         serializedVersion: 2
-        x: 101
+        x: 96
         y: 32
-        width: 27
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -759,12 +759,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_31
       rect:
         serializedVersion: 2
-        x: 133
-        y: 1
-        width: 27
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -780,12 +780,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_32
       rect:
         serializedVersion: 2
-        x: 165
+        x: 160
         y: 32
-        width: 27
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -801,12 +801,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_33
       rect:
         serializedVersion: 2
-        x: 3
-        y: 17
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -822,12 +822,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_34
       rect:
         serializedVersion: 2
-        x: 12
-        y: 16
-        width: 8
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -843,12 +843,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_35
       rect:
         serializedVersion: 2
-        x: 39
-        y: 15
-        width: 5
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -864,12 +864,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_36
       rect:
         serializedVersion: 2
-        x: 47
-        y: 14
-        width: 8
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -885,12 +885,12 @@ TextureImporter:
       name: Fungal Monster Sprite Sheet_37
       rect:
         serializedVersion: 2
-        x: 74
-        y: 1
-        width: 8
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -898,174 +898,6 @@ TextureImporter:
       bones: []
       spriteID: a93560463b4302a4c8381f5671a5b00a
       internalID: -1779575046
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fungal Monster Sprite Sheet_38
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 4
-        width: 5
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcfc0ed921c700a468f107372da9ab06
-      internalID: -714455475
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fungal Monster Sprite Sheet_39
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 10
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56ec05de6a5c04a46bfb609048e1f800
-      internalID: -1634208371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fungal Monster Sprite Sheet_40
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 7
-        width: 4
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c25c8ffbdac0e2544b0a38ac4662bb60
-      internalID: -1942358607
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fungal Monster Sprite Sheet_41
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 11
-        width: 4
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9039bf1354d573144b16bb63609d7cba
-      internalID: -6318990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fungal Monster Sprite Sheet_42
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 9
-        width: 12
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c86b99176075cb343a5d8d3c248925d7
-      internalID: 860034815
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fungal Monster Sprite Sheet_43
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 2
-        width: 5
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab4d71f3fa4e30f4686e272956f89b21
-      internalID: -1211179306
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fungal Monster Sprite Sheet_44
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 4
-        width: 4
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2080bd18ac0072b42b0356aa0c71a3a2
-      internalID: -1856645510
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fungal Monster Sprite Sheet_45
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 0
-        width: 10
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 31c7cfd6841df3f458d2477494f41f54
-      internalID: 1163172087
       vertices: []
       indices: 
       edges: []
@@ -1113,15 +945,7 @@ TextureImporter:
       Fungal Monster Sprite Sheet_35: 1491036769
       Fungal Monster Sprite Sheet_36: 1460760061
       Fungal Monster Sprite Sheet_37: -1779575046
-      Fungal Monster Sprite Sheet_38: -714455475
-      Fungal Monster Sprite Sheet_39: -1634208371
       Fungal Monster Sprite Sheet_4: -733387968
-      Fungal Monster Sprite Sheet_40: -1942358607
-      Fungal Monster Sprite Sheet_41: -6318990
-      Fungal Monster Sprite Sheet_42: 860034815
-      Fungal Monster Sprite Sheet_43: -1211179306
-      Fungal Monster Sprite Sheet_44: -1856645510
-      Fungal Monster Sprite Sheet_45: 1163172087
       Fungal Monster Sprite Sheet_5: 1683412439
       Fungal Monster Sprite Sheet_6: -1900544304
       Fungal Monster Sprite Sheet_7: 170485920

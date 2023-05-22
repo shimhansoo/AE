@@ -15,6 +15,8 @@ public class MonsterProperty : MonoBehaviour
     
     protected float playTime = 0.0f;    // 공격 딜레이 검사할 변수
 
+    protected Transform TextArea;   // 데미지를 출력할 위치
+
     [Header("Target")]
     public Transform myTarget = null; // 타겟 저장
     public LayerMask targetMask;   // 타겟 레이어 지정

@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 3285500710016538107}
   - component: {fileID: 3285500710016538106}
   - component: {fileID: 3285500710016538085}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: IMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 520
   myState: 0
-  throwCnt: 0
   isSlow: 0
   SlowPercentage: 50
   slowDebuffTime: 3
