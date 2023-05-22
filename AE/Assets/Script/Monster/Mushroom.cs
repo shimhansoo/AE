@@ -37,7 +37,7 @@ public class Mushroom : MonsterProperty, GameManager.IBattle
     }
     public void CreateFungal()
     {
-        Instantiate(Resources.Load("Fungal"), myCreatePoint.position, Quaternion.identity);
+        Instantiate(Resources.Load("Monster/Fungal"), myCreatePoint.position, Quaternion.identity);
     }
 
     // Interface IBattle //
