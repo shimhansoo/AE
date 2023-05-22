@@ -42,7 +42,6 @@ public class CharacterProperty : MonoBehaviour
     protected float jumpCool = 0.0f;
     public float playerJumpPower = 16.0f;
     public LayerMask groundMask;
-    public GameObject dashEffect;
 
     //전투 관련
     protected float attackTime = 0.0f;
@@ -52,11 +51,6 @@ public class CharacterProperty : MonoBehaviour
     public float attackRange = 0.7f;
     public GameObject DebuffIcon = null;
     public LayerMask enemyLayers;
-
-    // 드래곤 관련
-    public GameObject BasicDragon;
-    public GameObject FireDragon;
-    public GameObject DarkDragon;
 
     //property 관련
     Animator _anim = null;

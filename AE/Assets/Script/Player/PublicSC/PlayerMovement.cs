@@ -58,7 +58,7 @@ public class PlayerMovement : CharacterProperty
                 dashCount--;
                 myRigid.AddForce(frontVec * 10.0f, ForceMode2D.Impulse);
                 canMove = false;
-                Instantiate(dashEffect, new Vector2(transform.position.x, transform.position.y + 0.4f), Quaternion.identity);
+                Instantiate(Resources.Load("Player/PlayerDash"), new Vector2(transform.position.x, transform.position.y + 0.4f), Quaternion.identity);
             }
         }
     }

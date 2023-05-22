@@ -7,8 +7,6 @@ public class SpearMan : BattleSystem
     //스킬 관련
     protected float playerSkillMoveSpeed_1 = 0f;
     protected float playerSkillDamage_1 = 0f;
-    public GameObject SpearManskillEffect1;
-    public GameObject SpearManskillEffect2;
     float spearmanSkillCoolTime1 = 7.0f;
     float spearmanSkillCoolTime2 = 10.0f;
     void Start()
@@ -64,7 +62,7 @@ public class SpearMan : BattleSystem
                 if (Input.GetKeyDown(KeyCode.S))
                 {
                     spearmanSkillCoolTime2 = 0f;
-                    GameObject temp = Instantiate(SpearManskillEffect2, new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity);
+                    GameObject temp = Instantiate(Resources.Load("Player/SpearManSkill2"), new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity)as GameObject;
                 }
             }
 
@@ -80,19 +78,6 @@ public class SpearMan : BattleSystem
             {
                 collisionCheck();
             }
-            // 드래곤 구현 확인을 위한 구문.
-            if (Input.GetKeyDown(KeyCode.F1))
-            {
-                Instantiate(BasicDragon, transform.position, Quaternion.identity);
-            }
-            if (Input.GetKeyDown(KeyCode.F2))
-            {
-                Instantiate(FireDragon, transform.position, Quaternion.identity);
-            }
-            if (Input.GetKeyDown(KeyCode.F3))
-            {
-                Instantiate(DarkDragon, transform.position, Quaternion.identity);
-            }
         }
     }
     IEnumerator Berserk()
@@ -104,7 +89,7 @@ public class SpearMan : BattleSystem
         playerDamege *= 2.0f;
         attackSpeed = 5.0f;
 
-        GameObject temp = Instantiate(SpearManskillEffect1, new Vector2(transform.position.x, transform.position.y+0.2f), Quaternion.identity);
+        GameObject temp = Instantiate(Resources.Load("Player/SpearManSkill1"), new Vector2(transform.position.x, transform.position.y+0.2f), Quaternion.identity) as GameObject;
         temp.transform.SetParent(this.transform);
         yield return new WaitForSeconds(5.0f);
 

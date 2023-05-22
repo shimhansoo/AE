@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public class FireWizard : BattleSystem
 {    
-    public GameObject FireWizardAdogen; 
-    public GameObject Firebolt; 
-    public GameObject Fireblast; 
-    public GameObject FireWizardMagicCircle;
-    public GameObject AdogenCastingBar1;
     public Slider AdogenCastingBar;
     float fireWizardSkill1 = 7f;
     float fireWizardSkill2 = 7f;
@@ -35,7 +30,7 @@ public class FireWizard : BattleSystem
     void Update()
     {
 
-        AdogenCastingBar1.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y+0.5f));
+        AdogenCastingBar.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y+0.5f));
         if (isLive)
         {
             playerCurrentMoveSpeed = playerMoveSpeed + additionalSpeed;
@@ -52,7 +47,7 @@ public class FireWizard : BattleSystem
                     if (Input.GetKey(KeyCode.X))
                     {
                         myAnim.SetTrigger("Attack");
-                        GameObject temp = Instantiate(Firebolt, attackPoint.position, Quaternion.identity);
+                        GameObject temp = Instantiate(Resources.Load("Player/Firebolt"), attackPoint.position, Quaternion.identity) as GameObject;
                         temp.transform.SetParent(gameObject.transform);
                         attackTime = 0.0f;
                     }
@@ -63,9 +58,9 @@ public class FireWizard : BattleSystem
                 {
                     if (Input.GetKeyDown(KeyCode.A))
                     {
-                        GameObject fireWizardMagicCircle = Instantiate(FireWizardMagicCircle, new Vector2(attackPoint.position.x, attackPoint.position.y), Quaternion.identity);
+                        GameObject fireWizardMagicCircle = Instantiate(Resources.Load("Player/FireWizardMagicCircle"), new Vector2(attackPoint.position.x, attackPoint.position.y), Quaternion.identity) as GameObject;
                         fireWizardMagicCircle.transform.SetParent(gameObject.transform);
-                        GameObject FireBlast = Instantiate(Fireblast, new Vector2(attackPoint.position.x, attackPoint.position.y + 0.2f), Quaternion.identity);
+                        GameObject FireBlast = Instantiate(Resources.Load("Player/FireBlast"), new Vector2(attackPoint.position.x, attackPoint.position.y + 0.2f), Quaternion.identity) as GameObject;
                         FireBlast.transform.SetParent(gameObject.transform);
                         fireWizardSkill1 = 0.0f;
                     }
@@ -110,7 +105,7 @@ public class FireWizard : BattleSystem
         {
             if (AdogenCastingBar.value >= 1)
             {
-                Instantiate(FireWizardAdogen, attackPoint.position, Quaternion.identity, gameObject.transform);
+                Instantiate(Resources.Load("Player/Adogen"), attackPoint.position, Quaternion.identity, gameObject.transform);
                 fireWizardSkill2 = 0;
             }
             AdogenCastingBar.gameObject.SetActive(false);

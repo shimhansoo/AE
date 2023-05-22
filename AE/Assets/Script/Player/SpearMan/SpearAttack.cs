@@ -8,7 +8,6 @@ public class SpearAttack : BattleSystem
     Vector2 spearDir = Vector2.zero;
     float spearAttackTime = 0f;
     float spearAttackRange = 1.0f;
-    public GameObject spearEffect;
     void Start()
     {
         transform.Rotate(0, 0, -90.0f);
@@ -43,7 +42,7 @@ public class SpearAttack : BattleSystem
         foreach (Collider2D enemy in Enemys)
         {
             enemy.GetComponent<GameManager.IBattle>().OnTakeDamage(15.0f);
-            Instantiate(spearEffect, new Vector2(enemy.transform.position.x, enemy.transform.position.y+0.3f), Quaternion.identity);
+            Instantiate(Resources.Load("Player/SpearEffect"), new Vector2(enemy.transform.position.x, enemy.transform.position.y+0.3f), Quaternion.identity);
         }
     }
     private void OnDrawGizmosSelected()
