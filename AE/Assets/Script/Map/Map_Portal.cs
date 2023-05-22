@@ -23,22 +23,51 @@ public class Map_Portal : MonoBehaviour
     
     public GameObject seventhMini;
 
-    // Dragon Canvas
-    public GameObject BasicDragonCanvas; // 2-1 BasicDragon등장 캔버스
-    public GameObject EvolutionCanvas; // 3-1 드래곤 진화 캔버스
+    public int portalIndex = 0;
+
+    // 1-1 -> 2-1 : 1 슬라임(5)
+
+    // 2-1 -> 2-2 : 2 슬라임(3),오크(2)
+
+    // 2-2 -> 2-3 : 3 슬라임(2),오크(1),샤먼(3)
+
+    // 2-3 -> 3-1 : 4 보스(1)
+
+    // 3-1 -> 3-2 : 5 샤먼(3),슬라임(1)
+
+    // 3-2 -> 3-3 : 6
 
     // BasicDragon Rep
     public GameObject BasicDragon;
 
-    public int portalIndex = 0;
+    // Dragon Canvas
+    public GameObject BasicDragonCanvas; // 2-1 BasicDragon등장 캔버스
+    public GameObject EvolutionCanvas; // 3-1 드래곤 진화 캔버스
 
-    // 1-1 -> 2-1 : 1
-    // 2-1 -> 2-2 : 2
-    // 2-2 -> 2-3 : 3
-    // 2-3 -> 3-1 : 4
-    // 3-1 -> 3-2 : 5
-    // 3-2 -> 3-3 : 6
-    
+    // 현재 맵에서 몬스터를 다 잡지 않고 포탈 상호작용을 입력할 시 뜨는 UI대사
+    public GameObject warningScript;
+
+    // 1-1 클리어시 뜨는 튜토리얼 문구
+    public GameObject TutoSC8;
+
+    // 현재 맵 몬스터 바인딩 오브젝트
+    public GameObject monsterCheckobj1;
+    public GameObject monsterCheckobj2;
+    public GameObject monsterCheckobj3;
+    public GameObject monsterCheckobj4;
+    public GameObject monsterCheckobj5;
+    public GameObject monsterCheckobj6;
+
+    // 현재 맵에 몬스터가 다 죽었는지 체크
+    protected bool monsterDeathCheck = false;
+
+    // 맵 이동 후 몬스터 리젠 시간
+    public float appearTime = 3.0f;
+
+    // UI그림
+    public GameObject HPbar = null;
+    public GameObject MapUI = null;
+    public GameObject Setting = null;
 
     Map2_CameraLimit map2_CameraLimit;
     public GameObject cam;
@@ -46,20 +75,34 @@ public class Map_Portal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         map2_CameraLimit.Teleport();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F) && isInsidePortal == true) 
+        // isInsidePortal 포탈 범위내에 있을때
+        if (Input.GetKeyDown(KeyCode.F) && isInsidePortal == true && monsterDeathCheck && !warningScript.activeSelf) 
         {
             usePortal = true;
+            if(TutoSC8) Destroy(TutoSC8);
+        }
+        else if(Input.GetKeyDown(KeyCode.F) && isInsidePortal == true && !monsterDeathCheck && !warningScript.activeSelf)
+        {
+            StartCoroutine(Warning());
         }
         if(Input.GetKeyUp(KeyCode.F) && isInsidePortal == true)
         {
             usePortal = false;
+        }
+        if (!monsterCheckobj1 && !monsterCheckobj2 && !monsterCheckobj3 && !monsterCheckobj4 && !monsterCheckobj5 && !monsterCheckobj6 && !monsterDeathCheck)
+        {
+            if(TutoSC8)
+            {
+                StartCoroutine(uiStopping()); // 대사 나올때 UI이미지 잠시 꺼주는 코루틴
+                TutoSC8.SetActive(true);
+            }
+            if(monsterDeathCheck != true) monsterDeathCheck = true; // 몬스터가 다 죽었으면 true
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -89,8 +132,8 @@ public class Map_Portal : MonoBehaviour
                     map2_CameraLimit.SecondStage();
                     oneMini.SetActive(false);
                     secondMini.SetActive(true);
-                    if (BasicDragonCanvas) BasicDragonCanvas.SetActive(true);
-                    Instantiate(BasicDragon, transform.position, Quaternion.identity);
+                    if (BasicDragonCanvas) BasicDragonCanvas.SetActive(true); // basic드래곤 등장 대사 캔버스
+                    Instantiate(BasicDragon, transform.position, Quaternion.identity); // basic드래곤 등장
                     break;
                 case 2:
                     // 2 - 2 의 방 제한
@@ -172,5 +215,36 @@ public class Map_Portal : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
             image.color = new Color(0, 0, 0, fadeCount);
         }
+    }
+
+    // 현재 맵에서 몬스터를 다 잡지 않고 포탈 상호작용을 입력할 시 뜨는 UI대사 코루틴 함수
+    IEnumerator Warning() 
+    {
+        StartCoroutine(uiStopping());
+        warningScript.SetActive(true);
+        yield return new WaitForSeconds(3.0f);
+        warningScript.SetActive(false);
+    }
+    // 대사 나올때 UI잠시 꺼주는 코루틴 함수
+    IEnumerator uiStopping()
+    {
+            HPbar.SetActive(false);
+            MapUI.SetActive(false);
+            Setting.SetActive(false);
+        yield return new WaitForSeconds(3.0f);
+            HPbar.SetActive(true);
+            MapUI.SetActive(true);
+            Setting.SetActive(true);
+    }
+    // 몬스터 나타나게 하는거 아직 ing
+    IEnumerator monsterAppearing(float Appeartime)
+    {
+        yield return new WaitForSeconds(Appeartime);
+        if (monsterCheckobj1) monsterCheckobj1.SetActive(true);
+        if (monsterCheckobj2) monsterCheckobj2.SetActive(true);
+        if (monsterCheckobj3) monsterCheckobj3.SetActive(true);
+        if (monsterCheckobj4) monsterCheckobj4.SetActive(true);
+        if (monsterCheckobj5) monsterCheckobj5.SetActive(true);
+        if (monsterCheckobj6) monsterCheckobj6.SetActive(true);
     }
 }

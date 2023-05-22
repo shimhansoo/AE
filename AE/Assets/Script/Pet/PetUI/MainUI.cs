@@ -97,7 +97,7 @@ public class MainUI : MonoBehaviour
         if (PlayerSC4 && TutoCount == 28 && !PlayerSC4.activeSelf)
         {
             PlayerSC4.SetActive(true); // Á¨Àå... ¹¹³Ä°í...!
-            TutoSlime.SetActive(true);
+            TutoSlime.SetActive(true); // Æ©Åä¸®¾ó ½½¶óÀÓ µîÀå
         }
         if (TutoCount == 29 && UIWolf.activeSelf) UIWolf.SetActive(false); // UI¿ïÇÁ ÅðÀå
         if (TutoCount == 29 && !Wolf.activeSelf) Wolf.SetActive(true); // ¿ïÇÁ µîÀå
@@ -122,7 +122,7 @@ public class MainUI : MonoBehaviour
         if (TutoSC7 && !TutoSlime && !TutoSC7.activeSelf && TutoCount == 33) 
             TutoSC7.SetActive(true); 
         // ´Á´ë : ¿Ð~~!! ¿Ð!!! (ÀßÇß¾î~~!!Áö±Ý ´À³¦´ë·Î ¸Ê¿¡ÀÖ´Â ¸ðµç ¸ó½ºÅÍ¸¦ »ç³ÉÇØ¼­ ´ÙÀ½ ½ºÅ×ÀÌÁö·Î ³Ñ¾î°¡º¸ÀÚ!!!)
-        else if(!TutoSC7 && !HPbar.activeSelf && TutoCount == 37)
+        else if(!TutoSC7 && !HPbar.activeSelf && TutoCount == 37 && isCount)
         {
             HPbar.SetActive(true);
             MapUI.SetActive(true);
@@ -136,21 +136,13 @@ public class MainUI : MonoBehaviour
             StartCoroutine(TutoCountPlus());
         }
         if(TutoCount == 39)
-        {
-            DragonSC1.SetActive(true);
-        }
+            DragonSC1.SetActive(true); // ??? : Å©·Ö·Ö·Ö~
         if(TutoCount == 41)
-        {
-            PlayerSC6.SetActive(true);
-        }
+            PlayerSC6.SetActive(true); // ÀÌ°Ç ¶Ç ¹«½¼¼Ò¸®¾ß..?!
         if(TutoCount == 43)
-        {
-            DragonSC2.SetActive(true);
-        }
+            DragonSC2.SetActive(true); // Àº»ö µå·¡°ï : Å©·Ö·Ö·Ö~ (¾È³ç~³ª´Â ³Ê¸¦ µµ¿ÍÁÙ ¾Ö±âµå·¡°ïÀÌ¾ä > 3 < !)
         if(TutoCount == 45)
-        {
-            PlayerSC7.SetActive(true);
-        }
+            PlayerSC7.SetActive(true); // Á¨Àå ¹¹³Ä±¸....!
     }
     // Ä«¿îÆ®¸¦ µ¹¸®´Â ÇÔ¼ö.
     IEnumerator TutoCountPlus()
@@ -160,9 +152,5 @@ public class MainUI : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
             TutoCount += 1;
         }
-    }
-    void QuestClear(GameObject monster)
-    {
-
     }
 }
