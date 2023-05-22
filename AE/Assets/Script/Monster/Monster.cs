@@ -45,8 +45,11 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
                 healingTime += Time.deltaTime;
                 if(healingTime > 2)
                 {
-                    OnTakeDamage(-1f);
-                    healingTime = 0f;
+                    if (curHp < maxHp)
+                    {
+                        OnTakeDamage(-1f);
+                        healingTime = 0f;
+                    }
                 }
                 break;
             case State.Battle:
