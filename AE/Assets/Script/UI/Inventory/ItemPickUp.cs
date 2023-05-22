@@ -8,16 +8,12 @@ public class ItemPickUp : MonoBehaviour
     [SerializeField]
     private float range = 2.0f; // 거리
 
-    private bool pickupActivated = false; // 가까우면 먹어짐
     public RaycastHit2D hitInfo; // 충돌체 정보
 
     public Inventory inventory; // 인벤토리에 저장
     
     [SerializeField]
     private LayerMask layerMask;
-
-    public BaseSlot baseSlot;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +48,9 @@ public class ItemPickUp : MonoBehaviour
             }
             else
             {
-                inventory.AcquireItem(hitInfo.transform.GetComponent<ItemPick>().item);
+                Debug.Log(hitInfo.transform.gameObject);
+                GameObject acquiredItem = hitInfo.transform.gameObject;
+                inventory.AcquireItem(acquiredItem); // 인벤토리에 아이템 추가
             }
             
             Destroy(hitInfo.transform.gameObject);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterProperty : MonoBehaviour
 {
     //체력 관련
-    protected float playerMaxHp = 100.0f;
+    public float playerMaxHp = 100.0f;
     public float playerCurHp = 0;
 
 

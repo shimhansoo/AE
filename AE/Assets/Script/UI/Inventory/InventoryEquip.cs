@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class InventoryEquip : MonoBehaviour
 {
-    public float addHP;
-    public float addAttack;
-    public float addSpeed;
     public GameObject player;
+    public GameObject weaponSlot;
+    public GameObject armorSlot;
+    public GameObject soulSlot;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +19,5 @@ public class InventoryEquip : MonoBehaviour
     {
         
     }
-    public void OnChnage()
-    {
-        
-    }
+    
 }
