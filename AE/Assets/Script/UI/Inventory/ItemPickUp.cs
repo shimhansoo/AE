@@ -36,7 +36,7 @@ public class ItemPickUp : MonoBehaviour
         {
             hitpoint = transform.parent.position;
         }
-        hitpoint.y -= 0.25f;
+        hitpoint.y -= 0.4f;
 
         hitInfo = Physics2D.Raycast(hitpoint, new Vector2(1, 0), range, layerMask);
         if(hitInfo.transform != null)

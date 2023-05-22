@@ -11,10 +11,14 @@ public class Item : ScriptableObject
     {
         Weapon, Armor, Soul
     }
+    public enum ItemGrade
+    {
+        Normal, Rare, Unique
+    }
 
     public string itemName; // 이름
 
-
+    public ItemGrade itemGrade; // 아이템 등급
     public ItemType itemType; // 무기 방어구 소울
     public float itemHP = 0; // 추가 체력
     public float itemAttack = 0; // 추가 공격력
