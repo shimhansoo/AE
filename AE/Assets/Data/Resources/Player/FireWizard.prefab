@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 6745616824499585825}
   - component: {fileID: 6745616824499585827}
   - component: {fileID: 6745616824499585824}
-  m_Layer: 13
+  m_Layer: 6
   m_Name: IMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,10 +348,12 @@ MonoBehaviour:
   FireDragon: {fileID: 1385979651342774976, guid: 4329450b67a587f4f955ef620783bf33, type: 3}
   DarkDragon: {fileID: 8782368268330848607, guid: f0e21e0a885ffa64a83e2de9543f43c4, type: 3}
   DragonTarget: {fileID: 0}
+  FireWizardAdogen: {fileID: 3535262193850767473, guid: 44028319927456441b94200e18814d9b, type: 3}
   Firebolt: {fileID: 32951938091273301, guid: a30621524140c7946b2acece678177ab, type: 3}
   Fireblast: {fileID: 5466207502924514911, guid: 3d7578cc46da1bb49933035c4eddba85, type: 3}
   FireWizardMagicCircle: {fileID: 2892702429691492283, guid: 92ce35e7406033545972f06123dfa2e7, type: 3}
-  AdogenCastingBar: {fileID: 0}
+  AdogenCastingBar1: {fileID: 2953990919054503698, guid: 9d6e26999561c4840b759796918b0a83, type: 3}
+  AdogenCastingBar: {fileID: 2953990919054503699, guid: 9d6e26999561c4840b759796918b0a83, type: 3}
 --- !u!1 &6745616826101819493
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,7 +61,7 @@ public class FireWizard : BattleSystem
                 fireWizardSkill1 += Time.deltaTime;
                 if (fireWizardSkill1 >= 7f)
                 {
-                    if (Input.GetKeyDown(KeyCode.Alpha1))
+                    if (Input.GetKeyDown(KeyCode.A))
                     {
                         GameObject fireWizardMagicCircle = Instantiate(FireWizardMagicCircle, new Vector2(attackPoint.position.x, attackPoint.position.y), Quaternion.identity);
                         fireWizardMagicCircle.transform.SetParent(gameObject.transform);
@@ -94,18 +94,18 @@ public class FireWizard : BattleSystem
     }
     public void Skill2Casting()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !isCasting)
+        if (Input.GetKeyDown(KeyCode.S) && !isCasting)
         {
             isCasting = true;
             myAnim.SetTrigger("Skill2");
             isActionLimit = false;
             AdogenCastingBar.gameObject.SetActive(true);
         }
-        if (Input.GetKey(KeyCode.Alpha3) && isCasting)
+        if (Input.GetKey(KeyCode.S) && isCasting)
         {
             AdogenCastingBar.value += Time.deltaTime;
         }
-        if (Input.GetKeyUp(KeyCode.Alpha3))
+        if (Input.GetKeyUp(KeyCode.S))
         {
             if (AdogenCastingBar.value >= 1)
             {
