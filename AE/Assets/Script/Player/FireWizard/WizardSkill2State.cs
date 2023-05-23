@@ -7,7 +7,7 @@ public class WizardSkill2State : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("isSkill2Exiting", true);
+        animator.SetBool("isSkilling2", true);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -19,8 +19,8 @@ public class WizardSkill2State : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("Skill2Exit");
-        animator.SetBool("isSkill2Exiting", false);
+        animator.ResetTrigger("Skill2");
+        animator.SetBool("isSkilling2", false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

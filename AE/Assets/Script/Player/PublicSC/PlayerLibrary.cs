@@ -36,7 +36,7 @@ public class PlayerLibrary : BattleSystem
         playerCurHp = playerMaxHp;
         StartCoroutine(AirChecking());
         myClass = Class.BasePlayer;
-        isOnAttack = false;
+        isOnAttack = true;
     }
     private void FixedUpdate()
     {
@@ -67,7 +67,6 @@ public class PlayerLibrary : BattleSystem
         switch (myClass)
         {
             case Class.BasePlayer:
-                isOnAttack = false;
                 break;
 
             case Class.SpearMan:
@@ -170,8 +169,8 @@ public class PlayerLibrary : BattleSystem
 
     void FireWizard()
     {
-        //AdogenCastingBar.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y + 0.5f));
-        //Skill2Casting();
+        AdogenCastingBar.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y + 0.5f));
+
         if (fireWizardSkill1 >= 7f)
         {
             if (Input.GetKeyDown(KeyCode.A))
@@ -182,6 +181,10 @@ public class PlayerLibrary : BattleSystem
                 FireBlast.transform.SetParent(gameObject.transform);
                 fireWizardSkill1 = 0.0f;
             }
+        }
+        if (fireWizardSkill2 >= 7f)
+        {
+            Skill2Casting();
         }
     }
 
