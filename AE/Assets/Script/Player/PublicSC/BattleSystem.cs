@@ -23,7 +23,7 @@ public class BattleSystem : PlayerMovement, GameManager.IBattle
     public void OnTakeDamage(float damage)
     {
         playerCurHp -= damage;
-        myAnim.SetTrigger("Damage");
+        myAnim.SetTrigger("OnDamageColor");
         if (playerCurHp <= 0)
         {
             myAnim.SetTrigger("Death");
@@ -41,4 +41,5 @@ public class BattleSystem : PlayerMovement, GameManager.IBattle
             DragonTarget = enemy.gameObject;
         }
     }
+
 }

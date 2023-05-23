@@ -47,8 +47,8 @@ public class FireWizard : BattleSystem
                     if (Input.GetKey(KeyCode.X))
                     {
                         myAnim.SetTrigger("Attack");
-                        GameObject temp = Instantiate(Resources.Load("Player/Firebolt"), attackPoint.position, Quaternion.identity) as GameObject;
-                        temp.transform.SetParent(gameObject.transform);
+                        //GameObject temp = Instantiate(Resources.Load("Player/Firebolt"), attackPoint.position, Quaternion.identity) as GameObject;
+                        //temp.transform.SetParent(gameObject.transform);
                         attackTime = 0.0f;
                     }
                 }

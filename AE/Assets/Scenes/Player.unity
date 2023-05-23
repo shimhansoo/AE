@@ -388,7 +388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &456474528
 Transform:
   m_ObjectHideFlags: 0
@@ -4661,7 +4661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806461320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 15.11, y: 4.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4706,12 +4706,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3.4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &1806461324
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4748,15 +4748,20 @@ MonoBehaviour:
   playerJumpPower: 16
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4616
   playerDamege: 25
-  attackPoint: {fileID: 0}
+  attackPoint: {fileID: 1830395071}
   attackRange: 0.7
   DebuffIcon: {fileID: 0}
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16512
   DragonTarget: {fileID: 0}
+  spriteLib: {fileID: 1882382443}
+  s1: {fileID: 7108339969198208228, guid: b5744bc2fcfc235498da1d4129d4a24b, type: 3}
+  s2: {fileID: 7108339969198208228, guid: a2b40bf11a94e004cafa1a16e14c8747, type: 3}
+  s3: {fileID: 7108339969198208228, guid: da47b9f236058e34b944e20e2b381b54, type: 3}
+  AdogenCastingBar: {fileID: 0}
 --- !u!1 &1830395070
 GameObject:
   m_ObjectHideFlags: 0
@@ -4781,7 +4786,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830395070}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.51, y: 0.06, z: 0.15707712}
+  m_LocalPosition: {x: 0.7, y: 0.06, z: 0.15707712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4805,11 +4810,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745616825825977292, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.0012794
+      value: 15.99
       objectReference: {fileID: 0}
     - target: {fileID: 6745616825825977292, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.884035
+      value: 3.81
       objectReference: {fileID: 0}
     - target: {fileID: 6745616825825977292, guid: bf97e6c71387ff248b0af0d6dd39c9d1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4936,7 +4941,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4944230376442633554, guid: 9ef968485cb19e743b202337d732c276, type: 3}
+  m_Sprite: {fileID: 1026407549584056185, guid: 0f0e7051d4ed7d543b4046cbea8dc22d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4975,7 +4980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: a2b40bf11a94e004cafa1a16e14c8747, type: 3}
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: da47b9f236058e34b944e20e2b381b54, type: 3}
 --- !u!4 &1882382444
 Transform:
   m_ObjectHideFlags: 0
@@ -5003,16 +5008,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa703f81aa86b104597b310a42a67a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPoint: {fileID: 1830395071}
   OnAttack:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1806461320}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1806461325}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: OnAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
