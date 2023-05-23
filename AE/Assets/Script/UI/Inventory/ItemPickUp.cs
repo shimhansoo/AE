@@ -36,9 +36,11 @@ public class ItemPickUp : MonoBehaviour
         {
             hitpoint = transform.parent.position;
         }
-        hitpoint.y -= 0.4f;
+        hitpoint.x -= 0.1f;
+        hitpoint.y += 0.1f;
 
         hitInfo = Physics2D.Raycast(hitpoint, new Vector2(1, 0), range, layerMask);
+        Debug.DrawRay(hitpoint, new Vector2(1, 0), Color.magenta ,range);
         if(hitInfo.transform != null)
         {
             if(hitInfo.transform.gameObject.GetComponent<Coin>())
@@ -56,5 +58,4 @@ public class ItemPickUp : MonoBehaviour
             Destroy(hitInfo.transform.gameObject);
         }
     }
-    
 }

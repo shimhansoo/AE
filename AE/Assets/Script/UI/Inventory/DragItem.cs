@@ -57,7 +57,6 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             {
                 if (weaponSlot.GetComponentInChildren<DragItem>() != null)
                 {
-                    Debug.Log("Weapon Change!");
                     a = weaponSlot.GetComponentInChildren<DragItem>().transform;
                     a.transform.SetParent(orgItem);
                     a.transform.localPosition = Vector3.zero;
@@ -73,29 +72,29 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             {
                 if (armorSlot.GetComponentInChildren<DragItem>() != null)
                 {
-                    Debug.Log("Armor Change!");
                     a = armorSlot.GetComponentInChildren<DragItem>().transform;
                     a.transform.SetParent(orgItem);
                     a.transform.localPosition = Vector3.zero;
-
+                    OnChnage(a);
                 }
                 Debug.Log("Armor");
                 transform.SetParent(armorSlot.transform);
                 transform.localPosition = Vector3.zero;
+                OnEquip(transform);
             }
             else if (GetComponent<ItemPick>().item.itemType == Item.ItemType.Soul)
             {
                 if (soulSlot.GetComponentInChildren<DragItem>() != null)
                 {
-                    Debug.Log("Soul Change!");
                     a = soulSlot.GetComponentInChildren<DragItem>().transform;
                     a.transform.SetParent(orgItem);
                     a.transform.localPosition = Vector3.zero;
-
+                    OnChnage(a);
                 }
                 Debug.Log("Soul");
                 transform.SetParent(soulSlot.transform);
                 transform.localPosition = Vector3.zero;
+                OnEquip(transform);
             }
         }
     }
