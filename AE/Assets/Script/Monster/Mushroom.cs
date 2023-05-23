@@ -13,6 +13,7 @@ public class Mushroom : MonsterProperty, GameManager.IBattle
     {
         myPolygonCollider2D = GetComponent<PolygonCollider2D>();
         myCreatePoint = GetComponentInChildren<Transform>().Find("CreatePoint");
+        TextArea = GetComponentInChildren<Transform>().Find("DMGTextArea");
         StartCoroutine(Creating());
     }
 

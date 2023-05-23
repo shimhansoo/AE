@@ -147,5 +147,37 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
             GameObject coinObj = Instantiate(Resources.Load("Item/Coin"), orgPos, Quaternion.identity) as GameObject;
             coinObj.GetComponent<Rigidbody2D>()?.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(1f, 5f)), ForceMode2D.Impulse);
         }
+        RandomItemDrop();
+    }
+    int probability = 0;
+    void RandomItemDrop()
+    {
+        probability = Random.Range(0, 101);
+
+        if (probability > 90)
+        {
+            print("Sword");
+            Instantiate(Resources.Load("Item/BasicSword(Normal)"), new Vector2(transform.position.x,transform.position.y+1), Quaternion.identity);
+        }
+        else if (probability > 80)
+        {
+            print("Staff");
+            Instantiate(Resources.Load("Item/BasicStaff(Normal)"), new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
+        }
+        else if (probability > 70)
+        {
+            print("Spear");
+            Instantiate(Resources.Load("Item/BasicSpear(Normal)"), new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
+        }
+        else if (probability > 60)
+        {
+            print("Armor");
+            Instantiate(Resources.Load("Item/Armor(Normal)"), new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
+        }
+        else
+        {
+            return;
+        }
+        //obj.transform.SetParent(null);
     }
 }
