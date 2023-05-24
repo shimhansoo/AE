@@ -129,7 +129,7 @@ MonoBehaviour:
   myLeftRayPos: {fileID: 620672552}
   groundMask:
     serializedVersion: 2
-    m_Bits: 520
+    m_Bits: 4616
   myState: 0
 --- !u!61 &5610976048636743017
 BoxCollider2D:

@@ -23,8 +23,33 @@ public class ItemPickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckItem();
+        //CheckItem();
     }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.transform.gameObject);
+        if (collision.transform != null)
+        {
+            if (((layerMask & 1 << collision.gameObject.layer) != 0))
+            {
+                if (collision.transform.gameObject.GetComponent<Coin>())
+                {
+                    Debug.Log("∞ÒµÂ »πµÊ!");
+                    inventory.gold++;
+                }
+                else
+                {
+                    //Debug.Log(hitInfo.transform.gameObject);
+                    GameObject acquiredItem = collision.transform.gameObject;
+                    inventory.AcquireItem(acquiredItem); // ¿Œ∫•≈‰∏Æø° æ∆¿Ã≈€ √ﬂ∞°
+                }
+
+                Destroy(collision.transform.gameObject);
+            }
+        }
+    }
+
     public void CheckItem()
     {
         Vector2 hitpoint;

@@ -19,7 +19,7 @@ public class TitleUI : MonoBehaviour
 
     public void OnGameStart()
     {
-        SceneManager.LoadScene("Map");
+        SceneManager.LoadScene(1);
     }
 
     public void OnGameQuit()
