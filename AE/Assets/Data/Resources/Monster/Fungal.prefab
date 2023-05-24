@@ -247,10 +247,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 10
   _curHp: -1
-  moveSpeed: 1
+  moveSpeed: 2
   attackDamage: 1
   autoAttackRange: 1
-  attackDelay: 3
+  attackDelay: 2
   myTarget: {fileID: 0}
   targetMask:
     serializedVersion: 2
