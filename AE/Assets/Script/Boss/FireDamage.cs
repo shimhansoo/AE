@@ -8,7 +8,7 @@ public class FireDamage : Boss2Property
 {
     public UnityEvent OnHitFunc;
     public Boss2 myParent = null;
-
+    
     private void Awake()
     {
         myParent = GetComponentInParent<Boss2>();
@@ -16,8 +16,8 @@ public class FireDamage : Boss2Property
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Damage());
-        this.SmashDamage = myParent.SmashDamage / 2;
+       // StartCoroutine(Move());
+      //  this.SmashDamage = myParent.SmashDamage;
         transform.SetParent(null);
         
     }
@@ -27,7 +27,7 @@ public class FireDamage : Boss2Property
     {
 
     }
-    IEnumerator Damage()
+   /* IEnumerator Move()
     {
         float playTime = 0.0f;
        Vector2 dir = myParent.attackTarget.position - transform.position;
@@ -46,7 +46,7 @@ public class FireDamage : Boss2Property
             yield return null;
         }
 
-    }
+    }*/
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((1 << collision.gameObject.layer & groundMask) != 0) return;

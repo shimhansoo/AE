@@ -259,17 +259,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5602221240074203329, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602221240074203329, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 5602221241257552024, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5602221241257552024, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.77
+      value: 21.79
       objectReference: {fileID: 0}
     - target: {fileID: 5602221241257552024, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.57
+      value: -3.45
       objectReference: {fileID: 0}
     - target: {fileID: 5602221241257552024, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3654,11 +3662,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.74
+      value: 44.14
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.68
+      value: -3.82
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: b4033e14597d27041a15985c9eb68351, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3711,7 +3719,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 69204709320734621, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.92
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 69204709320734621, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3787,11 +3795,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 69204709579944473, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 69204710093859195, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: m_Radius
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 69204711000296463, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3803,7 +3811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 658033303851147471, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: m_Size.x
-      value: 2.353302
+      value: 2.0477028
       objectReference: {fileID: 0}
     - target: {fileID: 658033303851147471, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: m_Size.y
@@ -3811,7 +3819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 658033303851147471, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: m_Offset.x
-      value: 0.9175911
+      value: 0.84628487
       objectReference: {fileID: 0}
     - target: {fileID: 658033303851147471, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: m_Offset.y
@@ -3829,6 +3837,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniMapIcon
       objectReference: {fileID: 0}
+    - target: {fileID: 2683195240042609662, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
+      propertyPath: SwingFunc.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwingAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683195240042609662, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
+      propertyPath: AttackFunc.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BossAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683195240042609662, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
+      propertyPath: SwingFunc.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Boss_Attk, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683195240042609662, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
+      propertyPath: AttackFunc.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Boss_Attk, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6778802666276391392, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: maxHp
       value: 500
@@ -3842,8 +3866,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 341550822029039997, guid: 261c1db2f3122d44ea6b1bdad73aa27a, type: 3}
     - target: {fileID: 6778802666276391392, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
+      propertyPath: SwingDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778802666276391392, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
+      propertyPath: attackDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778802666276391392, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: attackRange
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6778802666276391392, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: attackTarget
@@ -3860,6 +3892,10 @@ PrefabInstance:
     - target: {fileID: 8322681151157406512, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
       propertyPath: m_MaskInteraction
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426686500762936989, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09a6890e0615cf14db46e7cb33d7c688, type: 3}
@@ -3932,15 +3968,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 995553527361879565, guid: 30084c13758e84944986521937718795, type: 3}
       propertyPath: SmashFunc.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnSmash
+      value: SmashAttack
       objectReference: {fileID: 0}
     - target: {fileID: 995553527361879565, guid: 30084c13758e84944986521937718795, type: 3}
       propertyPath: AttackFunc.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnAttack
+      value: BossAttack
       objectReference: {fileID: 0}
     - target: {fileID: 995553527361879565, guid: 30084c13758e84944986521937718795, type: 3}
       propertyPath: BreathFunc.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnBreath
+      value: BreathAttack
       objectReference: {fileID: 0}
     - target: {fileID: 995553527361879565, guid: 30084c13758e84944986521937718795, type: 3}
       propertyPath: SkillFunc.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -3948,15 +3984,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 995553527361879565, guid: 30084c13758e84944986521937718795, type: 3}
       propertyPath: SmashFunc.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Boss2, Assembly-CSharp
+      value: Boss2_Atk, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 995553527361879565, guid: 30084c13758e84944986521937718795, type: 3}
       propertyPath: AttackFunc.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Boss2, Assembly-CSharp
+      value: Boss2_Atk, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 995553527361879565, guid: 30084c13758e84944986521937718795, type: 3}
       propertyPath: BreathFunc.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Boss2, Assembly-CSharp
+      value: Boss2_Atk, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 995553527361879565, guid: 30084c13758e84944986521937718795, type: 3}
       propertyPath: SmashFunc.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4052,7 +4088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 995553527576845529, guid: 30084c13758e84944986521937718795, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 995553528812048980, guid: 30084c13758e84944986521937718795, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4106,11 +4142,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3963613709767106808, guid: a26ce031392368445b2d3f0de923031b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.84
+      value: 24.29
       objectReference: {fileID: 0}
     - target: {fileID: 3963613709767106808, guid: a26ce031392368445b2d3f0de923031b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5527673
+      value: -3.82
       objectReference: {fileID: 0}
     - target: {fileID: 3963613709767106808, guid: a26ce031392368445b2d3f0de923031b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4145,8 +4181,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3963613709767106809, guid: a26ce031392368445b2d3f0de923031b, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3963613709767106809, guid: a26ce031392368445b2d3f0de923031b, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3963613709767106809, guid: a26ce031392368445b2d3f0de923031b, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3963613709767106810, guid: a26ce031392368445b2d3f0de923031b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3963613709767106812, guid: a26ce031392368445b2d3f0de923031b, type: 3}
       propertyPath: m_Name

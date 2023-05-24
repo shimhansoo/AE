@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using static GameManager;
 
-public class BossMonster : BossMonsterMovement, GameManager.IPerception, GameManager.IBattle
+[RequireComponent(typeof(Rigidbody2D), (typeof(BoxCollider2D)))]
+
+public class BossMonster : Boss_Attk, GameManager.IPerception, GameManager.IBattle
 {
    
-    public Transform attackTarget = null;
+   
     public static BossMonster MonsterInstance;
-    public bool earthquake = false;
-    // 유한 상태기계
-    public State myState = State.Create;
-    public enum State
-    {
-        Create, Normal, Battle, Death
-    }
+   
+   
     void ChangeState(State s)
     {
         if (myState == s) return;
@@ -127,10 +124,12 @@ public class BossMonster : BossMonsterMovement, GameManager.IPerception, GameMan
     IEnumerator Death()
     {
         myAnim.SetTrigger("Death");
-        yield return new WaitForSeconds(3f);
+        
+        yield return new WaitUntil(() => myAnim.GetBool("Dead"));
         Destroy(gameObject);
     }
-  
+   
+
 } 
     
    

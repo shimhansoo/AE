@@ -109,7 +109,9 @@ public class FireSlime : Boss2_Atk, GameManager.IPerception, GameManager.IBattle
     IEnumerator Death()
     {
         myAnim.SetTrigger("Death");
-        yield return new WaitForSeconds(3f);
+       
+        yield return new WaitUntil(() => myAnim.GetBool("Done"));
         Destroy(gameObject);
     }
+ 
 }

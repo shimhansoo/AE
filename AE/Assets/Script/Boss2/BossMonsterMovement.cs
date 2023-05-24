@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class BossMonsterMovement : Boss_Attk
+public class BossMonsterMovement : BossProperty
 {
 
     public int MoveDir = 1;
@@ -104,10 +104,12 @@ public class BossMonsterMovement : Boss_Attk
         if (dir.x > 0)
         {
             myRenderer.flipX = false;
+            frontVec.x = transform.position.x - myCollider.bounds.extents.x;
         }
         else
         {
             myRenderer.flipX = true;
+            frontVec.x = transform.position.x + myCollider.bounds.extents.x;
         }
     }
 
@@ -130,7 +132,7 @@ public class BossMonsterMovement : Boss_Attk
     {
         frontVec = new Vector2(transform.position.x + (MoveDir * 0.5f), transform.position.y);
         Debug.DrawRay(frontVec, Vector2.down, Color.yellow);
-        RaycastHit2D cliffRay = Physics2D.Raycast(frontVec, Vector2.down, 1f, groundMask);
+        RaycastHit2D cliffRay = Physics2D.Raycast(frontVec, Vector2.down, 2f, groundMask);
         if (cliffRay.collider == null)
         {
             // 공중에서의 방향 전환은 막아둠

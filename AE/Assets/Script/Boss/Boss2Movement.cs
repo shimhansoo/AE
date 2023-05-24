@@ -135,12 +135,12 @@ public class Boss2Movement : Boss2Property
         if (dir.x > 0)
         {
             myRenderer.flipX = true;
-                
+            frontVec.x = transform.position.x + myCollider.bounds.extents.x;
         }
         else
         {
             myRenderer.flipX = false;
-            
+            frontVec.x = transform.position.x - myCollider.bounds.extents.x;
         }
     }
 

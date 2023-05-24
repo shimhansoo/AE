@@ -187,8 +187,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 995553527576845527}
-        m_TargetAssemblyTypeName: Boss2, Assembly-CSharp
-        m_MethodName: OnAttack
+        m_TargetAssemblyTypeName: Boss2_Atk, Assembly-CSharp
+        m_MethodName: BossAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -202,8 +202,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 995553527576845527}
-        m_TargetAssemblyTypeName: Boss2, Assembly-CSharp
-        m_MethodName: OnSmash
+        m_TargetAssemblyTypeName: Boss2_Atk, Assembly-CSharp
+        m_MethodName: SmashAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -232,8 +232,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 995553527576845527}
-        m_TargetAssemblyTypeName: Boss2, Assembly-CSharp
-        m_MethodName: OnBreath
+        m_TargetAssemblyTypeName: Boss2_Atk, Assembly-CSharp
+        m_MethodName: BreathAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

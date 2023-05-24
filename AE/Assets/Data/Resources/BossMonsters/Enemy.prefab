@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69204709320734622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.54, y: -0.1, z: 0}
+  m_LocalPosition: {x: 1.22, y: -0.03, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -154,8 +154,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6778802666276391392}
-        m_TargetAssemblyTypeName: BossMonster, Assembly-CSharp
-        m_MethodName: OnAttack
+        m_TargetAssemblyTypeName: Boss_Attk, Assembly-CSharp
+        m_MethodName: BossAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -169,8 +169,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6778802666276391392}
-        m_TargetAssemblyTypeName: BossMonster, Assembly-CSharp
-        m_MethodName: OnSwing
+        m_TargetAssemblyTypeName: Boss_Attk, Assembly-CSharp
+        m_MethodName: SwingAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -184,8 +184,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6778802666276391392}
-        m_TargetAssemblyTypeName: BossMonster, Assembly-CSharp
-        m_MethodName: OnEarth
+        m_TargetAssemblyTypeName: Boss_Attk, Assembly-CSharp
+        m_MethodName: MinoEarth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -270,7 +270,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.045389175, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -281,7 +281,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 2.5}
+  m_Size: {x: 2.0468636, y: 2.5}
   m_EdgeRadius: 0
 --- !u!114 &6778802666276391392
 MonoBehaviour:
@@ -295,28 +295,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f395339bd73834e889827e000d99b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 100
+  _curHp: -1
   MoveSpeed: 3
   attackRange: 2
   attackDelay: 2
   attackDamge: 10
-  SwingDamage: 2
-  EarthDamage: 20
-  EarthEffect: {fileID: 341550822029039997, guid: 261c1db2f3122d44ea6b1bdad73aa27a, type: 3}
+  SwingDamage: 5
+  EarthDamage: 10
   myTarget: {fileID: 0}
-  myRightRayPos: {fileID: 69204709320734621}
-  myLeftRayPos: {fileID: 69204711000296463}
   targetMask:
     serializedVersion: 2
     m_Bits: 520
+  attackTarget: {fileID: 0}
+  myRightRayPos: {fileID: 69204709320734621}
+  myLeftRayPos: {fileID: 69204711000296463}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  maxHp: 100
-  _curHp: -1
-  MoveDir: 1
-  attackTarget: {fileID: 0}
-  earthquake: 0
   myState: 0
+  MoveDir: 1
 --- !u!1 &69204710093859197
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +363,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 20
 --- !u!114 &69204710093859194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,7 +403,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69204711000296496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.26, y: -0.1, z: 0}
+  m_LocalPosition: {x: -1.08, y: -0.1, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -4,24 +4,37 @@ using UnityEngine;
 
 public class BossProperty : MonoBehaviour
 {
+    [Header("Status")]
+    public float maxHp = 100f;
+    public float _curHp = -1f;
     public float MoveSpeed = 1.0f;    // 몬스터의 이동 속도
     public float attackRange = 1.0f;    // 몬스터의 공격 사거리
     public float attackDelay = 2.0f;    // 몬스터의 공격 딜레이
     public float attackDamge = 10.0f;   //몬스터의 공격력
     public float SwingDamage = 2.0f;
-    public float EarthDamage = 20.0f;
-    public GameObject EarthEffect;
-    protected float playTime = 0.0f;    // 공격 딜레이 검사할 변수
-    public Transform myTarget = null; // 타겟 저장
-    public Transform myRightRayPos = null;
-    public Transform myLeftRayPos = null;
-    public LayerMask targetMask;   // 타겟 레이어 지정
-    public LayerMask groundMask;    // 땅 체크
-    
-    public float maxHp = 100f;
-    public float _curHp = -1f;
-   
+    public float EarthDamage = 10.0f;
   
+    protected float playTime = 0.0f;    // 공격 딜레이 검사할 변수
+
+    [Header("Target")]
+    public Transform myTarget = null; // 타겟 저장
+    public LayerMask targetMask;   // 타겟 레이어 지정
+    [HideInInspector] public Transform attackTarget = null;
+    [Header("RayCast")]
+    public Transform myRightRayPos = null;
+    protected RaycastHit2D rightRay;
+    public Transform myLeftRayPos = null;
+    protected RaycastHit2D leftRay;
+    public LayerMask groundMask;    // 땅 체크
+
+
+
+    [Header("State")]
+    public State myState = State.Create;
+    public enum State
+    {
+        Create, Normal, Battle, Death
+    }
     protected float curHp
     {
         get
@@ -87,6 +100,18 @@ public class BossProperty : MonoBehaviour
                 }
             }
             return _sprite;
+        }
+    }
+    Collider2D _collider;
+    protected Collider2D myCollider
+    {
+        get
+        {
+            if (_collider == null)
+            {
+                _collider = GetComponent<Collider2D>();
+            }
+            return _collider;
         }
     }
 }
