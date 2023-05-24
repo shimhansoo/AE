@@ -10,7 +10,6 @@ public class PlayerLibrary : BattleSystem
     public SpriteLibraryAsset s2 = null;
     public SpriteLibraryAsset s3 = null;
     bool isOnAttack = false;
-    
     //wizard
     public Slider AdogenCastingBar;
     float fireWizardSkill1 = 7f;
@@ -89,8 +88,6 @@ public class PlayerLibrary : BattleSystem
         if (Input.GetKeyDown(KeyCode.F2)) { spriteLib.spriteLibraryAsset = s2; ChageClass(Class.FireWizard); isOnAttack= false; }
         if (Input.GetKeyDown(KeyCode.F3)) { spriteLib.spriteLibraryAsset = s3; ChageClass(Class.BasePlayer); isOnAttack = true; }
         ClassProcess();
-        
-
         if (isLive)
         {
             playerCurrentMoveSpeed = playerMoveSpeed + additionalSpeed;
@@ -104,26 +101,23 @@ public class PlayerLibrary : BattleSystem
             //좌우반전
             Scalesetting();
             //근접공격
-            if (isOnAttack)
+            if (isOnAttack && attackTime >= 0.5f)
             {
-                if (attackTime >= 0.5f)
+                if (Input.GetKey(KeyCode.X))
                 {
-                    if (Input.GetKey(KeyCode.X))
-                    {
-                        myAnim.SetTrigger("Attack");
-                        attackTime = 0.0f;
-                    }
+                    myAnim.SetTrigger("Attack");
+                    attackTime = 0.0f;
                 }
             }
+
             //원거리 공격
-            if (!isOnAttack)
+            if (isActionLimit)
             {
-                if (attackTime >= 0.5f)
+                if (!isOnAttack && attackTime >= 0.5f)
                 {
                     if (Input.GetKey(KeyCode.X))
                     {
                         myAnim.SetTrigger("LongAttack");
-                        
                         attackTime = 0.0f;
                     }
                 }
@@ -141,7 +135,7 @@ public class PlayerLibrary : BattleSystem
             }
         }
     }
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()//attack point Check
     {
         if (attackPoint == null) return;
         Gizmos.DrawSphere(new Vector2(transform.position.x, transform.position.y - 0.5f), 0.3f);
@@ -167,11 +161,33 @@ public class PlayerLibrary : BattleSystem
         attackSpeed = 1.0f;
     }
 
+    void SpeaMan()
+    {
+        //Skill 1
+        if (spearmanSkillCoolTime1 >= 7.0f)//7초 이후
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                spearmanSkillCoolTime1 = 0f;
+                StartCoroutine(Berserk());
+            }
+        }
+        //Skill 2
+        if (spearmanSkillCoolTime2 >= 10.0f)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                spearmanSkillCoolTime2 = 0f;
+                GameObject temp = Instantiate(Resources.Load("Player/SpearManSkill2"), new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity) as GameObject;
+            }
+        }
+    }
+
     void FireWizard()
     {
         AdogenCastingBar.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y + 0.5f));
-
-        if (fireWizardSkill1 >= 7f)
+        //Skill 1
+        if (isActionLimit&&fireWizardSkill1 >= 7f)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -182,42 +198,20 @@ public class PlayerLibrary : BattleSystem
                 fireWizardSkill1 = 0.0f;
             }
         }
+        //Skill 2
         if (fireWizardSkill2 >= 7f)
         {
-            Skill2Casting();
+            WizardSkill2Casting();
         }
     }
 
-
-
-    void SpeaMan()
-    {
-        //스킬 1
-        if (spearmanSkillCoolTime1 >= 7.0f)//7초 이후
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                spearmanSkillCoolTime1 = 0f;
-                StartCoroutine(Berserk());
-            }
-        }
-        //스킬 2
-        if (spearmanSkillCoolTime2 >= 10.0f)
-        {
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                spearmanSkillCoolTime2 = 0f;
-                GameObject temp = Instantiate(Resources.Load("Player/SpearManSkill2"), new Vector2(transform.position.x, transform.position.y + 0.5f), Quaternion.identity) as GameObject;
-            }
-        }
-    }
-    public void Skill2Casting()//위자드
+    public void WizardSkill2Casting()
     {
         if (Input.GetKeyDown(KeyCode.S) && !isCasting)
         {
             myAnim.ResetTrigger("Skill2Exit");
-            isCasting = true;
             myAnim.SetTrigger("Skill2");
+            isCasting = true;
             isActionLimit = false;
             AdogenCastingBar.gameObject.SetActive(true);
         }
