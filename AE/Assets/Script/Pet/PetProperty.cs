@@ -14,18 +14,18 @@ public class PetProperty : MonoBehaviour
     // 드래곤 float 값
     public float DragonSpeed = 5.0f; // 드래곤 스피드
     public float ThrowSkillSpeed = 10.0f; // 드래곤 투척스킬 스피드
-    public float DragonATK = 50.0f; // 드래곤 공격력
-    public float CowRot = 0.0f; // 다크 드래곤 스킬 2 카우 회전값
-    public float DragonSkillDamage1 = 20.0f; // 드래곤 스킬 데미지 1값
-    public float DragonSkillDamage2 = 15.0f; // 드래곤 스킬 데미지 2값
+    public float DragonATK = 15.0f; // 드래곤 공격력
+    public float CowRot = 0.0f; // 다크 드래곤 레이저 스킬 카우 회전값
+    public float DragonSkillDamageQ = 30.0f; // 드래곤 Q스킬 데미지 값
+    public float DragonSkillDamageW = 50.0f; // 드래곤 W스킬 데미지 값
     public float DragonTargetSkillPosY = 0.5f; // 드래곤 타겟스킬 포지션 y 값
 
     // 시간관련
     public float TarGetSkillDuration = 3.0f; // 타겟 스킬 지속시간
     public float DurationCountTime = 0.0f; // 타겟 스킬 지속시간 비교 값
     public float BasicAttackCoolTime = 5.0f; // 드래곤 기본공격 쿨타임
-    public float Skill1CoolTime = 0.0f; // 드래곤 스킬1(3번) 쿨타임
-    public float Skill2CoolTime = 0.0f; // 드래곤 스킬2(4번) 쿨타임
+    public float SkillQCoolTime = 0.0f; // 드래곤 스킬 Q 쿨타임
+    public float SkillWCoolTime = 0.0f; // 드래곤 스킬 W 쿨타임
 
     // 속도 관련
     public float WolfSpeed = 2.0f; // 울프 스피드
@@ -50,7 +50,7 @@ public class PetProperty : MonoBehaviour
     public LayerMask ItemMask; // 아이템 마스크
 
     // bool 값
-    protected bool issprit = true; // 파이어 드래곤 스킬 1 중복사용 제한 bool 값.
+    protected bool issprit = true; // 파이어 드래곤 스피릿 스킬 중복사용 제한 bool 값.
 
     // 애니메이션 관련
     Animator _PetAnim; // 펫 애니메이터 참조 변수

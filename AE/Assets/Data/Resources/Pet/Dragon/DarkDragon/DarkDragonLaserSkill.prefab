@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4763481377378695681}
   - component: {fileID: 4763481377378695686}
   m_Layer: 0
-  m_Name: DarkDragonSkill2Cow
+  m_Name: DarkDragonLaserSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

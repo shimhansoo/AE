@@ -23,7 +23,7 @@ public class FireSpritSkill : PetMoveMent
           if (GetComponentInParent<FireDragon>().TarGet != null)
           {
                 // 3번키를 눌렀을때 그리고 설정해둔 StartCount값보다 0초기값인 NowCount가 작다면 Count를 플러스
-              if (Input.GetKeyDown(KeyCode.Alpha3) && NowCount < StartCount) ++NowCount;
+              if (Input.GetKeyDown(KeyCode.W) && NowCount < StartCount) ++NowCount;
           }
         }
         // 초기값이 0 인 카운트가 위에 구문으로 인해 설정해둔 카운트 값과 같고 위에 설정해둔 Shooting의 bool값이 true라면 ThrowSkill코루틴 실행.
@@ -59,7 +59,7 @@ public class FireSpritSkill : PetMoveMent
                 // 보류
                 FireSpritReset?.Invoke();
                 // 타겟한테 데미지
-                SkillDamage(DragonSkillDamage2);
+                SkillDamage(DragonSkillDamageW);
                 // 오브젝트 삭제
                 Destroy(gameObject);
             }

@@ -35,7 +35,7 @@ public class DragonTarGetSkill : PetMoveMent
         while(true)
         {            
             yield return new WaitForSeconds(DamageDelay);
-            SkillDamage(DragonSkillDamage2);
+            SkillDamage(DragonSkillDamageW);
         }
     }
 }

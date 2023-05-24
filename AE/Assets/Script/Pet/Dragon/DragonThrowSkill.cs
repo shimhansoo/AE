@@ -25,7 +25,7 @@ public class DragonThrowSkill : PetMoveMent
                 TargetSkillTarget.GetComponent<DragonTarGetSkill>().TarGet = TarGet;
             }
             // 투척 스킬 오브젝트 삭제.
-            SkillDamage(DragonSkillDamage1);
+            SkillDamage(DragonSkillDamageQ);
             Destroy(gameObject);
         }
     }

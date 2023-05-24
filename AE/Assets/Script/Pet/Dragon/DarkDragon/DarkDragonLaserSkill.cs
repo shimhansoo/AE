@@ -11,6 +11,9 @@ public class DarkDragonLaserSkill : PetProperty
         // 스킬 애니메이션 트리거
         PetAnim.SetTrigger("isSkill");
     }
+
+    // 레이저 On,Off는 애니메이션 이벤트로 호출
+
     void OnLaser()
     {
         // 레이저 킴
@@ -29,7 +32,7 @@ public class DarkDragonLaserSkill : PetProperty
         foreach (Collider2D enemy in hitEnemys)
         {
             // 오버랩에 닿았을경우 데미지
-            enemy.GetComponent<GameManager.IBattle>().OnTakeDamage(20.0f);  
+            enemy.GetComponent<GameManager.IBattle>().OnTakeDamage(DragonSkillDamageW);  
         }       
     }
 }

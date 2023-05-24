@@ -11,7 +11,7 @@ public class FireDragon : PetMoveMent
     public GameObject FireDragonSprit4;
 
     // 파이어 드래곤 스킬 2 오브젝트
-    public GameObject FireDragonSkill2;
+    public GameObject FireDragonFireRing;
 
     void Start()
     {
@@ -25,26 +25,26 @@ public class FireDragon : PetMoveMent
         // 드래곤 상태기계 유지 , 변환 함수.
         StateProcess();
 
-        // 파이어 드래곤 3번 스킬
-        if(Input.GetKeyDown(KeyCode.Alpha3) && issprit && Skill1CoolTime <= 0.0f)
+        // 파이어 드래곤 Q 스킬
+        if (Input.GetKeyDown(KeyCode.Q) && SkillWCoolTime <= 0.0f && TarGet != null)
+        {
+            SkillWCoolTime = 5.0f;
+            GameObject FireThrowSkill = Instantiate(FireDragonFireRing, transform.position, Quaternion.identity);
+            DragonThrowSkillTargetSetting(FireThrowSkill);
+            StartCoroutine(SkillWCoolTimeCheck());
+        }
+
+        // 파이어 드래곤 W 스킬
+        if(Input.GetKeyDown(KeyCode.W) && issprit && SkillQCoolTime <= 0.0f)
         {
             issprit = false;
-            Skill1CoolTime = 10.0f;
+            SkillQCoolTime = 10.0f;
             GameObject FireSpritSkill1 = Instantiate(FireDragonSprit1, transform.position + new Vector3(0.5f,1.5f,0), Quaternion.identity, transform);
             GameObject FireSpritSkill2 = Instantiate(FireDragonSprit2, transform.position + new Vector3(-0.5f, 1.5f, 0), Quaternion.identity, transform);
             GameObject FireSpritSkill3 = Instantiate(FireDragonSprit3, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, transform);
             GameObject FireSpritSkill4 = Instantiate(FireDragonSprit4, transform.position + new Vector3(-0.5f, 0.5f, 0), Quaternion.identity, transform);
             FireSpritSkill4.GetComponent<FireSpritSkill>().FireSpritReset.AddListener(FireSpiritResetFunc);
-            StartCoroutine(Skill1CoolTimeCheck());
-        }
-
-        // 파이어 드래곤 4번 스킬
-        if (Input.GetKeyDown(KeyCode.Alpha4) && Skill2CoolTime <= 0.0f && TarGet != null)
-        {
-            Skill2CoolTime = 5.0f;
-            GameObject FireThrowSkill = Instantiate(FireDragonSkill2, transform.position, Quaternion.identity);
-            DragonThrowSkillTargetSetting(FireThrowSkill);
-            StartCoroutine(Skill2CoolTimeCheck());
+            StartCoroutine(SkillQCoolTimeCheck());
         }
     }
 

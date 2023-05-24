@@ -148,20 +148,20 @@ public class PetMoveMent : PetProperty
     }
 
     // 드래곤 스킬 1 쿨타임 체크 함수.
-    protected IEnumerator Skill1CoolTimeCheck()
+    protected IEnumerator SkillQCoolTimeCheck()
     {
-        while(Skill1CoolTime >= 0.0f)
+        while(SkillQCoolTime >= 0.0f)
         {
-            Skill1CoolTime -= Time.deltaTime;
+            SkillQCoolTime -= Time.deltaTime;
             yield return null;
         }
     }
     // 드래곤 스킬 2 쿨타임 체크 함수.
-    protected IEnumerator Skill2CoolTimeCheck()
+    protected IEnumerator SkillWCoolTimeCheck()
     {
-        while (Skill2CoolTime >= 0.0f)
+        while (SkillWCoolTime >= 0.0f)
         {
-            Skill2CoolTime -= Time.deltaTime;
+            SkillWCoolTime -= Time.deltaTime;
             yield return null;
         }
     }

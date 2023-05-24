@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1312781049609935308}
   - component: {fileID: 1312781049609935309}
   m_Layer: 0
-  m_Name: FireDragonSprit
+  m_Name: FireDragonSprit4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,14 +101,14 @@ MonoBehaviour:
   ThrowSkillSpeed: 10
   DragonATK: 50
   CowRot: 0
-  DragonSkillDamage1: 20
-  DragonSkillDamage2: 15
+  DragonSkillDamageQ: 20
+  DragonSkillDamageW: 25
   DragonTargetSkillPosY: 0.5
   TarGetSkillDuration: 3
   DurationCountTime: 0
   BasicAttackCoolTime: 5
-  Skill1CoolTime: 0
-  Skill2CoolTime: 0
+  SkillQCoolTime: 0
+  SkillWCoolTime: 0
   WolfSpeed: 2
   PetJump: 3
   WolfTPdist: 5

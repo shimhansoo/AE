@@ -123,19 +123,29 @@ MonoBehaviour:
   ThrowSkillSpeed: 10
   DragonATK: 10
   CowRot: 0
+  DragonSkillDamageQ: 20
+  DragonSkillDamageW: 15
+  DragonTargetSkillPosY: 0.5
   TarGetSkillDuration: 3
   DurationCountTime: 0
   BasicAttackCoolTime: 5
-  Skill1CoolTime: 0
-  Skill2CoolTime: 0
+  SkillQCoolTime: 0
+  SkillWCoolTime: 0
   WolfSpeed: 2
   PetJump: 3
   WolfTPdist: 5
   player: {fileID: 0}
   TarGet: {fileID: 0}
   NowTarget: {fileID: 0}
+  SkillEffect: {fileID: 0}
   GroundMask:
     serializedVersion: 2
     m_Bits: 4608
-  DarkDragonSkill1: {fileID: 7845853470508988649, guid: f967662d073c32e4a841530711c6930a, type: 3}
-  DarkDragonSkill2: {fileID: 4763481377378695687, guid: 9667a292f2d688747b77d208e9c9ec2e, type: 3}
+  MonsterMask:
+    serializedVersion: 2
+    m_Bits: 0
+  ItemMask:
+    serializedVersion: 2
+    m_Bits: 0
+  DarkDragonSkullSkill: {fileID: 7845853470508988649, guid: f967662d073c32e4a841530711c6930a, type: 3}
+  DarkDragonSkillLaser: {fileID: 4763481377378695687, guid: 9667a292f2d688747b77d208e9c9ec2e, type: 3}
