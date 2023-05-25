@@ -49,7 +49,7 @@ public class Mushroom : MonsterProperty, GameManager.IBattle
     public void OnTakeDamage(float dmg)
     {
         GameObject obj = Instantiate(Resources.Load("UI/DmgText"), TextArea) as GameObject;
-        obj.GetComponent<DamageText>().ChangeDamageText(dmg);
+        obj.GetComponent<DamageText>().ChangeTextColor(dmg);
         curHp -= dmg;
         if (dmg < 0)
         {

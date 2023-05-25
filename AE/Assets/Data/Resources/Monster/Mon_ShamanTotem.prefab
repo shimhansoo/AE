@@ -321,7 +321,7 @@ MonoBehaviour:
     m_Bits: 520
   myState: 0
   isSlow: 0
-  SlowPercentage: 50
+  SlowPercentage: 30
   slowDebuffTime: 3
 --- !u!61 &1034845166
 BoxCollider2D:

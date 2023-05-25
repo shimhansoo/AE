@@ -10,6 +10,7 @@ public class TotemDebuffIcon : Totem
     float buffTime = 5.0f;
     float slowSpeed = 0f;
     float tmpAdditionalSpeed = 0f;
+    public int SlowPercentage = 90;
     private void Awake()
     {
         Inst = this;

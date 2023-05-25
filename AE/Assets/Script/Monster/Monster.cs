@@ -42,15 +42,7 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
             case State.Create:
                 break;
             case State.Normal:
-                healingTime += Time.deltaTime;
-                if(healingTime > 2)
-                {
-                    if (curHp < maxHp)
-                    {
-                        OnTakeDamage(-1f);
-                        healingTime = 0f;
-                    }
-                }
+                HpRegen();
                 break;
             case State.Battle:
                 break;
@@ -75,7 +67,7 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space)) HpHealing(10);
         ProcessState();
     }
     // Find Target
@@ -100,13 +92,8 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
     public void OnTakeDamage(float dmg)
     {
         GameObject obj = Instantiate(Resources.Load("UI/DmgText"), TextArea) as GameObject;
-        obj.GetComponent<DamageText>().ChangeDamageText(dmg);
+        obj.GetComponent<DamageText>().ChangeTextColor(dmg);
         curHp -= dmg;
-        if(dmg < 0)
-        {
-            myAnim.SetTrigger("OnHealColor");
-            return;
-        }
         myAnim.SetTrigger("OnDamageColor"); // 피격시 이미지의 색상을 바꿔주도록 Animator에서 설정
 
         if (!Mathf.Approximately(curHp, 0f))
@@ -126,6 +113,25 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
             myRigid.simulated = false;
             ChangeState(State.Death);
         }
+    }
+
+    void HpRegen()
+    {
+        if (Mathf.Approximately(curHp, maxHp)) return;
+        healingTime += Time.deltaTime;
+        if (healingTime > 3)
+        {
+            HpHealing(regenHp);
+            healingTime = 0f;
+        }
+    }
+    void HpHealing(float dmg)
+    {
+        if (Mathf.Approximately(curHp, maxHp)) return;
+        GameObject obj = Instantiate(Resources.Load("UI/DmgText"), TextArea) as GameObject;
+        obj.GetComponent<DamageText>().ChangeTextColor(dmg, 1);
+        curHp += dmg;
+        myAnim.SetTrigger("OnHealColor");
     }
 
     IEnumerator Death()
@@ -157,7 +163,7 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
         if (probability > 90)
         {
             print("Sword");
-            Instantiate(Resources.Load("Item/BasicSword(Normal)"), new Vector2(transform.position.x,transform.position.y+1), Quaternion.identity);
+            Instantiate(Resources.Load("Item/BasicSword(Normal)"), new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
         }
         else if (probability > 80)
         {

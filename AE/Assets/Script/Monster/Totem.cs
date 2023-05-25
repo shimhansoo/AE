@@ -7,7 +7,6 @@ using static UnityEngine.GraphicsBuffer;
 public class Totem : MonsterMovement, GameManager.IPerception, GameManager.ITotem, GameManager.IBattle
 {
     public bool isSlow = false;
-    public int SlowPercentage = 90;
     public float slowDebuffTime = 3.0f;
     GameObject slowDebuff = null;
 

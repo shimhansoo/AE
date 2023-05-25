@@ -28,16 +28,16 @@ public class DamageText : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public void ChangeDamageText(float dmg)
+    public void ChangeTextColor(float dmg, int code = 0)
     {
-        if(dmg > 0)
+        if(code == 0)
         {
-            myText.text = dmg.ToString();
+            myText.color = Color.red;
         }
         else
         {
             myText.color = Color.green;
-            myText.text = Mathf.Abs(dmg).ToString();
         }
+        myText.text = dmg.ToString();
     }
 }

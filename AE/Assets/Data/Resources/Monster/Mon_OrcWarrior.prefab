@@ -332,7 +332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 140
   _curHp: -1
-  moveSpeed: 1
+  regenHp: 10
+  moveSpeed: 1.5
   attackDamage: 3
   autoAttackRange: 1.5
   attackDelay: 1.5

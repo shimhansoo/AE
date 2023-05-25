@@ -155,9 +155,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9130957065495472369}
+  - component: {fileID: 9130957065495472364}
   - component: {fileID: 9130957065495472370}
   - component: {fileID: 9130957065495472371}
-  - component: {fileID: 9130957065495472364}
   m_Layer: 7
   m_Name: Fungal
   m_TagString: Untagged
@@ -186,6 +186,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9130957065495472364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9130957065495472365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08a29a29852e2b43bc5de26a071ada8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 10
+  _curHp: -1
+  regenHp: 1
+  moveSpeed: 2
+  attackDamage: 1
+  autoAttackRange: 1
+  attackDelay: 2
+  myTarget: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  attackTarget: {fileID: 0}
+  myRightRayPos: {fileID: 9130957065058370961}
+  myLeftRayPos: {fileID: 9130957065644626752}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4616
+  myState: 0
 --- !u!50 &9130957065495472370
 Rigidbody2D:
   serializedVersion: 4
@@ -233,35 +263,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4163957}
   m_EdgeRadius: 0
---- !u!114 &9130957065495472364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9130957065495472365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08a29a29852e2b43bc5de26a071ada8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 10
-  _curHp: -1
-  moveSpeed: 2
-  attackDamage: 1
-  autoAttackRange: 1
-  attackDelay: 2
-  myTarget: {fileID: 0}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 64
-  attackTarget: {fileID: 0}
-  myRightRayPos: {fileID: 9130957065058370961}
-  myLeftRayPos: {fileID: 9130957065644626752}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4616
-  myState: 0
 --- !u!1 &9130957065644626753
 GameObject:
   m_ObjectHideFlags: 0

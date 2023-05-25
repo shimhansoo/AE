@@ -46,21 +46,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c9cfc35df56064399cfe23e5855158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 1
-  AttackRange: 2
-  AttackDelay: 3
+  maxHp: 100
+  _curHp: -1
+  moveSpeed: 1
+  attackDamage: 3
+  autoAttackRange: 2
+  attackDelay: 3
   myTarget: {fileID: 0}
-  myRightRayPos: {fileID: 0}
-  myLeftRayPos: {fileID: 0}
   targetMask:
     serializedVersion: 2
     m_Bits: 0
+  attackTarget: {fileID: 0}
+  myRightRayPos: {fileID: 0}
+  myLeftRayPos: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 0
-  MoveDir: 1
+  myState: 0
   isSlow: 0
-  SlowPercentage: 90
+  slowDebuffTime: 3
+  SlowPercentage: 30
 --- !u!212 &9167580325423856541
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -100,7 +105,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1109676699
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 850751292, guid: ec8bcbd19416f3447ad6730e7f21abd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

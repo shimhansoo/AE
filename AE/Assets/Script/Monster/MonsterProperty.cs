@@ -8,6 +8,7 @@ public class MonsterProperty : MonoBehaviour
     [Header("Status")]
     public float maxHp = 100f;  // 몬스터의 최대 체력
     public float _curHp = -1f;
+    public float regenHp = 1f;  // 몬스터의 체력 재생량
     public float moveSpeed = 1.0f;    // 몬스터의 이동 속도
     public float attackDamage = 3.0f;    // 몬스터의 공격력
     public float autoAttackRange = 2.0f;    // 몬스터의 공격 사거리
