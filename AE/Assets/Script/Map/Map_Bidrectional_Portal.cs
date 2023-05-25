@@ -54,7 +54,14 @@ public class Map_Bidrectional_Portal : MonoBehaviour
     }
     private void Awake()
     {
-        map2_CameraLimit = GameObject.Find("Player").GetComponent<Map2_CameraLimit>();
+        if (GameObject.Find("Plyaer").GetComponent<Map2_CameraLimit>() != null)
+        {
+            map2_CameraLimit = GameObject.Find("Plyaer").GetComponent<Map2_CameraLimit>();
+        }
+        else if (GameObject.Find("Player").GetComponent<Map2_CameraLimit>() != null)
+        {
+            map2_CameraLimit = GameObject.Find("Player").GetComponent<Map2_CameraLimit>();
+        }
     }
     IEnumerator FadeCoroutine()
     {

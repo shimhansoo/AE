@@ -17,7 +17,14 @@ public class PlayerInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("Player");
+        if (GameObject.Find("Plyaer") != null)
+        {
+            Player = GameObject.Find("Plyaer");
+        }
+        else if (GameObject.Find("Player") != null)
+        {
+            Player = GameObject.Find("Player");
+        }
     }
 
     // Update is called once per frame

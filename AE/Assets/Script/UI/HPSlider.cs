@@ -12,10 +12,12 @@ public class HPSlider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
-
-        MaxHp = player.GetComponent<CharacterProperty>().playerCurHp;
-        Hp = player.GetComponent<CharacterProperty>().playerCurHp;
+        if(player == null)
+        {
+            player = GameObject.Find("Player");
+        }
+        MaxHp = player.GetComponent<CharacterProperty>().playerMaxHp;
+        Hp = player.GetComponent<CharacterProperty>().playerMaxHp;
         //if(player.GetComponent<SpearMan>())
         //{
         //    MaxHp = player.GetComponent<SpearMan>().playerCurHp;
@@ -36,7 +38,7 @@ public class HPSlider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Hp = player.GetComponent<SpearMan>().playerCurHp;
+        Hp = player.GetComponent<PlayerLibrary>().playerCurHp;
         slider.value = Hp;
     }
 }

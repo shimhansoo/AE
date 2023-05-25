@@ -103,8 +103,14 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         weaponSlot = GameObject.Find("Weapon");
         armorSlot = GameObject.Find("Armor");
         soulSlot = GameObject.Find("Soul");
-
-        player = GameObject.Find("Player");
+        if (GameObject.Find("Plyaer") != null)
+        {
+            player = GameObject.Find("Plyaer");
+        }
+        else if (GameObject.Find("Player") != null)
+        {
+            player = GameObject.Find("Player");
+        }
     }
 
     // Update is called once per frame

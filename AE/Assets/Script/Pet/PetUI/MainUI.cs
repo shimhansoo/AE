@@ -66,8 +66,16 @@ public class MainUI : MonoBehaviour
     private void Awake()
     {
         // 플레이어 제어를 위한 Find
-        GameObject PlayerScriptControl = GameObject.Find("Player");
-        Player = PlayerScriptControl;
+        //GameObject PlayerScriptControl = GameObject.Find("Player");
+        //Player = PlayerScriptControl;
+        if (GameObject.Find("Plyaer") != null)
+        {
+            Player = GameObject.Find("Plyaer");
+        }
+        else if (GameObject.Find("Player") != null)
+        {
+            Player = GameObject.Find("Player");
+        }
     }
 
     // Update is called once per frame

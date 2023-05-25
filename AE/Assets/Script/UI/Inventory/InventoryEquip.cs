@@ -11,7 +11,14 @@ public class InventoryEquip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (GameObject.Find("Plyaer") != null)
+        {
+            player = GameObject.Find("Plyaer");
+        }
+        else if (GameObject.Find("Player") != null)
+        {
+            player = GameObject.Find("Player");
+        }
     }
 
     // Update is called once per frame
