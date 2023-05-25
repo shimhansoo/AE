@@ -10,7 +10,7 @@ public class PlayerMovement : CharacterProperty
     bool test4 = false;
     protected void collisionCheck()//Ground 충돌 무시
     {
-        if (myRigid.velocity.y > 0.0f && test )
+        if (myRigid.velocity.y > 0.0f && test)
         {
             Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, true);
         }
@@ -33,9 +33,9 @@ public class PlayerMovement : CharacterProperty
 
     protected void Scalesetting()//좌우반전
     {
-            transform.localScale = frontVec.x < 0.0f ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
+        transform.localScale = frontVec.x < 0.0f ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
     }
-    
+
     protected void OnMove()//이동
     {
         dir.x = Input.GetAxisRaw("Horizontal");
@@ -57,10 +57,10 @@ public class PlayerMovement : CharacterProperty
     }
     protected void Dash()//대쉬
     {
-        coolTime += Time.deltaTime;
-        if (coolTime >= 2.0f)
+        if (dashCount < 2)
         {
-            if (dashCount < 2)
+            coolTime += Time.deltaTime;
+            if (coolTime >= 2.0f)
             {
                 dashCount++;
                 coolTime = 0.0f;
@@ -77,7 +77,7 @@ public class PlayerMovement : CharacterProperty
             }
         }
     }
-    
+
     protected void OnJump()//↑ 점프, ↓ 점프
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -99,7 +99,7 @@ public class PlayerMovement : CharacterProperty
         yield return new WaitForSeconds(0.35f);
         myRigid.GetComponent<Collider2D>().isTrigger = false;
     }
-    
+
     protected IEnumerator AirChecking()//바닥이 Ground, Wall 확인
     {
         while (true)

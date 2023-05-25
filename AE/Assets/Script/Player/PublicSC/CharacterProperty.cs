@@ -30,9 +30,9 @@ public class CharacterProperty : MonoBehaviour
     public float additionalSpeed = 0.0f;
 
     //대쉬 관련
-    protected float coolTime = 0.0f;
+    public float coolTime = 0.0f;
     protected Vector2 frontVec = Vector2.zero;
-    protected int dashCount = 0;
+    public int dashCount = 0;
 
     //점프 관련
     protected bool isJump = false;
