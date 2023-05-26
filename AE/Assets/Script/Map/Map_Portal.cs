@@ -133,7 +133,7 @@ public class Map_Portal : MonoBehaviour
                     oneMini.SetActive(false);
                     secondMini.SetActive(true);
                     if (BasicDragonCanvas) BasicDragonCanvas.SetActive(true); // basic드래곤 등장 대사 캔버스
-                    Instantiate(BasicDragon, transform.position, Quaternion.identity); // basic드래곤 등장
+                    Instantiate(Resources.Load("Pet/Dragon/BasicDragon/BasicDragon"), transform.position, Quaternion.identity); // basic드래곤 등장
                     break;
                 case 2:
                     // 2 - 2 의 방 제한
@@ -236,13 +236,13 @@ public class Map_Portal : MonoBehaviour
     // 대사 나올때 UI잠시 꺼주는 코루틴 함수
     IEnumerator uiStopping()
     {
-            HPbar.SetActive(false);
-            MapUI.SetActive(false);
-            Setting.SetActive(false);
+        if (HPbar != null) HPbar.SetActive(false);
+        if (MapUI != null) MapUI.SetActive(false);
+        if (Setting != null) Setting.SetActive(false);
         yield return new WaitForSeconds(3.0f);
-            HPbar.SetActive(true);
-            MapUI.SetActive(true);
-            Setting.SetActive(true);
+        if (HPbar != null) HPbar.SetActive(true);
+        if (MapUI != null) MapUI.SetActive(true);
+        if (Setting != null) Setting.SetActive(true);
     }
     // 몬스터 나타나게 하는거 아직 ing
     IEnumerator monsterAppearing(float Appeartime)

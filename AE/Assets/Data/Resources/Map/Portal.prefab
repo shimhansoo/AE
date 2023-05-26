@@ -122,7 +122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8992312194302549899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47, y: -5.8, z: 0}
+  m_LocalPosition: {x: -0.3, y: -6.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -214,7 +214,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8992312194720688024
@@ -233,6 +233,33 @@ MonoBehaviour:
   image: {fileID: 0}
   UIImage: {fileID: 8992312193967940916}
   usePortal: 0
+  isInsidePortal: 0
+  oneMini: {fileID: 0}
+  secondMini: {fileID: 0}
+  thirdMini: {fileID: 0}
+  fourthMini: {fileID: 0}
+  boss: {fileID: 0}
+  miniBoss: {fileID: 0}
+  fifthMini: {fileID: 0}
+  sixthMini: {fileID: 0}
+  seventhMini: {fileID: 0}
+  portalIndex: 1
+  BasicDragon: {fileID: 0}
+  BasicDragonCanvas: {fileID: 0}
+  EvolutionCanvas: {fileID: 0}
+  warningScript: {fileID: 0}
+  TutoSC8: {fileID: 0}
+  monsterCheckobj1: {fileID: 0}
+  monsterCheckobj2: {fileID: 0}
+  monsterCheckobj3: {fileID: 0}
+  monsterCheckobj4: {fileID: 0}
+  monsterCheckobj5: {fileID: 0}
+  monsterCheckobj6: {fileID: 0}
+  appearTime: 3
+  HPbar: {fileID: 0}
+  MapUI: {fileID: 0}
+  Setting: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!61 &8992312194720688031
 BoxCollider2D:
   m_ObjectHideFlags: 0

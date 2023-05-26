@@ -10,6 +10,7 @@ public class GoPet : MonoBehaviour
     public float dist;
     [SerializeField]
     private float range = 10.0f;
+    bool isGround = false;
 
     // ²ø·Á¿Ã
     public LayerMask itemMask;
@@ -25,11 +26,13 @@ public class GoPet : MonoBehaviour
 
         Debug.Log(itemMask);
         Debug.Log(GroundMask);
+        StartCoroutine(DisappearItem());
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isGround) return;
         if (pet == null) return;
         PetPos = pet.transform.position;
         dist = Vector2.Distance(transform.position, PetPos);
@@ -45,5 +48,24 @@ public class GoPet : MonoBehaviour
             if (rigid != null) rigid.gravityScale = 1.0f;
             Physics2D.IgnoreLayerCollision(itemMask, GroundMask, false);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if((collision.gameObject.layer << 1 & GroundMask) != 0)
+        {
+            isGround = true;
+        }
+    }
+    IEnumerator DisappearItem()
+    {
+        float time = 0.0f;
+        while (time < 10.0f) 
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        Destroy(gameObject);
+        yield return null;
     }
 }

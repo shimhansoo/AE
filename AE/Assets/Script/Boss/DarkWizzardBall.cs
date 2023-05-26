@@ -14,7 +14,14 @@ public class DarkWizzardBall : MonoBehaviour
     {
         playerMask.value = 6;
         monsterMask.value = 7;
-        target = GameObject.Find("Player").transform;
+        if(GameObject.Find("Player") != null)
+        {
+            target = GameObject.Find("Player").transform;
+        }
+        else if(GameObject.Find("Plyaer") != null)
+        {
+            target = GameObject.Find("Plyaer").transform;
+        }
         rend = GetComponent<SpriteRenderer>();
         if(target.position.x > transform.position.x)
         {

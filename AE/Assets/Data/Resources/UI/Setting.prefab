@@ -434,8 +434,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseGame: {fileID: 0}
-  pauseIcon: {fileID: 0}
-  resumeIcon: {fileID: 0}
+  pauseIcon: {fileID: 21300050, guid: 4ae102c90a4936944a3b68f63d686881, type: 3}
+  resumeIcon: {fileID: 21300044, guid: 4ae102c90a4936944a3b68f63d686881, type: 3}
   settingUI: {fileID: 0}
 --- !u!1 &6803321850260004923
 GameObject:

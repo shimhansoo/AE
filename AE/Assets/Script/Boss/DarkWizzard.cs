@@ -20,10 +20,17 @@ public class DarkWizzard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        target = GameObject.Find("Player").transform;
+        if (GameObject.Find("Player") != null)
+        {
+            target = GameObject.Find("Player").transform;
+        }
+        else if (GameObject.Find("Plyaer") != null)
+        {
+            target = GameObject.Find("Plyaer").transform;
+        }
 
         rend = GetComponent<SpriteRenderer>();
-        Debug.Log(target.position.x - transform.parent.position.x);
+        //Debug.Log(target.position.x - transform.parent.position.x);
         if (target.position.x - transform.parent.position.x > 0)
         {
             rend.flipX = false;

@@ -34,7 +34,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -801,7 +801,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -991,9 +991,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseGame: {fileID: 0}
-  pauseIcon: {fileID: 0}
-  resumeIcon: {fileID: 0}
-  settingUI: {fileID: 0}
+  pauseIcon: {fileID: 21300050, guid: 4ae102c90a4936944a3b68f63d686881, type: 3}
+  resumeIcon: {fileID: 21300044, guid: 4ae102c90a4936944a3b68f63d686881, type: 3}
+  settingUI: {fileID: 1523909351971694459}
 --- !u!1 &1523909351971694459
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +1009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1523909351971694458
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1141,7 +1141,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1693,7 +1693,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1882,8 +1882,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseGame: {fileID: 0}
-  pauseIcon: {fileID: 0}
-  resumeIcon: {fileID: 0}
+  pauseIcon: {fileID: 21300050, guid: 4ae102c90a4936944a3b68f63d686881, type: 3}
+  resumeIcon: {fileID: 21300044, guid: 4ae102c90a4936944a3b68f63d686881, type: 3}
   settingUI: {fileID: 1523909351971694459}
 --- !u!1 &1523909352821214809
 GameObject:
@@ -2033,6 +2033,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseGame: {fileID: 0}
-  pauseIcon: {fileID: 0}
-  resumeIcon: {fileID: 0}
-  settingUI: {fileID: 0}
+  pauseIcon: {fileID: 21300050, guid: 4ae102c90a4936944a3b68f63d686881, type: 3}
+  resumeIcon: {fileID: 21300044, guid: 4ae102c90a4936944a3b68f63d686881, type: 3}
+  settingUI: {fileID: 1523909351971694459}
