@@ -96,7 +96,7 @@ public class MainUI : MonoBehaviour
         if (TutoSC4 && TutoCount == 15 && !TutoSC4.activeSelf)
         {
             TutoSC4.SetActive(true); // ´Á´ë : ¿Ð!(ÇÑ¹ø ¹æÇâÅ°¸¦ ´­·¯ºÁ!)
-            if (!Player.GetComponent<SpearMan>().enabled) Player.GetComponent<SpearMan>().enabled = true;
+            //if (!Player.GetComponent<SpearMan>().enabled) Player.GetComponent<SpearMan>().enabled = true;
         }
         if (TutoSC5 && TutoCount == 20 && !TutoSC5.activeSelf) 
             TutoSC5.SetActive(true); // ´Á´ë : ¿Ð¿Ð¿Ð!! (ÀÌ¹ø¿£ ÇÑ¹ø Z[´ë½¬],X[°ø°Ý]¸¦ ´­·¯ºÁ!!)

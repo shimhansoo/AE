@@ -7,10 +7,11 @@ using static UnityEngine.GraphicsBuffer;
 public class TotemDebuffIcon : Totem
 {
     public static TotemDebuffIcon Inst = null;
-    float buffTime = 5.0f;
+    public float buffTime = 5.0f;
     float slowSpeed = 0f;
     float tmpAdditionalSpeed = 0f;
     public int SlowPercentage = 90;
+    public GameObject slow;
     private void Awake()
     {
         Inst = this;
@@ -30,6 +31,9 @@ public class TotemDebuffIcon : Totem
     {
         buffTime -= Time.deltaTime;
         Debug.Log(buffTime);
+        slow = GameObject.Find("Slow");
+        float time = Mathf.Round(buffTime * 10f) / 10f;
+        slow.GetComponent<SlowUI>().time = time;
         CheckTime();
     }
 
