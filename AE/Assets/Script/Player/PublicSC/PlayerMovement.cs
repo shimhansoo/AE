@@ -4,31 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : CharacterProperty
 {
-    bool test = false;
-    bool test2 = false;
-    bool test3 = false;
-    bool test4 = false;
     protected void collisionCheck()//Ground 충돌 무시
     {
-        if (myRigid.velocity.y > 0.0f && test)
+        if (myRigid.velocity.y > 0)
         {
             Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, true);
         }
         else
         {
             Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, false);
-            test = false;
         }
-        if (myRigid.velocity.y < 0 && test2)
-        {
-            Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, true);
-        }
-        else
-        {
-            Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, false);
-            test4 = true;
-        }
-        if (test4) test2 = false;
     }
 
     protected void Scalesetting()//좌우반전
@@ -84,20 +69,7 @@ public class PlayerMovement : CharacterProperty
         {
             myRigid.AddForce(Vector2.up * playerJumpPower, ForceMode2D.Impulse);
             jumpCool = 0.0f;
-            test = true;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            StartCoroutine(DownJumping());
-            test2 = true;
-        }
-
-    }
-    IEnumerator DownJumping()
-    {
-        myRigid.GetComponent<Collider2D>().isTrigger = true;
-        yield return new WaitForSeconds(0.35f);
-        myRigid.GetComponent<Collider2D>().isTrigger = false;
     }
 
     protected IEnumerator AirChecking()//바닥이 Ground, Wall 확인
