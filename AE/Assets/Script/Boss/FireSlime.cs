@@ -7,7 +7,8 @@ using static GameManager;
 public class FireSlime : Boss2_Atk, GameManager.IPerception, GameManager.IBattle
 {
     public static FireSlime MonsterInstance;
-
+    public bool FireSlimesDie = false;
+    public System.Action onDie;
 
     void ChangeState(State s)
     {
@@ -109,8 +110,9 @@ public class FireSlime : Boss2_Atk, GameManager.IPerception, GameManager.IBattle
     IEnumerator Death()
     {
         myAnim.SetTrigger("Death");
-       
-        yield return new WaitUntil(() => myAnim.GetBool("Done"));
+
+        this.FireSlimesDie = true;
+        yield return new WaitForSeconds(0.8f);
         Destroy(gameObject);
     }
  

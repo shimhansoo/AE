@@ -10,8 +10,9 @@ public class BossMonster : Boss_Attk, GameManager.IPerception, GameManager.IBatt
    
    
     public static BossMonster MonsterInstance;
-   
-   
+    public bool bossDie = false;
+    public System.Action onDie;
+
     void ChangeState(State s)
     {
         if (myState == s) return;
@@ -104,13 +105,13 @@ public class BossMonster : Boss_Attk, GameManager.IPerception, GameManager.IBatt
     public void OnTakeDamage(float dmg)
     {
         curHp -= dmg;
-        myAnim.SetTrigger("OnDamage");
-       
-            if (!Mathf.Approximately(curHp, 0f))
+
+        myAnim.SetTrigger("BossDamageColor");
+        if (!Mathf.Approximately(curHp, 0f))
             {
-            if(myAnim.GetBool("isAttacking"))
-            myAnim.SetTrigger("OnDamage");
-            }
+           if (myAnim.GetBool("isAttacking"))
+                myAnim.SetTrigger("BossDamageColor");
+        }
         
         else
         { 
@@ -123,9 +124,9 @@ public class BossMonster : Boss_Attk, GameManager.IPerception, GameManager.IBatt
 
     IEnumerator Death()
     {
-        myAnim.SetTrigger("Death");
-        
-        yield return new WaitUntil(() => myAnim.GetBool("Dead"));
+        this.myAnim.SetTrigger("Death");
+        this.bossDie = true;
+        yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
    

@@ -169,7 +169,7 @@ public class Boss2Movement : Boss2Property
             if (!myAnim.GetBool("isAir"))   // 공중에 있지 않을 때
             {
                 MoveDir *= -1;
-                Backmove = (myState == Boss2.State.Battle); // 안 됨
+                Backmove = (myState == Boss2.State.Battle); 
                 BackmoveTime = Backmove ? 1 : -1;
             }
         }

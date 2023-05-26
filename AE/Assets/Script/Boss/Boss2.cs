@@ -9,9 +9,10 @@ using static GameManager;
 
 public class Boss2 : Boss2_Atk, GameManager.IPerception, GameManager.IBattle
 {
-   
-    public static Boss2 MonsterInstance;
     
+    public static Boss2 MonsterInstance;
+    public bool bossDie = false;
+    public System.Action onDie;
     
     void ChangeState(State s)
     {
@@ -52,6 +53,7 @@ public class Boss2 : Boss2_Atk, GameManager.IPerception, GameManager.IBattle
 
     void Start()
     {
+        
         MonsterInstance = this;
         Invoke("ChangeDirection", 5);
         ChangeState(State.Normal);
@@ -66,6 +68,11 @@ public class Boss2 : Boss2_Atk, GameManager.IPerception, GameManager.IBattle
 
     void Update()
     {
+        
+        if(this.curHp <=0 && this.bossDie == false)
+        {
+            StartCoroutine(Death());
+        }
         ProcessState();
     }
     // Find Target
@@ -102,14 +109,17 @@ public class Boss2 : Boss2_Atk, GameManager.IPerception, GameManager.IBattle
     }
     public bool isLive
     {
-        get => myState != State.Death;
+        
+       
+            get => myState != State.Death;
+        
     }
     
     public void OnTakeDamage(float dmg)
     {
         curHp -= dmg;
-        myAnim.SetTrigger("OnDamage");
 
+        myAnim.SetTrigger("OnDamageColor");
         if (!Mathf.Approximately(curHp, 0f))
         {
             if (!myAnim.GetBool("isAttacking"))
@@ -128,8 +138,9 @@ public class Boss2 : Boss2_Atk, GameManager.IPerception, GameManager.IBattle
  
     IEnumerator Death()
     {
-        myAnim.SetTrigger("Death");
-        yield return new WaitForSeconds(3f);
+        this.myAnim.SetTrigger("Death");
+        this.bossDie = true;
+        yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
 }

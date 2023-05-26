@@ -40,7 +40,7 @@ public class Boss2Property : MonoBehaviour
     {
         get
         {
-            if (_curHp < 0.0f) curHp = maxHp;
+            if (_curHp < 0.0f || _curHp > maxHp) curHp = maxHp;
             return _curHp;
         }
         set

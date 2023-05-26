@@ -16,12 +16,25 @@ public class Earth : BossProperty
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(Damage());
+       // StartCoroutine(Damage());
         //this.EarthDamage = myParent.EarthDamage;
         transform.SetParent(null);
 
     }
+   /* IEnumerator Damage()
+    {
+        float playTime = 0.0f;
+        Vector2 dir = myParent.attackTarget.position - transform.position;
+        dir.Normalize();
+        while (true)
+        {
+            playTime += Time.deltaTime;
+            if (playTime > 3f) Destroy(gameObject);
+            transform.Translate(dir * MoveSpeed * Time.deltaTime, Space.World);
 
+            yield return null;
+        }
+    }*/
     // Update is called once per frame
     void Update()
     {
