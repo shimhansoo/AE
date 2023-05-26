@@ -28,7 +28,7 @@ public class DamageText : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public void ChangeTextColor(float dmg, int code = 0)
+    public void ChangeTextColor(float dmg, int code = 0)    // 0 : 피격, 1 : 체력 회복
     {
         if(code == 0)
         {

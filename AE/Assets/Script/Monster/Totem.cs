@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class Totem : MonsterMovement, GameManager.IPerception, GameManager.ITotem, GameManager.IBattle
 {
@@ -13,8 +11,8 @@ public class Totem : MonsterMovement, GameManager.IPerception, GameManager.ITote
     // Start is called before the first frame update
     void Start()
     {
-        if (Monster.MonsterInstance.attackTarget != null) myTarget = Monster.MonsterInstance.attackTarget;
-        transform.parent = null;
+        myTarget = transform.parent.GetComponent<Monster>().attackTarget;
+        transform.SetParent(null);
     }
 
     // Update is called once per frame

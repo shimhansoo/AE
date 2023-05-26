@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5602221241257552025, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 986a06eb84f02d74db11ab062f1cdf4f, type: 3}
@@ -4431,11 +4431,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: 7f8db929cbe0e35419693a0631e34417, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.66
+      value: 11.61
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: 7f8db929cbe0e35419693a0631e34417, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.03
+      value: -3.29
       objectReference: {fileID: 0}
     - target: {fileID: 9012221850467041111, guid: 7f8db929cbe0e35419693a0631e34417, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4678,6 +4678,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin
       objectReference: {fileID: 0}
+    - target: {fileID: 3835726857297496517, guid: 1fc180b7e62f5204d86227df0f1e2d06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fc180b7e62f5204d86227df0f1e2d06, type: 3}
 --- !u!114 &4430976593193991968
@@ -4694,6 +4698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 50
   _curHp: -1
+  regenHp: 1
   moveSpeed: 1
   attackDamage: 2
   autoAttackRange: 5

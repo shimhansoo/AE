@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), (typeof(BoxCollider2D)))]
@@ -67,7 +66,6 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) HpHealing(10);
         ProcessState();
     }
     // Find Target
@@ -125,12 +123,12 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
             healingTime = 0f;
         }
     }
-    void HpHealing(float dmg)
+    void HpHealing(float point)
     {
         if (Mathf.Approximately(curHp, maxHp)) return;
         GameObject obj = Instantiate(Resources.Load("UI/DmgText"), TextArea) as GameObject;
-        obj.GetComponent<DamageText>().ChangeTextColor(dmg, 1);
-        curHp += dmg;
+        obj.GetComponent<DamageText>().ChangeTextColor(point, 1);
+        curHp += point;
         myAnim.SetTrigger("OnHealColor");
     }
 
@@ -162,28 +160,23 @@ public class Monster : MonsterAttack, GameManager.IPerception, GameManager.IBatt
 
         if (probability > 90)
         {
-            print("Sword");
-            Instantiate(Resources.Load("Item/BasicSword(Normal)"), new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
+            Instantiate(Resources.Load("Item/BasicStaff(Normal)"), new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
         }
         else if (probability > 80)
         {
-            print("Staff");
-            Instantiate(Resources.Load("Item/BasicStaff(Normal)"), new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
-        }
-        else if (probability > 70)
-        {
-            print("Spear");
             Instantiate(Resources.Load("Item/BasicSpear(Normal)"), new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
         }
-        else if (probability > 60)
+        else if (probability > 65)
         {
-            print("Armor");
             Instantiate(Resources.Load("Item/Armor(Normal)"), new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
+        }
+        else if (probability > 50)
+        {
+            Instantiate(Resources.Load("Item/BasicSword(Normal)"), new Vector2(transform.position.x, transform.position.y + 1), Quaternion.identity);
         }
         else
         {
             return;
         }
-        //obj.transform.SetParent(null);
     }
 }

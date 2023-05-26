@@ -46,7 +46,6 @@ public class TotemDebuffIcon : Totem
         if(buffTime < 0.0f)
         {
             transform.parent.GetComponent<CharacterProperty>().additionalSpeed = tmpAdditionalSpeed;
-            //totem.isSlow = false;
             Destroy(gameObject);
         }
     }
