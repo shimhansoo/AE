@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: LegendStaff(Rare)
   itemGrade: 1
   itemType: 0
+  weaponType: 1
   itemHP: 0
   itemAttack: 30
   itemSpeed: 0

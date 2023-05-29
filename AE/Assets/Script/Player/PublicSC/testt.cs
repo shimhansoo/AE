@@ -11,7 +11,7 @@ public class testt : PlayerMovement
     }
     private void FixedUpdate()
     {
-        if (isDashing) return;
+        //if (isDashing) return;
         OnMove1();
         Scalesetting();
     }
@@ -21,11 +21,11 @@ public class testt : PlayerMovement
         OnJump();
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            StartCoroutine(coJump());
+            //StartCoroutine(coJump());
         }
         GroundCh();
     }
-    private bool canDash = true;
+   /* private bool canDash = true;
     private bool isDashing;
     public float dashingPower = 24f;
     private float dashingTime = 0.2f;
@@ -46,7 +46,7 @@ public class testt : PlayerMovement
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
-    }
+    }*/
     protected void OnMove1()//¿Ãµø
     {
         dir.x = Input.GetAxisRaw("Horizontal");

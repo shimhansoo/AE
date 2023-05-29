@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: BasicSpear(Rare)
   itemGrade: 1
   itemType: 0
+  weaponType: 2
   itemHP: 0
   itemAttack: 10
   itemSpeed: 0

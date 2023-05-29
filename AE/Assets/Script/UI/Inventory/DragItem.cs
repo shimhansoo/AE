@@ -134,5 +134,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         player.GetComponent<CharacterProperty>().playerMaxHp += item.itemHP;
         player.GetComponent<CharacterProperty>().playerMoveSpeed += item.itemSpeed;
         player.GetComponent<CharacterProperty>().playerDamege += item.itemAttack;
+        PlayerLibrary pl = GameObject.Find("Plyaer").GetComponent<PlayerLibrary>();
+        pl.ChangeToWP((int)item.weaponType);
     }
 }

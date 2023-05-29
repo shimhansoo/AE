@@ -8,12 +8,12 @@ public class CharacterProperty : MonoBehaviour
     public float playerMaxHp = 100.0f;
     public float playerCurHp = 0;
 
-
     //이동 관련
     protected Vector2 dir = Vector2.zero;
     protected bool canMove = true;
     protected Collider2D groundCheck;
-    public float playerMoveSpeed = 3.0f;
+    protected Collider2D groundUPCheck;
+    public float playerMoveSpeed = 8.0f;
     [SerializeField]float _moveSpeed = -1.0f;
     public float playerCurrentMoveSpeed
     {
@@ -33,6 +33,9 @@ public class CharacterProperty : MonoBehaviour
     public float coolTime = 0.0f;
     protected Vector2 frontVec = Vector2.zero;
     public int dashCount = 0;
+    protected bool canDash = true;
+    protected float dashingPower = 15f;
+    protected float dashingTime = 0.3f;
 
     //점프 관련
     protected bool isJump = false;

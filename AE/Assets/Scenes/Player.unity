@@ -349,12 +349,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324139202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 11.83, y: 2.01, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1114018688}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &364701563 stripped
 MonoBehaviour:
@@ -3737,11 +3737,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!4 &1114018688 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3721340903370294793, guid: de3a9d99b996c644f806f1d6d9765978, type: 3}
-  m_PrefabInstance: {fileID: 3721340902709981056}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1336687603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6388,7 +6383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3396663303934677827
 Transform:
   m_ObjectHideFlags: 0
@@ -6455,7 +6450,6 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 0
-  dashingPower: 24
 --- !u!1001 &3721340902709981056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6466,10 +6460,6 @@ PrefabInstance:
     - target: {fileID: 3721340903370294792, guid: de3a9d99b996c644f806f1d6d9765978, type: 3}
       propertyPath: m_Name
       value: Plyaer
-      objectReference: {fileID: 0}
-    - target: {fileID: 3721340903370294792, guid: de3a9d99b996c644f806f1d6d9765978, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3721340903370294793, guid: de3a9d99b996c644f806f1d6d9765978, type: 3}
       propertyPath: m_RootOrder
@@ -6513,10 +6503,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3721340903370294793, guid: de3a9d99b996c644f806f1d6d9765978, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3721340903370294796, guid: de3a9d99b996c644f806f1d6d9765978, type: 3}
-      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3721340903370294797, guid: de3a9d99b996c644f806f1d6d9765978, type: 3}

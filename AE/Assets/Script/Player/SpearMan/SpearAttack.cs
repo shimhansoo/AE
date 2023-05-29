@@ -41,7 +41,7 @@ public class SpearAttack : BattleSystem
         Collider2D[] Enemys = Physics2D.OverlapCircleAll(attackPoint.transform.position, spearAttackRange, enemyLayers);
         foreach (Collider2D enemy in Enemys)
         {
-            enemy.GetComponent<GameManager.IBattle>().OnTakeDamage(15.0f);
+            enemy.GetComponent<GameManager.IBattle>().OnTakeDamage(playerDamege);
             Instantiate(Resources.Load("Player/SpearEffect"), new Vector2(enemy.transform.position.x, enemy.transform.position.y+0.3f), Quaternion.identity);
         }
     }

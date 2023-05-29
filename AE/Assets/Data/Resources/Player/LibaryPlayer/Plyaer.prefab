@@ -171,6 +171,8 @@ MonoBehaviour:
   playerMoveSpeed: 3
   _moveSpeed: -1
   additionalSpeed: 0
+  coolTime: 0
+  dashCount: 0
   playerJumpPower: 16
   groundMask:
     serializedVersion: 2

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : CharacterProperty
 {
-    protected void collisionCheck()//Ground 충돌 무시
+    protected void collisionCheck()//Ground 충돌 무시, SpriteAim쓰기전
     {
-        if (myRigid.velocity.y > 0)
+        if (myRigid.velocity.y > 0.0f)
         {
             Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, true);
         }
@@ -15,7 +15,29 @@ public class PlayerMovement : CharacterProperty
             Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, false);
         }
     }
+    protected void collisionDown()//Ground 충돌 무시
+    {
+        if (groundCheck!=null)
+        {
+            StartCoroutine(iscollisionDown());
+        }
+    }
 
+    IEnumerator iscollisionUp()
+    {
+        Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, true);
+        yield return new WaitForSeconds(0.5f);
+        Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, false);
+    }
+
+    IEnumerator iscollisionDown()
+    {
+        Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, true);
+        canMove = false;
+        yield return new WaitForSeconds(0.3f);
+        canMove = true;
+        Physics2D.IgnoreLayerCollision(playerLayer, groundLayer, false);
+    }
     protected void Scalesetting()//좌우반전
     {
         transform.localScale = frontVec.x < 0.0f ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
@@ -53,21 +75,34 @@ public class PlayerMovement : CharacterProperty
         }
         if (dashCount > 0)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Z) && canDash)
             {
                 dashCount--;
-                myRigid.AddForce(frontVec * 10.0f, ForceMode2D.Impulse);
-                canMove = false;
+                StartCoroutine(coDash());
                 Instantiate(Resources.Load("Player/PlayerDash"), new Vector2(transform.position.x, transform.position.y + 0.4f), Quaternion.identity);
             }
         }
     }
-
+    
+    protected IEnumerator coDash()
+    {
+        canDash = false;
+        canMove = false;
+        float originalGravity = myRigid.gravityScale;
+        myRigid.gravityScale = 0f;
+        myRigid.velocity = new Vector2(frontVec.x * dashingPower, 0f);
+        yield return new WaitForSeconds(dashingTime);
+        myRigid.gravityScale = originalGravity;
+        myRigid.velocity = new Vector2(0, 0);
+        canMove = true;
+        canDash = true;
+    }
     protected void OnJump()//↑ 점프, ↓ 점프
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow)&&canDash)
         {
             myRigid.AddForce(Vector2.up * playerJumpPower, ForceMode2D.Impulse);
+            StartCoroutine(iscollisionUp());
             jumpCool = 0.0f;
         }
     }
@@ -79,11 +114,7 @@ public class PlayerMovement : CharacterProperty
             //rayHitDownRight = Physics2D.Raycast(myRigid.position + new Vector2(-0.6f, 1) * 0.5f, Vector2.down, GetComponent<Rigidbody2D>().velocity.magnitude * Time.fixedDeltaTime + 1.5f, groundMask);
             //rayHitDownLeft = Physics2D.Raycast(myRigid.position + new Vector2(0.6f, 1) * 0.5f, Vector2.down, GetComponent<Rigidbody2D>().velocity.magnitude * Time.fixedDeltaTime + 1.5f, groundMask);
             groundCheck = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y - 0.5f), 0.3f, groundMask);
-
-            if (groundCheck != null)
-            {
-                canMove = true;
-            }
+            groundUPCheck = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 0.5f), 0.3f, groundMask);
             yield return new WaitForFixedUpdate();
         }
     }

@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: LegendSpear(Unique)
   itemGrade: 2
   itemType: 0
+  weaponType: 2
   itemHP: 0
   itemAttack: 40
   itemSpeed: 0

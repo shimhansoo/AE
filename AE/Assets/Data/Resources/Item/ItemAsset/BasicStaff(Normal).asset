@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: BasicStaff(Normal)
   itemGrade: 0
   itemType: 0
+  weaponType: 1
   itemHP: 0
   itemAttack: 5
   itemSpeed: 0

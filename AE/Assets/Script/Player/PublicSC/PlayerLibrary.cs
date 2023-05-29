@@ -6,9 +6,9 @@ using UnityEngine.U2D.Animation;
 public class PlayerLibrary : BattleSystem
 {
     public SpriteLibrary spriteLib = null;
-    public SpriteLibraryAsset s1 = null;
-    public SpriteLibraryAsset s2 = null;
-    public SpriteLibraryAsset s3 = null;
+    public SpriteLibraryAsset BaseCharacter = null;
+    public SpriteLibraryAsset SpearMan = null;
+    public SpriteLibraryAsset Wizard = null;
     bool isOnAttack = false;
     //wizard
     public Slider AdogenCastingBar;
@@ -27,7 +27,7 @@ public class PlayerLibrary : BattleSystem
         BasePlayer, SpearMan, FireWizard, Create
     }
 
-    Class myClass = Class.Create;
+    [SerializeField]Class myClass = Class.Create;
     void Start()
     {
         playerLayer = LayerMask.NameToLayer("Player");
@@ -42,24 +42,52 @@ public class PlayerLibrary : BattleSystem
         if (isLive)
         {
             OnMove();
+            
         }
+        
     }
     void ChageClass(Class s)
     {
         if (s == myClass) return;
+        
         myClass = s;
         switch (myClass)
         {
             case Class.BasePlayer:
+                spriteLib.spriteLibraryAsset = BaseCharacter;
+                isOnAttack = true;
                 break;
             case Class.SpearMan:
+                spriteLib.spriteLibraryAsset = SpearMan;
+                isOnAttack = true;
                 break;
             case Class.FireWizard:
+                spriteLib.spriteLibraryAsset = Wizard;
+                isOnAttack = false;
                 break;
             default:
                 Debug.Log("처리되지 않은 직업군");
                 break;
         }
+    }
+    public void ChangeToWP(int n)
+    {
+        Class s1 = Class.Create;
+        switch (n)
+        {
+            case 0:
+                s1 = Class.BasePlayer;
+                break;
+            case 1:
+                s1 = Class.FireWizard;
+                break;
+            case 2:
+                s1 = Class.SpearMan;
+                break;
+            default:
+                break;
+        }
+        ChageClass(s1);
     }
     void ClassProcess()
     {
@@ -84,12 +112,13 @@ public class PlayerLibrary : BattleSystem
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1)) { spriteLib.spriteLibraryAsset = s1; ChageClass(Class.SpearMan); isOnAttack = true; }
-        if (Input.GetKeyDown(KeyCode.F2)) { spriteLib.spriteLibraryAsset = s2; ChageClass(Class.FireWizard); isOnAttack= false; }
-        if (Input.GetKeyDown(KeyCode.F3)) { spriteLib.spriteLibraryAsset = s3; ChageClass(Class.BasePlayer); isOnAttack = true; }
         ClassProcess();
         if (isLive)
         {
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                collisionDown();
+            }
             playerCurrentMoveSpeed = playerMoveSpeed + additionalSpeed;
             spearmanSkillCoolTime1 += Time.deltaTime;
             spearmanSkillCoolTime2 += Time.deltaTime;
@@ -125,13 +154,9 @@ public class PlayerLibrary : BattleSystem
             //무한 점프 제어
             isJump = groundCheck ? isJump = false : isJump = true;
             jumpCool += Time.deltaTime;
-            if (!isJump && jumpCool >= 0.5f)
+            if (!isJump && jumpCool >= 0.3f)
             {
                 OnJump();
-            }
-            else
-            {
-                collisionCheck();
             }
         }
     }
