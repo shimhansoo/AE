@@ -6,7 +6,19 @@ public class CharacterProperty : MonoBehaviour
 {
     //체력 관련
     public float playerMaxHp = 100.0f;
-    public float playerCurHp = 0;
+    public float _curHp = -1;
+    public float playerCurHp
+    {
+        get
+        {
+            if (_curHp < 0 || _curHp > playerMaxHp) _curHp = playerMaxHp;
+            return _curHp;
+        }
+        set
+        {
+            _curHp = Mathf.Clamp(value, 0.0f, playerMaxHp);
+        }
+    }
 
     //이동 관련
     protected Vector2 dir = Vector2.zero;

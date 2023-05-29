@@ -22,29 +22,10 @@ public class PlayerLibrary : BattleSystem
     protected float playerSkillDamage_1 = 0f;
     float spearmanSkillCoolTime1 = 7.0f;
     float spearmanSkillCoolTime2 = 10.0f;
+    [SerializeField]Class myClass = Class.Create;
     enum Class
     {
         BasePlayer, SpearMan, FireWizard, Create
-    }
-
-    [SerializeField]Class myClass = Class.Create;
-    void Start()
-    {
-        playerLayer = LayerMask.NameToLayer("Player");
-        groundLayer = LayerMask.NameToLayer("Ground");
-        playerCurHp = playerMaxHp;
-        StartCoroutine(AirChecking());
-        myClass = Class.BasePlayer;
-        isOnAttack = true;
-    }
-    private void FixedUpdate()
-    {
-        if (isLive)
-        {
-            OnMove();
-            
-        }
-        
     }
     void ChageClass(Class s)
     {
@@ -109,12 +90,24 @@ public class PlayerLibrary : BattleSystem
                 break;
         }
     }
-    // Update is called once per frame
+    void Start()
+    {
+        playerLayer = LayerMask.NameToLayer("Player");
+        groundLayer = LayerMask.NameToLayer("Ground");
+        //playerCurHp = playerMaxHp;
+        StartCoroutine(AirChecking());
+        myClass = Class.BasePlayer;
+        isOnAttack = true;
+    }
+    private void FixedUpdate()
+    {
+        if (isLive) OnMove();
+    }
     void Update()
     {
-        ClassProcess();
         if (isLive)
         {
+        ClassProcess();
             if (Input.GetKey(KeyCode.DownArrow))
             {
                 collisionDown();

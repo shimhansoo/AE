@@ -19,11 +19,11 @@ public class UIWolf : PetProperty
         dir.Normalize();
         if (dir.x < 0.0f)
         {
-            PetRenderer.flipX = true;
+            PetRenderer.flipX = false;
         }
         else
         {
-            PetRenderer.flipX = false;
+            PetRenderer.flipX = true;
         }
         if (transform.position.x <= PlayerPos.position.x + 1.0f) StopAllCoroutines();
     }

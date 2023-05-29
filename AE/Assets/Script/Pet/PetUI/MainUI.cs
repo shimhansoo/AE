@@ -14,12 +14,14 @@ public class MainUI : MonoBehaviour
     public GameObject TransparentWall2 = null; // 몬스터잡기 완료후 천장 벽 없애기
     public GameObject TutoSlime = null;
     public GameObject BasicDragon = null;
+    public GameObject LastBoss = null;
 
     // UI 그림
     public GameObject HPbar = null;
     public GameObject MapUI = null;
     public GameObject Setting = null;
     public GameObject DashUI = null;
+    public GameObject Clear = null;
 
     // Tuto 1
 
@@ -142,6 +144,7 @@ public class MainUI : MonoBehaviour
             Setting.SetActive(true);
             DashUI.SetActive(true);
             StopAllCoroutines();
+            TutoCount = 38;
             isCount = false;
         }
         if (BasicDragonCanvas && BasicDragonCanvas.activeSelf && !isCount)
@@ -167,6 +170,8 @@ public class MainUI : MonoBehaviour
             Setting.SetActive(true);
             DashUI.SetActive(true);
         }
+
+        if (!LastBoss) Clear.SetActive(true);
     }
     // 카운트를 돌리는 함수.
     IEnumerator TutoCountPlus()

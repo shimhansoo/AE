@@ -100,10 +100,14 @@ public class Map_Portal : MonoBehaviour
         {
             if(TutoSC8)
             {
-                StartCoroutine(uiStopping()); // 대사 나올때 UI이미지 잠시 꺼주는 코루틴
+                StartCoroutine(uiStopping(3.0f)); // 대사 나올때 UI이미지 잠시 꺼주는 코루틴
                 TutoSC8.SetActive(true);
             }
             if(monsterDeathCheck != true) monsterDeathCheck = true; // 몬스터가 다 죽었으면 true
+        }
+        if(BasicDragonCanvas != null)
+        {
+            uiStopping(7.0f);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -180,7 +184,6 @@ public class Map_Portal : MonoBehaviour
                     fifthMini.SetActive(false);
                     sixthMini.SetActive(true);
                     miniBoss.SetActive(true);
-                    Debug.Log("미니보스");
                     cam.GetComponent<CameraShake>().MapShake();
                     break;
                 case 6:
@@ -205,9 +208,9 @@ public class Map_Portal : MonoBehaviour
     }
     private void Awake()
     {
-        if(GameObject.Find("Plyaer").GetComponent<Map2_CameraLimit>() != null)
+        if(GameObject.Find("Player").GetComponent<Map2_CameraLimit>() != null)
         {
-            map2_CameraLimit = GameObject.Find("Plyaer").GetComponent<Map2_CameraLimit>();
+            map2_CameraLimit = GameObject.Find("Player").GetComponent<Map2_CameraLimit>();
         }
         else if (GameObject.Find("Player").GetComponent<Map2_CameraLimit>() != null)
         {
@@ -229,19 +232,19 @@ public class Map_Portal : MonoBehaviour
     // 현재 맵에서 몬스터를 다 잡지 않고 포탈 상호작용을 입력할 시 뜨는 UI대사 코루틴 함수
     IEnumerator Warning() 
     {
-        StartCoroutine(uiStopping());
+        StartCoroutine(uiStopping(3.0f));
         warningScript.SetActive(true);
         yield return new WaitForSeconds(3.0f);
         warningScript.SetActive(false);
     }
     // 대사 나올때 UI잠시 꺼주는 코루틴 함수
-    IEnumerator uiStopping()
+    IEnumerator uiStopping(float seconds)
     {
         if (HPbar != null) HPbar.SetActive(false);
         if (MapUI != null) MapUI.SetActive(false);
         if (Setting != null) Setting.SetActive(false);
         if (DashUI != null) DashUI.SetActive(false);
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(seconds);
         if (HPbar != null) HPbar.SetActive(true);
         if (MapUI != null) MapUI.SetActive(true);
         if (Setting != null) Setting.SetActive(true);

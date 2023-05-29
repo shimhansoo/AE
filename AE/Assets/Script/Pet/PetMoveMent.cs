@@ -146,7 +146,7 @@ public class PetMoveMent : PetProperty
                 PetAnim.SetBool("isMoving", false);
             }
             // 플레이어와 WolfTPdist 만큼 멀어지면 플레이어에게 순간이동.
-            if (Mathf.Abs(transform.position.x - player.position.x) > WolfTPdist)
+            if (Mathf.Abs(transform.position.x - player.position.x) > WolfTPdist || Mathf.Abs(transform.position.y - player.position.y) > WolfTPdist)
             {
                 PetAnim.SetTrigger("Telleport");
                 transform.position = new Vector3(player.position.x, player.position.y + 1.0f, 0);

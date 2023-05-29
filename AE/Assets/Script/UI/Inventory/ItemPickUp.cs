@@ -28,14 +28,12 @@ public class ItemPickUp : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.transform.gameObject);
         if (collision.transform != null)
         {
             if (((layerMask & 1 << collision.gameObject.layer) != 0))
             {
                 if (collision.transform.gameObject.GetComponent<Coin>())
                 {
-                    Debug.Log("°ñµå È¹µæ!");
                     inventory.gold++;
                 }
                 else

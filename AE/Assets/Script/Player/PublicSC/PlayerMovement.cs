@@ -113,7 +113,7 @@ public class PlayerMovement : CharacterProperty
         {
             //rayHitDownRight = Physics2D.Raycast(myRigid.position + new Vector2(-0.6f, 1) * 0.5f, Vector2.down, GetComponent<Rigidbody2D>().velocity.magnitude * Time.fixedDeltaTime + 1.5f, groundMask);
             //rayHitDownLeft = Physics2D.Raycast(myRigid.position + new Vector2(0.6f, 1) * 0.5f, Vector2.down, GetComponent<Rigidbody2D>().velocity.magnitude * Time.fixedDeltaTime + 1.5f, groundMask);
-            groundCheck = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y - 0.5f), 0.3f, groundMask);
+            groundCheck = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y - 0.5f), 0.18f, groundMask);
             groundUPCheck = Physics2D.OverlapCircle(new Vector2(transform.position.x, transform.position.y + 0.5f), 0.3f, groundMask);
             yield return new WaitForFixedUpdate();
         }

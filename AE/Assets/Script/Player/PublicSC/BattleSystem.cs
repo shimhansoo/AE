@@ -9,9 +9,8 @@ public class BattleSystem : PlayerMovement, GameManager.IBattle
     {
         get
         {
-            if(playerCurHp >= 0)
+            if(!Mathf.Approximately(playerCurHp,0))
             {
-
                 return true;
             }
             else
@@ -24,7 +23,7 @@ public class BattleSystem : PlayerMovement, GameManager.IBattle
     {
         playerCurHp -= damage;
         myAnim.SetTrigger("OnDamageColor");
-        if (playerCurHp <= 0)
+        if (Mathf.Approximately(playerCurHp, 0))
         {
             myAnim.SetTrigger("Death");
             Destroy(this.myRigid);

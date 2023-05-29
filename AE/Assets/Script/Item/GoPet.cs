@@ -23,9 +23,6 @@ public class GoPet : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         itemMask = LayerMask.NameToLayer("Item");
         GroundMask = LayerMask.NameToLayer("Ground");
-
-        Debug.Log(itemMask);
-        Debug.Log(GroundMask);
         StartCoroutine(DisappearItem());
     }
 
@@ -41,7 +38,7 @@ public class GoPet : MonoBehaviour
         {
             if(rigid != null)rigid.gravityScale = 0.1f;
             Physics2D.IgnoreLayerCollision(itemMask, GroundMask , true);
-            transform.position = Vector2.Lerp(transform.position, PetPos, Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, PetPos, 1);
         }
         else
         {
