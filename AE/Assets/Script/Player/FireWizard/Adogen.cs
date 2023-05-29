@@ -9,11 +9,13 @@ public class Adogen : MonoBehaviour
     public Animator anim = new Animator();
     public LayerMask enemyMask;
     float destroyTime = 0;
+    float s = 0;
     // Start is called before the first frame update
     void Start()
     {
         transform.SetParent(null);
         anim.SetTrigger("Skill2Attack");
+        s = Random.Range(1f, 2.5f);
     }
     private void Awake()
     {
@@ -26,8 +28,8 @@ public class Adogen : MonoBehaviour
         transform.Translate(dir * Time.deltaTime);
         Collider2D enemy = Physics2D.OverlapCircle(transform.position, 1f, enemyMask);
         if (enemy != null)
-        {
-            enemy.GetComponent<GameManager.IBattle>().OnTakeDamage(100f);
+        {s = Random.Range(2f, 2.5f);
+            enemy.GetComponent<GameManager.IBattle>().OnTakeDamage((int)(100*s));
             Destroy(gameObject);
         }
 

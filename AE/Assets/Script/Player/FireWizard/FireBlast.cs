@@ -16,6 +16,7 @@ public class FireBlast : MonoBehaviour
     float front = 0;
     Collider2D[] enemyLists = null;
     Vector2 capsuleSize = Vector2.zero;
+    float s = 0;
     private void Start()
     {
         transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);//부모 스케일 따라와서 고정스케일 잡아줌
@@ -38,6 +39,7 @@ public class FireBlast : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        s = Random.Range(1f, 2.5f);
     }
 
     void PolygonCheck()
@@ -64,7 +66,7 @@ public class FireBlast : MonoBehaviour
         {
             foreach (Collider2D col in enemyLists)
             {
-                col.GetComponent<GameManager.IBattle>().OnTakeDamage(25.0f);
+                col.GetComponent<GameManager.IBattle>().OnTakeDamage((int)(25f*s));
             }
             coolTime = 0.0f;
         }

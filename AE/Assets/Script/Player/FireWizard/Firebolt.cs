@@ -18,7 +18,8 @@ public class Firebolt : CharacterProperty
     {
         transform.Translate(pos * fireboltAttackSpeed * Time.deltaTime);
         Collider2D enemy = Physics2D.OverlapCircle(transform.position, 0.5f, enemyLayers);
-        if(enemy != null)
+        playerDamege = Random.Range(20, 30);
+        if (enemy != null)
         {
             enemy.GetComponent<GameManager.IBattle>().OnTakeDamage(playerDamege);
             Destroy(gameObject);

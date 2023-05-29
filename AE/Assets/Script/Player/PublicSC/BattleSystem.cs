@@ -33,6 +33,7 @@ public class BattleSystem : PlayerMovement, GameManager.IBattle
     
     public void OnAttack()
     {
+        playerDamege = Random.Range(15, 25);
         Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (Collider2D enemy in hitEnemys)
         {

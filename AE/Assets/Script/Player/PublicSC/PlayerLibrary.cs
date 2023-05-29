@@ -30,7 +30,6 @@ public class PlayerLibrary : BattleSystem
     void ChageClass(Class s)
     {
         if (s == myClass) return;
-        
         myClass = s;
         switch (myClass)
         {

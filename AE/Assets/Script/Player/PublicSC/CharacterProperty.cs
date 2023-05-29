@@ -61,7 +61,7 @@ public class CharacterProperty : MonoBehaviour
     //전투 관련
     protected float attackTime = 0.0f;
     protected float attackSpeed = 1.0f;
-    public float playerDamege = 25.0f;
+    public float playerDamege = 25f;
     public Transform attackPoint;
     public float attackRange = 0.7f;
     public GameObject DebuffIcon = null;

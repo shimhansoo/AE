@@ -8,6 +8,7 @@ public class SpearAttack : BattleSystem
     Vector2 spearDir = Vector2.zero;
     float spearAttackTime = 0f;
     float spearAttackRange = 1.0f;
+    float ranDamage = 0;
     void Start()
     {
         transform.Rotate(0, 0, -90.0f);
@@ -30,6 +31,7 @@ public class SpearAttack : BattleSystem
             spearAttackTime = 0f;
             spearAttack();
         }
+            ranDamage = Random.Range(1.0f, 2.0f);
     }
     IEnumerator spearWeaponDestroy()
     {
@@ -41,7 +43,7 @@ public class SpearAttack : BattleSystem
         Collider2D[] Enemys = Physics2D.OverlapCircleAll(attackPoint.transform.position, spearAttackRange, enemyLayers);
         foreach (Collider2D enemy in Enemys)
         {
-            enemy.GetComponent<GameManager.IBattle>().OnTakeDamage(playerDamege);
+            enemy.GetComponent<GameManager.IBattle>().OnTakeDamage((int)(playerDamege * ranDamage));
             Instantiate(Resources.Load("Player/SpearEffect"), new Vector2(enemy.transform.position.x, enemy.transform.position.y+0.3f), Quaternion.identity);
         }
     }
