@@ -45,6 +45,14 @@ public class PetMoveMent : PetProperty
             {
                 PetAnim.SetBool("isFlying", false);
             }
+            if (Mathf.Abs(transform.position.x - player.position.x) > 10.0f || Mathf.Abs(transform.position.y - player.position.y) > 5.0f)
+            {
+                DragonSpeed = 50.0f;
+            }
+            else
+            {
+                DragonSpeed = 5.0f;
+            }
             yield return null;
         }
     }

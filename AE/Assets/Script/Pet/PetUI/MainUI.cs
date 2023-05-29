@@ -10,7 +10,8 @@ public class MainUI : MonoBehaviour
     public GameObject Player = null;
     public GameObject Wolf = null;
     public GameObject UIWolf = null;
-    public GameObject TransparentWall = null;
+    public GameObject TransparentWall1 = null; // Ã¹ Æ©Åä¸®¾ó ¸ó½ºÅÍÀâ±â 1ÀÚ º® ¾ø¾Ö±â
+    public GameObject TransparentWall2 = null; // ¸ó½ºÅÍÀâ±â ¿Ï·áÈÄ ÃµÀå º® ¾ø¾Ö±â
     public GameObject TutoSlime = null;
     public GameObject BasicDragon = null;
 
@@ -18,6 +19,7 @@ public class MainUI : MonoBehaviour
     public GameObject HPbar = null;
     public GameObject MapUI = null;
     public GameObject Setting = null;
+    public GameObject DashUI = null;
 
     // Tuto 1
 
@@ -101,7 +103,7 @@ public class MainUI : MonoBehaviour
         if (TutoSC5 && TutoCount == 20 && !TutoSC5.activeSelf) 
             TutoSC5.SetActive(true); // ´Á´ë : ¿Ð¿Ð¿Ð!! (ÀÌ¹ø¿£ ÇÑ¹ø Z[´ë½¬],X[°ø°Ý]¸¦ ´­·¯ºÁ!!)
         if (TutoSC6 && TutoCount == 25 && !TutoSC6.activeSelf) 
-            TutoSC6.SetActive(true); // ´Á´ë : ¿Ð!¿Ð¿Ð (ÀßÇß¾î! ±×·³ ÀÌ¹ø¿£ ¾Õ¿¡ÀÖ´Â ½½¶óÀÓÀ» Àâ¾Æº¸ÀÚ)
+            TutoSC6.SetActive(true); // ´Á´ë : ¿Ð! ¿Ð¿Ð! (ÀßÇß¾î! ±×·¯¸é ¾Õ¿¡ÀÖ´Â ¸ó½ºÅÍµéÀ» Àâ¾Æº¸ÀÚ!)
         if (PlayerSC4 && TutoCount == 28 && !PlayerSC4.activeSelf)
         {
             PlayerSC4.SetActive(true); // Á¨Àå... ¹¹³Ä°í...!
@@ -115,7 +117,8 @@ public class MainUI : MonoBehaviour
             HPbar.SetActive(true);
             MapUI.SetActive(true);
             Setting.SetActive(true);
-            Destroy(TransparentWall);
+            DashUI.SetActive(true);
+            Destroy(TransparentWall1);
             StopAllCoroutines();
         }
         if (PlayerSC5 && !TutoSlime && !PlayerSC5.activeSelf)
@@ -124,7 +127,9 @@ public class MainUI : MonoBehaviour
             HPbar.SetActive(false);
             MapUI.SetActive(false);
             Setting.SetActive(false);
+            DashUI.SetActive(false);
             PlayerSC5.SetActive(true); // Çã¾ï..Çã¾ï... (¼ûÀ» °¡»Ú°Ô ¸ô¾Æ½¬¸ç)
+            Destroy(TransparentWall2);
             StartCoroutine(TutoCountPlus());
         }
         if (TutoSC7 && !TutoSlime && !TutoSC7.activeSelf && TutoCount == 33) 
@@ -135,6 +140,7 @@ public class MainUI : MonoBehaviour
             HPbar.SetActive(true);
             MapUI.SetActive(true);
             Setting.SetActive(true);
+            DashUI.SetActive(true);
             StopAllCoroutines();
             isCount = false;
         }
@@ -142,6 +148,10 @@ public class MainUI : MonoBehaviour
         {
             isCount = true;
             StartCoroutine(TutoCountPlus());
+            HPbar.SetActive(false);
+            MapUI.SetActive(false);
+            Setting.SetActive(false);
+            DashUI.SetActive(false);
         }
         if(TutoCount == 39)
             DragonSC1.SetActive(true); // ??? : Å©·Ö·Ö·Ö~
@@ -150,7 +160,13 @@ public class MainUI : MonoBehaviour
         if(TutoCount == 43)
             DragonSC2.SetActive(true); // Àº»ö µå·¡°ï : Å©·Ö·Ö·Ö~ (¾È³ç~³ª´Â ³Ê¸¦ µµ¿ÍÁÙ ¾Ö±âµå·¡°ïÀÌ¾ä > 3 < !)
         if(TutoCount == 45)
+        {
             PlayerSC7.SetActive(true); // Á¨Àå ¹¹³Ä±¸....!
+            HPbar.SetActive(true);
+            MapUI.SetActive(true);
+            Setting.SetActive(true);
+            DashUI.SetActive(true);
+        }
     }
     // Ä«¿îÆ®¸¦ µ¹¸®´Â ÇÔ¼ö.
     IEnumerator TutoCountPlus()

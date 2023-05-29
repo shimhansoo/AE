@@ -68,6 +68,7 @@ public class Map_Portal : MonoBehaviour
     public GameObject HPbar = null;
     public GameObject MapUI = null;
     public GameObject Setting = null;
+    public GameObject DashUI = null;
 
     Map2_CameraLimit map2_CameraLimit;
     public GameObject cam;
@@ -239,10 +240,12 @@ public class Map_Portal : MonoBehaviour
         if (HPbar != null) HPbar.SetActive(false);
         if (MapUI != null) MapUI.SetActive(false);
         if (Setting != null) Setting.SetActive(false);
+        if (DashUI != null) DashUI.SetActive(false);
         yield return new WaitForSeconds(3.0f);
         if (HPbar != null) HPbar.SetActive(true);
         if (MapUI != null) MapUI.SetActive(true);
         if (Setting != null) Setting.SetActive(true);
+        if (DashUI != null) DashUI.SetActive(true);
     }
     // 몬스터 나타나게 하는거 아직 ing
     IEnumerator monsterAppearing(float Appeartime)
