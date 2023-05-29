@@ -10,7 +10,7 @@ public class Boss_Attk : BossMonsterMovement
     public void BossAttack()
     {
        
-        Collider2D[] colList = Physics2D.OverlapCircleAll(new Vector3(frontVec.x, transform.position.y, transform.position.z), attackRange * 1.0f, targetMask);
+        Collider2D[] colList = Physics2D.OverlapCircleAll(new Vector3(frontVec.x, transform.position.y, transform.position.z), attackRange * 0.8f, targetMask);
         foreach (Collider2D col in colList)
         {
             col.GetComponent<GameManager.IBattle>().OnTakeDamage(attackDamge);

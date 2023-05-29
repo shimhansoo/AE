@@ -106,7 +106,7 @@ public class BossMonster : Boss_Attk, GameManager.IPerception, GameManager.IBatt
     {
         curHp -= dmg;
 
-        myAnim.SetTrigger("BossDamageColor");
+        myAnim.SetTrigger("OnDamage");
         if (!Mathf.Approximately(curHp, 0f))
             {
            if (myAnim.GetBool("isAttacking"))

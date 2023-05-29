@@ -15,9 +15,9 @@ public class MagicSkill : StateMachineBehaviour
         if (!SkillCool) // 첫 번째 실행인 경우에만 실행
         {
             GameObject obj1 = Instantiate(Resources.Load("BossMonsters/Fireslime") as GameObject);
-            obj1.transform.position = new Vector2(animator.transform.position.x + (Random.Range(-3f, 3f)), animator.transform.position.y + 5f);
+            obj1.transform.position = new Vector2(animator.transform.position.x + (Random.Range(-3f, 3f)), animator.transform.position.y);
             GameObject obj2 = Instantiate(Resources.Load("BossMonsters/Fireslime") as GameObject);
-            obj2.transform.position = new Vector2(animator.transform.position.x + (Random.Range(-3f, 3f)), animator.transform.position.y + 5f);
+            obj2.transform.position = new Vector2(animator.transform.position.x + (Random.Range(-3f, 3f)), animator.transform.position.y);
 
             SkillCool = true; // 첫 번째 실행 이후에는 실행되지 않도록 설정
         }

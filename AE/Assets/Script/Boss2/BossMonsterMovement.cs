@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BossMonsterMovement : BossProperty
 {
-
+    bool Backmove = false;
+    float BackmoveTime = 0f;
     public int MoveDir = 1;
     protected Vector2 frontVec = Vector2.zero;
 
@@ -57,7 +58,18 @@ public class BossMonsterMovement : BossProperty
                 if (dist > 0.0f)
                 {
                     myAnim.SetBool("isMoving", true);
-                    transform.Translate(dir * delta, Space.World);
+                    if (Backmove)
+                    {
+                        BackmoveTime -= Time.deltaTime;
+                        myRenderer.flipX = !myRenderer.flipX;
+                        transform.Translate(-dir * delta, Space.World);
+                        if (BackmoveTime < 0f)
+                        {
+                            Backmove = false;
+                            BackmoveTime = -1f;
+                        }
+                    }
+                    else transform.Translate(dir * delta, Space.World);
                 }
                 else
                 {
@@ -67,10 +79,11 @@ public class BossMonsterMovement : BossProperty
                         {
                             int n = Random.Range(0, 3);
                             playTime = 0.0f;
-                            switch(n)
+                            switch (n)
                             {
                                 case 0:
                                     myAnim.SetTrigger("Attack");
+                                    
                                     break;
                                 case 1:
                                     myAnim.SetTrigger("Swing");
@@ -81,9 +94,9 @@ public class BossMonsterMovement : BossProperty
                                     break;
 
                             }
-                           
-                          
-                           
+
+
+
                         }
                     }
                 }
@@ -132,13 +145,15 @@ public class BossMonsterMovement : BossProperty
     {
         frontVec = new Vector2(transform.position.x + (MoveDir * 0.5f), transform.position.y);
         Debug.DrawRay(frontVec, Vector2.down, Color.yellow);
-        RaycastHit2D cliffRay = Physics2D.Raycast(frontVec, Vector2.down, 2f, groundMask);
+        RaycastHit2D cliffRay = Physics2D.Raycast(frontVec, Vector2.down, 3f, groundMask);
         if (cliffRay.collider == null)
         {
             // 공중에서의 방향 전환은 막아둠
             if (!myAnim.GetBool("isAir"))
             {
                 MoveDir *= -1;
+                Backmove = (myState == BossMonster.State.Battle);
+                BackmoveTime = Backmove ? 1 : -1;
             }
         }
     }

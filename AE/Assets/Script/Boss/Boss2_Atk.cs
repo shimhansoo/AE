@@ -7,7 +7,7 @@ public class Boss2_Atk : Boss2Movement
     // Start is called before the first frame update
     public void BossAttack()
     {
-        Collider2D[] colList = Physics2D.OverlapCircleAll(new Vector3(frontVec.x, transform.position.y, transform.position.z), attackRange * 0.6f, targetMask);
+        Collider2D[] colList = Physics2D.OverlapCircleAll(new Vector3(frontVec.x, transform.position.y, transform.position.z), attackRange * 1.0f, targetMask);
         foreach (Collider2D col in colList)
         {
             col.GetComponent<GameManager.IBattle>().OnTakeDamage(attackDamage);

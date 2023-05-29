@@ -53,7 +53,7 @@ public class Boss2 : Boss2_Atk, GameManager.IPerception, GameManager.IBattle
 
     void Start()
     {
-        
+      
         MonsterInstance = this;
         Invoke("ChangeDirection", 5);
         ChangeState(State.Normal);

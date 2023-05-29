@@ -16,7 +16,8 @@ public class Boss2Property : MonoBehaviour
     public float BreathDamage = 3.0f;
     public float SkillCooltime = 20.0f;
     protected float playTime = 0.0f;    // 공격 딜레이 검사할 변수
-    
+    protected Transform TextArea;
+
     [Header("Target")]
     public Transform myTarget = null; // 타겟 저장
     public LayerMask targetMask;   // 타겟 레이어 지정
