@@ -57,7 +57,7 @@ MonoBehaviour:
     m_Bits: 0
   GroundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4616
   rigid: {fileID: 0}
 --- !u!212 &3835726857297496516
 SpriteRenderer:

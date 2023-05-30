@@ -135,6 +135,6 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         player.GetComponent<CharacterProperty>().playerMoveSpeed += item.itemSpeed;
         player.GetComponent<CharacterProperty>().playerDamege += item.itemAttack;
         PlayerLibrary pl = GameObject.Find("Player").GetComponent<PlayerLibrary>();
-        pl.ChangeToWP((int)item.weaponType);
+        if(item.itemType == Item.ItemType.Weapon)pl.ChangeToWP((int)item.weaponType);
     }
 }

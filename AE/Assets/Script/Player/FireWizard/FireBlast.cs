@@ -39,7 +39,6 @@ public class FireBlast : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        s = Random.Range(1f, 2.5f);
     }
 
     void PolygonCheck()
@@ -66,6 +65,7 @@ public class FireBlast : MonoBehaviour
         {
             foreach (Collider2D col in enemyLists)
             {
+                s = Random.Range(1f, 2.5f);
                 col.GetComponent<GameManager.IBattle>().OnTakeDamage((int)(25f*s));
             }
             coolTime = 0.0f;

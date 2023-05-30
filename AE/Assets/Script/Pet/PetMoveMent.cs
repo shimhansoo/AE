@@ -149,7 +149,7 @@ public class PetMoveMent : PetProperty
             if (Mathf.Abs(transform.position.x - player.position.x) > WolfTPdist || Mathf.Abs(transform.position.y - player.position.y) > WolfTPdist)
             {
                 PetAnim.SetTrigger("Telleport");
-                transform.position = new Vector3(player.position.x, player.position.y + 1.0f, 0);
+                transform.position = new Vector3(player.position.x +0.5f, player.position.y, 0);
             }
             yield return null;
         }
